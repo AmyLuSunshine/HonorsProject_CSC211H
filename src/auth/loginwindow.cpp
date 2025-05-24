@@ -13,6 +13,8 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 LoginWindow::LoginWindow(Database* db, QWidget *parent)
     : QWidget(parent), database(db) {
@@ -72,6 +74,17 @@ void LoginWindow::setupUI() {
     // Connect signals
     connect(loginButton, &QPushButton::clicked, this, &LoginWindow::handleLogin);
     connect(registerButton, &QPushButton::clicked, this, &LoginWindow::onRegisterClicked);
+
+    // Add the stuff needed for new version
+    setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint | Qt::WindowMinimizeButtonHint);
+
+    // Add input validators
+    QRegularExpression emailRegex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    usernameEdit->setValidator(new QRegularExpressionValidator(emailRegex, this));
+
+    // Add return key handling
+    connect(passwordEdit, &QLineEdit::returnPressed, this, &LoginWindow::handleLogin);
+
 
     setFixedSize(400, 500);
 }

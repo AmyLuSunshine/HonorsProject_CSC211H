@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(campus_jobs_app VERSION 1.0.0 LANGUAGES CXX)
+project(campus_Hire_app VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -7,18 +7,24 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-# Set Qt prefix path
-set(CMAKE_PREFIX_PATH "C:/Qt/6.5.7/mingw_64")
+# Make Qt prefix path more flexible
+if(NOT DEFINED CMAKE_PREFIX_PATH)
+    if(WIN32)
+        set(CMAKE_PREFIX_PATH "C:/Qt/6.10.0/mingw_64")
+    endif()
+endif()
 
 # Find Qt packages
-find_package(Qt6 REQUIRED COMPONENTS
+find_package(Qt6 COMPONENTS 
     Core
     Gui
     Widgets
     Sql
+    Core5Compat
+    REQUIRED
 )
 
-# Source and header files
+# Source files organization
 set(PROJECT_SOURCES
     src/main.cpp
     src/auth/loginwindow.cpp
@@ -48,58 +54,57 @@ set(PROJECT_HEADERS
     include/ui/searchfilterwidget.h
 )
 
+# Add resource files if any
+# set(PROJECT_RESOURCES
+#     resources/resources.qrc
+# )
+
 add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCES}
     ${PROJECT_HEADERS}
+    # ${PROJECT_RESOURCES}
 )
 
+# Include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+# Link Qt libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Widgets
     Qt6::Sql
+    Qt6::Core5Compat
 )
 
-# Deployment
+# Deployment (Windows specific)
 if(WIN32)
+    # Check if in Debug mode
     set(DEBUG_SUFFIX)
     if(CMAKE_BUILD_TYPE MATCHES "Debug")
-        set(DEBUG_SUFFIX "d")
+        set(DEBUG_SUFFIX "")
     endif()
-
-    # Copy Qt DLLs
+    
+    # Copy Qt DLLs to output directory
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms"
+        COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/sqldrivers"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             $<TARGET_FILE:Qt6::Core>
             $<TARGET_FILE:Qt6::Gui>
             $<TARGET_FILE:Qt6::Widgets>
             $<TARGET_FILE:Qt6::Sql>
-            $<TARGET_FILE_DIR:${PROJECT_NAME}>
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
     )
-
-    # Copy platform plugin
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms"
-    )
+    
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${CMAKE_PREFIX_PATH}/plugins/platforms/qwindows.dll"
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms"
-    )
-
-    # Copy SQL plugins
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/sqldrivers"
-    )
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+            "${CMAKE_PREFIX_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${CMAKE_PREFIX_PATH}/plugins/sqldrivers/qsqlite.dll"
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/sqldrivers"
+            "${CMAKE_PREFIX_PATH}/plugins/sqldrivers/qsqlite${DEBUG_SUFFIX}.dll"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/sqldrivers/"
     )
 endif()

@@ -164,6 +164,9 @@ void JobListWidget::setupUI() {
     connect(refreshButton, &QPushButton::clicked, this, &JobListWidget::refreshJobs);
     connect(jobList, &QListWidget::itemClicked, this, &JobListWidget::handleJobClicked);
 
+
+
+
     loadJobs();
 }
 

@@ -10,7 +10,8 @@ set(CMAKE_AUTOUIC ON)
 # Make Qt prefix path more flexible
 if(NOT DEFINED CMAKE_PREFIX_PATH)
     if(WIN32)
-        set(CMAKE_PREFIX_PATH "C:/Qt/6.10.0/mingw_64")
+        # Use Community installation path
+        set(CMAKE_PREFIX_PATH "C:/Qt_Community/6.9.0/mingw_64")
     endif()
 endif()
 
@@ -20,7 +21,6 @@ find_package(Qt6 COMPONENTS
     Gui
     Widgets
     Sql
-    Core5Compat
     REQUIRED
 )
 
@@ -76,35 +76,34 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Gui
     Qt6::Widgets
     Qt6::Sql
-    Qt6::Core5Compat
 )
 
 # Deployment (Windows specific)
-if(WIN32)
-    # Check if in Debug mode
-    set(DEBUG_SUFFIX)
-    if(CMAKE_BUILD_TYPE MATCHES "Debug")
-        set(DEBUG_SUFFIX "")
-    endif()
+# if(WIN32)
+#     # Check if in Debug mode
+#     set(DEBUG_SUFFIX)
+#     if(CMAKE_BUILD_TYPE MATCHES "Debug")
+#         set(DEBUG_SUFFIX "")
+#     endif()
     
-    # Copy Qt DLLs to output directory
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms"
-        COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/sqldrivers"
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            $<TARGET_FILE:Qt6::Core>
-            $<TARGET_FILE:Qt6::Gui>
-            $<TARGET_FILE:Qt6::Widgets>
-            $<TARGET_FILE:Qt6::Sql>
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
-    )
+#     # Copy Qt DLLs to output directory
+#     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+#         COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms"
+#         COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/sqldrivers"
+#         COMMAND ${CMAKE_COMMAND} -E copy_if_different
+#             $<TARGET_FILE:Qt6::Core>
+#             $<TARGET_FILE:Qt6::Gui>
+#             $<TARGET_FILE:Qt6::Widgets>
+#             $<TARGET_FILE:Qt6::Sql>
+#             "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+#     )
     
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${CMAKE_PREFIX_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/"
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${CMAKE_PREFIX_PATH}/plugins/sqldrivers/qsqlite${DEBUG_SUFFIX}.dll"
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/sqldrivers/"
-    )
-endif()
+#     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+#         COMMAND ${CMAKE_COMMAND} -E copy_if_different
+#             "${CMAKE_PREFIX_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
+#             "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/"
+#         COMMAND ${CMAKE_COMMAND} -E copy_if_different
+#             "${CMAKE_PREFIX_PATH}/plugins/sqldrivers/qsqlite${DEBUG_SUFFIX}.dll"
+#             "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/sqldrivers/"
+#     )
+# endif()

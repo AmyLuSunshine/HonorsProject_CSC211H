@@ -32,9 +32,8 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set path to fallback-tool for dependency-resolution.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Qt-Community/Tools/mingw1310_64/bin/objdump.exe")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/campus_Hire_app.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

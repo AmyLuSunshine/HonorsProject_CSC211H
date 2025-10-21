@@ -7,6 +7,7 @@
 #include "models/user.h"
 #include "ui/joblistwidget.h"
 #include "ui/profilewidget.h"
+#include "ui/interviewwidget.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -16,6 +17,7 @@ public:
 private slots:
     void switchToJobs();
     void switchToProfile();
+    void switchToInterview();
     void handleLogout();
 
 private:
@@ -29,4 +31,5 @@ private:
     QToolBar* toolbar;
     JobListWidget* jobListWidget;
     ProfileWidget* profileWidget;
+    InterviewWidget* interviewWidget;
 };

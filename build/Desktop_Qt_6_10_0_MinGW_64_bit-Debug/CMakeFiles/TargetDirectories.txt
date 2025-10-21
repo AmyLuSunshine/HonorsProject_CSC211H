@@ -1,5 +1,0 @@
-C:/Users/yangm/Documents/Masters/CUNY/Fall 2024/211H_Project/HonorsProject_CSC211H_Fall2024-main/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/campus_Hire_app.dir
-C:/Users/yangm/Documents/Masters/CUNY/Fall 2024/211H_Project/HonorsProject_CSC211H_Fall2024-main/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-C:/Users/yangm/Documents/Masters/CUNY/Fall 2024/211H_Project/HonorsProject_CSC211H_Fall2024-main/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/yangm/Documents/Masters/CUNY/Fall 2024/211H_Project/HonorsProject_CSC211H_Fall2024-main/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/campus_Hire_app_autogen_timestamp_deps.dir
-C:/Users/yangm/Documents/Masters/CUNY/Fall 2024/211H_Project/HonorsProject_CSC211H_Fall2024-main/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/campus_Hire_app_autogen.dir

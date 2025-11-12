@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "random": "cpp",
+        "qsharedpointer": "cpp",
+        "algorithm": "cpp",
+        "qdebug": "cpp",
+        "qapplication": "cpp",
+        "qmessagebox": "cpp",
+        "qcryptographichash": "cpp",
+        "qdatetime": "cpp",
+        "qvboxlayout": "cpp",
+        "qgroupbox": "cpp",
+        "qfileinfo": "cpp",
+        "qheaderview": "cpp",
+        "qdir": "cpp",
+        "qsqlerror": "cpp",
+        "qvariant": "cpp",
+        "qhboxlayout": "cpp",
+        "qfile": "cpp"
+    }
+}

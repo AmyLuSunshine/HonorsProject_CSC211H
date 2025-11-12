@@ -1,109 +1,141 @@
-#include "ui/interviewwidget.h"
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QPushButton>
-#include <QRadioButton>
-#include <QButtonGroup>
+#include "interviewwidget.h"
 #include <QMessageBox>
 
-InterviewWidget::InterviewWidget(const QString& major, QWidget* parent)
-    : QWidget(parent), studentMajor(major), currentQuestionIndex(0)
+InterviewWidget::InterviewWidget(const QString& major, QWidget *parent)
+    : QWidget(parent),
+    studentMajor(major),
+    currentQuestionIndex(0),
+    score(0)
 {
     setupQuestions();
     setupUI();
-    showQuestion(0);
 }
 
 void InterviewWidget::setupQuestions()
 {
-    // Sample questions for Arts
+    // Arts questions
     artsQuestions = {
-        {"Who painted the Mona Lisa?", {"Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Claude Monet"}, 0},
-        {"What is the main theme of Shakespeare's Hamlet?", {"Revenge", "Love", "War", "Friendship"}, 0},
-        {"Which art movement is Salvador Dalí associated with?", {"Surrealism", "Impressionism", "Cubism", "Baroque"}, 0}
+        {"What is the capital of France?", "Paris", {"London", "Paris", "Berlin", "Madrid"}},
+        {"Who painted the Mona Lisa?", "Leonardo da Vinci", {"Michelangelo", "Leonardo da Vinci", "Raphael", "Donatello"}},
+        {"In what year did World War II end?", "1945", {"1943", "1944", "1945", "1946"}}
     };
 
-    // Sample questions for Science
+    // Science questions
     scienceQuestions = {
-        {"What is the chemical symbol for water?", {"H2O", "CO2", "O2", "NaCl"}, 0},
-        {"Who developed the theory of relativity?", {"Isaac Newton", "Albert Einstein", "Marie Curie", "Nikola Tesla"}, 1},
-        {"What planet is known as the Red Planet?", {"Venus", "Mars", "Jupiter", "Saturn"}, 1}
+        {"What is the chemical symbol for water?", "H2O", {"CO2", "H2O", "O2", "NaCl"}},
+        {"What is the speed of light?", "299,792,458 m/s", {"150,000,000 m/s", "299,792,458 m/s", "300,000,000 m/s", "250,000,000 m/s"}},
+        {"What is the powerhouse of the cell?", "Mitochondria", {"Nucleus", "Ribosome", "Mitochondria", "Chloroplast"}}
     };
 }
 
 void InterviewWidget::setupUI()
 {
-    QVBoxLayout* layout = new QVBoxLayout(this);
+    mainLayout = new QVBoxLayout(this);
 
     questionLabel = new QLabel(this);
-    layout->addWidget(questionLabel);
+    questionLabel->setWordWrap(true);
+    questionLabel->setStyleSheet("font-size: 16px; font-weight: bold; padding: 10px;");
+    mainLayout->addWidget(questionLabel);
 
-    optionsGroup = new QButtonGroup(this);
+    // Create answer buttons
     for (int i = 0; i < 4; ++i) {
-        QRadioButton* option = new QRadioButton(this);
-        optionsGroup->addButton(option, i);
-        layout->addWidget(option);
-        optionButtons.append(option);
+        QPushButton* button = new QPushButton(this);
+        button->setStyleSheet("QPushButton { padding: 10px; margin: 5px; text-align: left; }");
+        connect(button, &QPushButton::clicked, this, &InterviewWidget::checkAnswer);
+        answerButtons.append(button);
+        mainLayout->addWidget(button);
     }
 
-    submitButton = new QPushButton("Submit Answer", this);
-    layout->addWidget(submitButton);
+    feedbackLabel = new QLabel(this);
+    feedbackLabel->setStyleSheet("font-size: 14px; padding: 10px;");
+    feedbackLabel->setWordWrap(true);
+    mainLayout->addWidget(feedbackLabel);
 
-    connect(submitButton, &QPushButton::clicked, this, &InterviewWidget::handleSubmit);
 
-    resultLabel = new QLabel(this);
-    layout->addWidget(resultLabel);
+    
+    nextButton = new QPushButton("Next Question", this);
+    nextButton->setEnabled(false);
+    connect(nextButton, &QPushButton::clicked, this, &InterviewWidget::nextQuestion);
+    mainLayout->addWidget(nextButton);
 
-    setLayout(layout);
+    setLayout(mainLayout);
+
+    // Load first question
+    nextQuestion();
 }
 
-void InterviewWidget::showQuestion(int index)
+void InterviewWidget::checkAnswer()
 {
-    const Question* q = getCurrentQuestions();
-    if (!q) return;
+    QPushButton* clickedButton = qobject_cast<QPushButton*>(sender());
+    if (!clickedButton) return;
 
-    int totalQuestions = getCurrentQuestionsCount();
-    if (index < 0 || index >= totalQuestions) return;
+    const Question* questions = getCurrentQuestions();
+    if (currentQuestionIndex >= getCurrentQuestionsCount()) return;
 
-    const Question& question = q[index];
-    questionLabel->setText(QString("Q%1: %2").arg(index + 1).arg(question.text));
-    for (int i = 0; i < optionButtons.size(); ++i) {
-        optionButtons[i]->setText(question.options[i]);
-        optionButtons[i]->setChecked(false);
+    const Question& currentQuestion = questions[currentQuestionIndex];
+    QString selectedAnswer = clickedButton->text();
+
+    // Disable all answer buttons
+    for (QPushButton* btn : answerButtons) {
+        btn->setEnabled(false);
     }
-    resultLabel->clear();
+
+    if (selectedAnswer == currentQuestion.correctAnswer) {
+        showResult("Correct! ✓");
+        score++;
+    } else {
+        showResult("Incorrect. The correct answer was: " + currentQuestion.correctAnswer);
+    }
+
+    nextButton->setEnabled(true);
 }
 
-void InterviewWidget::handleSubmit()
+void InterviewWidget::nextQuestion()
 {
-    const Question* q = getCurrentQuestions();
-    if (!q) return;
+    const Question* questions = getCurrentQuestions();
 
-    int totalQuestions = getCurrentQuestionsCount();
-    if (currentQuestionIndex < 0 || currentQuestionIndex >= totalQuestions) return;
-
-    int selected = optionsGroup->checkedId();
-    if (selected == -1) {
-        QMessageBox::warning(this, "No Selection", "Please select an answer.");
+    if (currentQuestionIndex >= getCurrentQuestionsCount()) {
+        showFinalResult();
         return;
     }
 
-    const Question& question = q[currentQuestionIndex];
-    if (selected == question.correctOption) {
-        resultLabel->setText("Correct!");
-        ++score;
-    } else {
-        resultLabel->setText(QString("Incorrect! Correct answer: %1").arg(question.options[question.correctOption]));
+    const Question& question = questions[currentQuestionIndex];
+
+    questionLabel->setText(QString("Question %1: %2")
+                               .arg(currentQuestionIndex + 1)
+                               .arg(question.text));
+
+    // Set button texts
+    for (int i = 0; i < answerButtons.size() && i < question.options.size(); ++i) {
+        answerButtons[i]->setText(question.options[i]);
+        answerButtons[i]->setEnabled(true);
+        answerButtons[i]->show();
     }
 
-    submitButton->setEnabled(false);
+    // Hide extra buttons if needed
+    for (int i = question.options.size(); i < answerButtons.size(); ++i) {
+        answerButtons[i]->hide();
+    }
 
-    // Show next question after a short delay
-    QTimer::singleShot(1200, this, [this]() {
-        submitButton->setEnabled(true);
-        ++currentQuestionIndex;
+    feedbackLabel->clear();
+    nextButton->setEnabled(false);
+    currentQuestionIndex++;
+}
+
+void InterviewWidget::showResult(const QString& result)
+{
+    feedbackLabel->setText(result);
+
+    if (result.startsWith("Correct")) {
+        feedbackLabel->setStyleSheet("color: green; font-weight: bold; padding: 10px;");
+    } else {
+        feedbackLabel->setStyleSheet("color: red; font-weight: bold; padding: 10px;");
+    }
+
+    // Auto-advance after 2 seconds
+    QTimer::singleShot(2000, this, [this]() {
         if (currentQuestionIndex < getCurrentQuestionsCount()) {
-            showQuestion(currentQuestionIndex);
+            nextQuestion();
         } else {
             showFinalResult();
         }
@@ -112,26 +144,33 @@ void InterviewWidget::handleSubmit()
 
 void InterviewWidget::showFinalResult()
 {
-    questionLabel->setText("Interview Complete!");
-    for (auto* btn : optionButtons) {
-        btn->hide();
-    }
-    submitButton->hide();
-    resultLabel->setText(QString("Your score: %1/%2").arg(score).arg(getCurrentQuestionsCount()));
+    int totalQuestions = getCurrentQuestionsCount();
+    double percentage = (static_cast<double>(score) / totalQuestions) * 100;
+
+    QString resultMessage = QString("Interview Complete!\n\nYour Score: %1/%2 (%3%)")
+                                .arg(score)
+                                .arg(totalQuestions)
+                                .arg(percentage, 0, 'f', 1);
+
+    QMessageBox::information(this, "Interview Results", resultMessage);
+
+    emit interviewComplete(score);
 }
 
-const InterviewWidget::Question* InterviewWidget::getCurrentQuestions() const
+const Question* InterviewWidget::getCurrentQuestions() const
 {
-    if (studentMajor.compare("Arts", Qt::CaseInsensitive) == 0)
-        return artsQuestions.data();
-    else
-        return scienceQuestions.data();
+    if (studentMajor == "Arts") {
+        return artsQuestions.constData();
+    } else {
+        return scienceQuestions.constData();
+    }
 }
 
 int InterviewWidget::getCurrentQuestionsCount() const
 {
-    if (studentMajor.compare("Arts", Qt::CaseInsensitive) == 0)
+    if (studentMajor == "Arts") {
         return artsQuestions.size();
-    else
+    } else {
         return scienceQuestions.size();
+    }
 }

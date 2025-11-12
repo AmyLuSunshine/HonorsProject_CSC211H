@@ -1,49 +1,61 @@
+#ifndef INTERVIEWWIDGET_H
+#define INTERVIEWWIDGET_H
 
-#pragma once
 #include <QWidget>
+#include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QVector>
 #include <QString>
-#include <QPushButton>
-#include <QLabel>
-#include <QRadioButton>
-#include <QButtonGroup>
-#include <QVBoxLayout>
-#include <QGroupBox>
-#include "database/database.h"
-#include "models/user.h"
+#include <QTimer>
 
-struct InterviewQuestion {
-    QString question;
+// Question structure
+struct Question {
+    QString text;
+    QString correctAnswer;
     QVector<QString> options;
-    int correctIndex;
 };
 
-class InterviewWidget : public QWidget {
+class InterviewWidget : public QWidget
+{
     Q_OBJECT
+
 public:
-    explicit InterviewWidget(Database* db, User* user, QWidget* parent = nullptr);
+    explicit InterviewWidget(const QString& major, QWidget *parent = nullptr);
+
+signals:
+    void interviewComplete(int finalScore);
+    void backToMenu();
 
 private slots:
-    void handleNext();
-    void handleSubmit();
+    void checkAnswer();
+    void nextQuestion();
+    void showResult(const QString& result);
 
 private:
-    void loadQuestions();
-    void showQuestion(int index);
-    void showResult();
+    void setupQuestions();
+    void setupUI();
+    const Question* getCurrentQuestions() const;
+    int getCurrentQuestionsCount() const;
+    void showFinalResult();
 
-    Database* database;
-    User* currentUser;
-
-    QVector<InterviewQuestion> questions;
-    QVector<int> userAnswers;
+    // Member variables
+    QString studentMajor;
     int currentQuestionIndex;
+    int score;
 
+    // Questions
+    QVector<Question> artsQuestions;
+    QVector<Question> scienceQuestions;
+
+    // UI elements
     QLabel* questionLabel;
-    QButtonGroup* optionsGroup;
-    QVector<QRadioButton*> optionButtons;
+    QLabel* feedbackLabel;
+    QVector<QPushButton*> answerButtons;
     QPushButton* nextButton;
-    QPushButton* submitButton;
-    QLabel* resultLabel;
+
     QVBoxLayout* mainLayout;
 };
+
+#endif // INTERVIEWWIDGET_H

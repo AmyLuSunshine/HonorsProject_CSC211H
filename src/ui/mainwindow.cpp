@@ -2,8 +2,9 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 
-MainWindow::MainWindow(Database* db, const QString& username, QWidget *parent)
-    : QMainWindow(parent), database(db) {
+MainWindow::MainWindow(Database *db, const QString &username, QWidget *parent)
+    : QMainWindow(parent), database(db)
+{
     setupUI();
     setupStyles();
     loadUserData(username);
@@ -12,7 +13,8 @@ MainWindow::MainWindow(Database* db, const QString& username, QWidget *parent)
     setMinimumSize(800, 600);
 }
 
-void MainWindow::setupUI() {
+void MainWindow::setupUI()
+{
     // Create central widget
     auto centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
@@ -35,7 +37,7 @@ void MainWindow::setupUI() {
     // Create pages
     jobListWidget = new JobListWidget(database, this);
     profileWidget = new ProfileWidget(database, this);
-    interviewWidget = new InterviewWidget(database, &currentUser, this);
+    interviewWidget = new InterviewWidget(currentUser.getMajor(), this);
 
     stackedWidget->addWidget(jobListWidget);
     stackedWidget->addWidget(profileWidget);
@@ -56,37 +58,43 @@ void MainWindow::setupUI() {
     switchToJobs();
 }
 
-void MainWindow::setupStyles() {
+void MainWindow::setupStyles()
+{
     setStyleSheet(
         "QMainWindow { background-color: #F5F5F5; }"
         "QToolBar { background-color: #2196F3; spacing: 10px; padding: 5px; }"
         "QToolBar QToolButton { color: white; background-color: transparent; "
         "                       padding: 5px 15px; border: none; }"
-        "QToolBar QToolButton:hover { background-color: #1976D2; }"
-        );
+        "QToolBar QToolButton:hover { background-color: #1976D2; }");
 }
 
-void MainWindow::switchToJobs() {
+void MainWindow::switchToJobs()
+{
     stackedWidget->setCurrentWidget(jobListWidget);
 }
 
-void MainWindow::switchToProfile() {
+void MainWindow::switchToProfile()
+{
     stackedWidget->setCurrentWidget(profileWidget);
 }
 
-void MainWindow::switchToInterview() {
+void MainWindow::switchToInterview()
+{
     stackedWidget->setCurrentWidget(interviewWidget);
 }
 
-void MainWindow::handleLogout() {
+void MainWindow::handleLogout()
+{
     if (QMessageBox::question(this, "Logout", "Are you sure you want to logout?",
-                              QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes) {
+                              QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
+    {
         close();
     }
 }
 
-void MainWindow::loadUserData(const QString& email) {
+void MainWindow::loadUserData(const QString &email)
+{
     currentUser = database->getUserData(email);
-    profileWidget->loadUserProfile(email);
+    profileWidget->loadUserProfile(currentUser.getId());
     // Optionally refresh interviewWidget if needed
 }

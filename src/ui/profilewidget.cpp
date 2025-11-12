@@ -10,6 +10,8 @@
 #include <QDebug>
 #include <QFile>
 #include <QDir>
+#include <QGraphicsOpacityEffect>
+#include <QPropertyAnimation>
 
 ProfileWidget::ProfileWidget(Database *db, QWidget *parent)
     : QWidget(parent), database(db), currentUserId(-1)
@@ -171,45 +173,56 @@ void ProfileWidget::setupUI()
 void ProfileWidget::setupStyles()
 {
     setStyleSheet(
+        "QWidget {"
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #ffffff, stop:1 #f8f9fa);"
+        "}"
         "QGroupBox { "
         "   font-weight: bold; "
         "   font-size: 14px; "
         "   border: 2px solid #BDBDBD; "
-        "   border-radius: 8px; "
-        "   margin-top: 12px; "
-        "   padding-top: 10px; "
+        "   border-radius: 10px; "
+        "   margin-top: 14px; "
+        "   padding-top: 12px; "
+        "   background: white;"
         "}"
         "QGroupBox::title { "
         "   subcontrol-origin: margin; "
         "   left: 15px; "
-        "   padding: 0 5px; "
+        "   padding: 0 8px; "
         "   color: #1976D2; "
+        "   background: white;"
         "}"
         "QLineEdit, QDateEdit { "
-        "   padding: 10px; "
+        "   padding: 12px; "
         "   border: 2px solid #E0E0E0; "
-        "   border-radius: 6px; "
+        "   border-radius: 8px; "
         "   background: white; "
-        "   font-size: 13px; "
+        "   font-size: 14px; "
+        "   min-height: 40px;"
         "}"
         "QLineEdit:focus, QDateEdit:focus { "
         "   border: 2px solid #2196F3; "
+        "   background: #f8fcff;"
         "}"
         "QLineEdit:read-only { "
         "   background: #F5F5F5; "
         "   color: #757575; "
         "}"
         "QPushButton { "
-        "   background-color: #2196F3; "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #2196F3, stop:1 #1976D2);"
         "   color: white; "
-        "   padding: 10px 20px; "
-        "   border-radius: 6px; "
+        "   padding: 12px 24px; "
+        "   border-radius: 8px; "
         "   font-weight: bold; "
-        "   font-size: 13px; "
+        "   font-size: 14px; "
         "   border: none; "
+        "   min-height: 44px;"
         "}"
         "QPushButton:hover { "
-        "   background-color: #1976D2; "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #1976D2, stop:1 #0D47A1);"
         "}"
         "QPushButton:pressed { "
         "   background-color: #0D47A1; "
@@ -220,12 +233,13 @@ void ProfileWidget::setupStyles()
         "}"
         "QTableWidget { "
         "   border: 1px solid #E0E0E0; "
-        "   border-radius: 6px; "
+        "   border-radius: 8px; "
         "   gridline-color: #F5F5F5; "
+        "   background: white;"
         "}"
         "QHeaderView::section { "
         "   background-color: #F5F5F5; "
-        "   padding: 8px; "
+        "   padding: 10px; "
         "   border: none; "
         "   font-weight: bold; "
         "   color: #424242; "
@@ -233,14 +247,28 @@ void ProfileWidget::setupStyles()
 
     onboardingButton->setStyleSheet(
         "QPushButton { "
-        "   background-color: #4CAF50; "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #4CAF50, stop:1 #388E3C);"
+        "   min-height: 44px;"
         "}"
         "QPushButton:hover { "
-        "   background-color: #388E3C; "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #388E3C, stop:1 #2E7D32);"
         "}"
         "QPushButton:pressed { "
         "   background-color: #2E7D32; "
         "}");
+    
+    // Apply smooth fade-in effect when profile widget is shown
+    QGraphicsOpacityEffect* effect = new QGraphicsOpacityEffect(this);
+    setGraphicsEffect(effect);
+    
+    QPropertyAnimation* animation = new QPropertyAnimation(effect, "opacity");
+    animation->setDuration(400);
+    animation->setStartValue(0.0);
+    animation->setEndValue(1.0);
+    animation->setEasingCurve(QEasingCurve::InOutQuad);
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 void ProfileWidget::setUserId(int id)

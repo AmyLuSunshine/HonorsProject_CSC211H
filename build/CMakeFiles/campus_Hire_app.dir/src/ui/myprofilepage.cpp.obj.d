@@ -1,8 +1,8 @@
-CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: \
- C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\mainwindow.cpp \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/mainwindow.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
+CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj: \
+ C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\myprofilepage.cpp \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QWidget \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtguiglobal.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qglobal.h \
@@ -155,7 +155,6 @@ CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtguiexports.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qobjectdefs.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qnamespace.h \
@@ -382,12 +381,34 @@ CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qcursor.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qbitmap.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QStackedWidget \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstackedwidget.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qframe.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QToolBar \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtoolbar.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qiodevice.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qurl.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qpen.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDateEdit \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdatetimeedit.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtimezone.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qlocale.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qvalidator.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/database/database.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QObject \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qobject.h \
@@ -401,114 +422,18 @@ CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qstring.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDateTime \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdatetime.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qcalendar.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qlocale.h \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/joblistwidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QWidget \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QListWidget \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistwidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistview.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemview.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qitemselectionmodel.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qvalidator.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabbar.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLabel \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qpicture.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qiodevice.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qurl.h \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtextformat.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qpen.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDateEdit \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdatetimeedit.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtimezone.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdatetime.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QFileDialog \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qfiledialog.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdir.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdirlisting.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qfiledevice.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qfile.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- C:/Qt-Community/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
- C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qfileinfo.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDate \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/interviewwidget.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QVector \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qvector.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QTimer \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtimer.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qelapsedtimer.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMessageBox \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmessagebox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgraphicseffect.h \
@@ -516,26 +441,4 @@ CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qpropertyanimation.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qvariantanimation.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractanimation.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeasingcurve.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QApplication \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qcoreapplication.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qnativeinterface.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qguiapplication.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qinputmethod.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qguiapplication_platform.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/QScreen \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qscreen.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QList \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qlist.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QObject \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QRect \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qrect.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QSize \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qsize.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QSizeF \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/QTransform \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qtransform.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qscreen_platform.h
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeasingcurve.h

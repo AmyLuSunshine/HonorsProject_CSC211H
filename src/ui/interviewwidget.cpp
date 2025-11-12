@@ -1,5 +1,7 @@
 #include "interviewwidget.h"
 #include <QMessageBox>
+#include <QGraphicsOpacityEffect>
+#include <QPropertyAnimation>
 
 InterviewWidget::InterviewWidget(const QString& major, QWidget *parent)
     : QWidget(parent),
@@ -9,6 +11,7 @@ InterviewWidget::InterviewWidget(const QString& major, QWidget *parent)
 {
     setupQuestions();
     setupUI();
+    setupStyles();
 }
 
 void InterviewWidget::setupQuestions()
@@ -31,23 +34,55 @@ void InterviewWidget::setupQuestions()
 void InterviewWidget::setupUI()
 {
     mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(20);
+    mainLayout->setContentsMargins(40, 40, 40, 40);
 
     questionLabel = new QLabel(this);
     questionLabel->setWordWrap(true);
-    questionLabel->setStyleSheet("font-size: 16px; font-weight: bold; padding: 10px;");
+    questionLabel->setStyleSheet(
+        "font-size: 18px; "
+        "font-weight: bold; "
+        "padding: 20px; "
+        "background: white; "
+        "border-radius: 10px; "
+        "color: #1976D2;"
+    );
     mainLayout->addWidget(questionLabel);
 
     // Create answer buttons
     for (int i = 0; i < 4; ++i) {
         QPushButton* button = new QPushButton(this);
-        button->setStyleSheet("QPushButton { padding: 10px; margin: 5px; text-align: left; }");
+        button->setStyleSheet(
+            "QPushButton { "
+            "   padding: 15px; "
+            "   margin: 5px; "
+            "   text-align: left; "
+            "   background: white; "
+            "   border: 2px solid #E0E0E0; "
+            "   border-radius: 8px; "
+            "   font-size: 14px;"
+            "   min-height: 44px;"
+            "}"
+            "QPushButton:hover { "
+            "   background: #E3F2FD; "
+            "   border: 2px solid #2196F3; "
+            "}"
+            "QPushButton:disabled { "
+            "   background: #F5F5F5; "
+            "}"
+        );
         connect(button, &QPushButton::clicked, this, &InterviewWidget::checkAnswer);
         answerButtons.append(button);
         mainLayout->addWidget(button);
     }
 
     feedbackLabel = new QLabel(this);
-    feedbackLabel->setStyleSheet("font-size: 14px; padding: 10px;");
+    feedbackLabel->setStyleSheet(
+        "font-size: 15px; "
+        "padding: 15px; "
+        "background: white; "
+        "border-radius: 8px;"
+    );
     feedbackLabel->setWordWrap(true);
     mainLayout->addWidget(feedbackLabel);
 
@@ -55,6 +90,25 @@ void InterviewWidget::setupUI()
     
     nextButton = new QPushButton("Next Question", this);
     nextButton->setEnabled(false);
+    nextButton->setStyleSheet(
+        "QPushButton { "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #2196F3, stop:1 #1976D2);"
+        "   color: white; "
+        "   padding: 12px; "
+        "   border-radius: 8px; "
+        "   font-weight: bold; "
+        "   font-size: 14px;"
+        "   min-height: 44px;"
+        "}"
+        "QPushButton:hover { "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #1976D2, stop:1 #0D47A1);"
+        "}"
+        "QPushButton:disabled { "
+        "   background: #BDBDBD; "
+        "}"
+    );
     connect(nextButton, &QPushButton::clicked, this, &InterviewWidget::nextQuestion);
     mainLayout->addWidget(nextButton);
 
@@ -62,6 +116,28 @@ void InterviewWidget::setupUI()
 
     // Load first question
     nextQuestion();
+}
+
+void InterviewWidget::setupStyles()
+{
+    setStyleSheet(
+        "QWidget {"
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #ffffff, stop:1 #f8f9fa);"
+        "   font-family: 'Segoe UI', Arial, sans-serif;"
+        "}"
+    );
+    
+    // Apply smooth fade-in effect
+    QGraphicsOpacityEffect* effect = new QGraphicsOpacityEffect(this);
+    setGraphicsEffect(effect);
+    
+    QPropertyAnimation* animation = new QPropertyAnimation(effect, "opacity");
+    animation->setDuration(400);
+    animation->setStartValue(0.0);
+    animation->setEndValue(1.0);
+    animation->setEasingCurve(QEasingCurve::InOutQuad);
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 void InterviewWidget::checkAnswer()

@@ -83,25 +83,68 @@ void RegisterWindow::setupUI() {
     connect(loginButton, &QPushButton::clicked, this, &RegisterWindow::onLoginClicked);
     connect(emailEdit, &QLineEdit::textChanged, this, &RegisterWindow::validateEmail);
 
-    setFixedSize(400, 650);
+    // Make window responsive
+    setMinimumSize(450, 650);
+    resize(500, 720);
 }
 
 void RegisterWindow::setupStyles() {
     setStyleSheet(
-        "QWidget { background-color: #FFFFFF; }"
-        "QLabel { color: #333333; font-size: 14px; }"
-        "QLineEdit { padding: 10px; border: 1px solid #E0E0E0; border-radius: 4px; "
-        "           background: #F5F5F5; color: #333333; }"
-        "QPushButton { background-color: #0D47A1; color: white; border: none; "
-        "             border-radius: 4px; font-weight: bold; }"
-        "QPushButton:hover { background-color: #1565C0; }"
-        );
+        "QWidget { "
+        "   background: qlineargradient(x1:0, y1:0, x2:1, y2:1,"
+        "       stop:0 #f5f7fa, stop:1 #c3cfe2);"
+        "   font-family: 'Segoe UI', Arial, sans-serif;"
+        "}"
+        "QLabel { color: #424242; font-size: 14px; }"
+        "QLineEdit { "
+        "   padding: 12px; "
+        "   border: 2px solid #E0E0E0; "
+        "   border-radius: 8px; "
+        "   background: white; "
+        "   color: #333333; "
+        "   font-size: 14px;"
+        "   min-height: 40px;"
+        "}"
+        "QLineEdit:focus { "
+        "   border: 2px solid #2196F3; "
+        "   background: #f8fcff;"
+        "}"
+        "QPushButton { "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #0D47A1, stop:1 #1565C0);"
+        "   color: white; "
+        "   border: none; "
+        "   border-radius: 8px; "
+        "   font-weight: bold; "
+        "   font-size: 14px;"
+        "   min-height: 44px;"
+        "   padding: 12px;"
+        "}"
+        "QPushButton:hover { "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #1565C0, stop:1 #0D47A1);"
+        "}"
+    );
 
-    titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #0D47A1; margin: 20px 0;");
+    titleLabel->setStyleSheet(
+        "font-size: 28px; "
+        "font-weight: bold; "
+        "color: #0D47A1; "
+        "margin: 20px 0;"
+        "background: transparent;"
+    );
     loginButton->setStyleSheet(
-        "QPushButton { background-color: transparent; color: #2196F3; }"
-        "QPushButton:hover { text-decoration: underline; }"
-        );
+        "QPushButton { "
+        "   background: transparent; "
+        "   color: #2196F3; "
+        "   font-weight: bold;"
+        "   min-height: 40px;"
+        "}"
+        "QPushButton:hover { "
+        "   color: #1565C0; "
+        "   text-decoration: underline; "
+        "}"
+    );
 }
 
 void RegisterWindow::handleRegistration() {

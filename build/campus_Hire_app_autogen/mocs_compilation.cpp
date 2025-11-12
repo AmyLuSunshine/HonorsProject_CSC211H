@@ -6,5 +6,7 @@
 #include "JCP2AIONHY/moc_jobdetailwidget.cpp"
 #include "JCP2AIONHY/moc_joblistwidget.cpp"
 #include "JCP2AIONHY/moc_mainwindow.cpp"
+#include "JCP2AIONHY/moc_myapplicationpage.cpp"
+#include "JCP2AIONHY/moc_myprofilepage.cpp"
 #include "JCP2AIONHY/moc_profilewidget.cpp"
 #include "JCP2AIONHY/moc_searchfilterwidget.cpp"

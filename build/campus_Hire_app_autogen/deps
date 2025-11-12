@@ -1,4 +1,5 @@
 campus_Hire_app_autogen/timestamp: \
+	C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDate \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDateTime \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QObject \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QString \
@@ -192,6 +193,7 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDateEdit \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QFileDialog \
+	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLabel \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
@@ -216,6 +218,7 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qfiledialog.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qframe.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
+	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
@@ -739,6 +742,8 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/jobdetailwidget.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/joblistwidget.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/mainwindow.h \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/auth/loginwindow.cpp \
@@ -752,6 +757,8 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/jobdetailwidget.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/joblistwidget.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/mainwindow.cpp \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myapplicationpage.cpp \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/profilewidget.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/searchfilterwidget.cpp \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

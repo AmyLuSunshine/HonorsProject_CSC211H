@@ -36,6 +36,7 @@ private slots:
 private:
     void setupQuestions();
     void setupUI();
+    void setupStyles();
     const Question* getCurrentQuestions() const;
     int getCurrentQuestionsCount() const;
     void showFinalResult();

@@ -471,11 +471,17 @@ CMakeFiles/campus_Hire_app.dir/campus_Hire_app_autogen/mocs_compilation.cpp.obj:
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstackedwidget.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QToolBar \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtoolbar.h \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDateEdit \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdatetimeedit.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QFileDialog \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qfiledialog.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdir.h \
@@ -514,10 +520,10 @@ CMakeFiles/campus_Hire_app.dir/campus_Hire_app_autogen/mocs_compilation.cpp.obj:
  C:/Qt-Community/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qfileinfo.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDate \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/interviewwidget.h \
+ C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_myapplicationpage.cpp \
+ C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_myprofilepage.cpp \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_profilewidget.cpp \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_searchfilterwidget.cpp \

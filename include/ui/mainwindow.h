@@ -6,7 +6,8 @@
 #include "database/database.h"
 #include "models/user.h"
 #include "ui/joblistwidget.h"
-#include "ui/profilewidget.h"
+#include "ui/myprofilepage.h"
+#include "ui/myapplicationpage.h"
 #include "ui/interviewwidget.h"
 
 class MainWindow : public QMainWindow {
@@ -17,6 +18,7 @@ public:
 private slots:
     void switchToJobs();
     void switchToProfile();
+    void switchToApplication();
     void switchToInterview();
     void handleLogout();
 
@@ -24,12 +26,14 @@ private:
     void setupUI();
     void setupStyles();
     void loadUserData(const QString& username);
+    void applyFadeTransition(QWidget* widget);
 
     Database* database;
     User currentUser;
     QStackedWidget* stackedWidget;
     QToolBar* toolbar;
     JobListWidget* jobListWidget;
-    ProfileWidget* profileWidget;
+    MyProfilePage* profilePage;
+    MyApplicationPage* applicationPage;
     InterviewWidget* interviewWidget;
 };

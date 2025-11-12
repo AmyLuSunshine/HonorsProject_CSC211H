@@ -1,6 +1,10 @@
 #include "ui/mainwindow.h"
 #include <QVBoxLayout>
 #include <QMessageBox>
+#include <QGraphicsOpacityEffect>
+#include <QPropertyAnimation>
+#include <QApplication>
+#include <QScreen>
 
 MainWindow::MainWindow(Database *db, const QString &username, QWidget *parent)
     : QMainWindow(parent), database(db)
@@ -10,7 +14,16 @@ MainWindow::MainWindow(Database *db, const QString &username, QWidget *parent)
     loadUserData(username);
 
     setWindowTitle("BMCC Campus Jobs Portal");
-    setMinimumSize(800, 600);
+    
+    // Make window responsive with proper sizing
+    setMinimumSize(1024, 768);
+    resize(1280, 800);
+    
+    // Center window on screen
+    const QRect screenGeometry = QApplication::primaryScreen()->geometry();
+    int x = (screenGeometry.width() - width()) / 2;
+    int y = (screenGeometry.height() - height()) / 2;
+    move(x, y);
 }
 
 void MainWindow::setupUI()
@@ -27,6 +40,7 @@ void MainWindow::setupUI()
     // Add toolbar actions
     auto jobsAction = toolbar->addAction("Available Jobs");
     auto profileAction = toolbar->addAction("My Profile");
+    auto applicationAction = toolbar->addAction("My Application");
     auto interviewAction = toolbar->addAction("Interview");
     toolbar->addSeparator();
     auto logoutAction = toolbar->addAction("Logout");
@@ -36,11 +50,13 @@ void MainWindow::setupUI()
 
     // Create pages
     jobListWidget = new JobListWidget(database, this);
-    profileWidget = new ProfileWidget(database, this);
+    profilePage = new MyProfilePage(database, this);
+    applicationPage = new MyApplicationPage(database, this);
     interviewWidget = new InterviewWidget(currentUser.getMajor(), this);
 
     stackedWidget->addWidget(jobListWidget);
-    stackedWidget->addWidget(profileWidget);
+    stackedWidget->addWidget(profilePage);
+    stackedWidget->addWidget(applicationPage);
     stackedWidget->addWidget(interviewWidget);
 
     // Set layout
@@ -51,6 +67,7 @@ void MainWindow::setupUI()
     // Connect signals
     connect(jobsAction, &QAction::triggered, this, &MainWindow::switchToJobs);
     connect(profileAction, &QAction::triggered, this, &MainWindow::switchToProfile);
+    connect(applicationAction, &QAction::triggered, this, &MainWindow::switchToApplication);
     connect(interviewAction, &QAction::triggered, this, &MainWindow::switchToInterview);
     connect(logoutAction, &QAction::triggered, this, &MainWindow::handleLogout);
 
@@ -60,26 +77,75 @@ void MainWindow::setupUI()
 
 void MainWindow::setupStyles()
 {
+    // Modern gradient background and styling
     setStyleSheet(
-        "QMainWindow { background-color: #F5F5F5; }"
-        "QToolBar { background-color: #2196F3; spacing: 10px; padding: 5px; }"
-        "QToolBar QToolButton { color: white; background-color: transparent; "
-        "                       padding: 5px 15px; border: none; }"
-        "QToolBar QToolButton:hover { background-color: #1976D2; }");
+        "QMainWindow {"
+        "   background: qlineargradient(x1:0, y1:0, x2:1, y2:1,"
+        "       stop:0 #f5f7fa, stop:1 #e8eef5);"
+        "}"
+        "QWidget {"
+        "   font-family: 'Segoe UI', Arial, sans-serif;"
+        "}"
+        "QToolBar { "
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+        "       stop:0 #2196F3, stop:1 #1976D2);"
+        "   spacing: 10px; "
+        "   padding: 8px; "
+        "   border-bottom: 2px solid #1565C0;"
+        "}"
+        "QToolBar QToolButton { "
+        "   color: white; "
+        "   background-color: transparent; "
+        "   padding: 8px 20px; "
+        "   border: none; "
+        "   border-radius: 4px;"
+        "   font-size: 14px;"
+        "   font-weight: 500;"
+        "}"
+        "QToolBar QToolButton:hover { "
+        "   background-color: rgba(255, 255, 255, 0.2); "
+        "}"
+        "QToolBar QToolButton:pressed { "
+        "   background-color: rgba(255, 255, 255, 0.3); "
+        "}"
+    );
+}
+
+void MainWindow::applyFadeTransition(QWidget *widget)
+{
+    // Smooth fade-in effect
+    QGraphicsOpacityEffect* effect = new QGraphicsOpacityEffect(widget);
+    widget->setGraphicsEffect(effect);
+
+    QPropertyAnimation* animation = new QPropertyAnimation(effect, "opacity");
+    animation->setDuration(300);
+    animation->setStartValue(0.0);
+    animation->setEndValue(1.0);
+    animation->setEasingCurve(QEasingCurve::InOutQuad);
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 void MainWindow::switchToJobs()
 {
+    applyFadeTransition(jobListWidget);
     stackedWidget->setCurrentWidget(jobListWidget);
 }
 
 void MainWindow::switchToProfile()
 {
-    stackedWidget->setCurrentWidget(profileWidget);
+    applyFadeTransition(profilePage);
+    stackedWidget->setCurrentWidget(profilePage);
+}
+
+void MainWindow::switchToApplication()
+{
+    applyFadeTransition(applicationPage);
+    stackedWidget->setCurrentWidget(applicationPage);
 }
 
 void MainWindow::switchToInterview()
 {
+    applyFadeTransition(interviewWidget);
     stackedWidget->setCurrentWidget(interviewWidget);
 }
 
@@ -95,6 +161,8 @@ void MainWindow::handleLogout()
 void MainWindow::loadUserData(const QString &email)
 {
     currentUser = database->getUserData(email);
-    profileWidget->loadUserProfile(currentUser.getId());
+    int uid = currentUser.getId();
+    profilePage->setUserId(uid);
+    applicationPage->setUserId(uid);
     // Optionally refresh interviewWidget if needed
 }

@@ -396,6 +396,18 @@
 			null
 		],
 		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_myapplicationpage.cpp",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h",
+			"Mu",
+			"JCP2AIONHY/moc_myprofilepage.cpp",
+			null
+		],
+		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h",
 			"Mu",
 			"JCP2AIONHY/moc_profilewidget.cpp",
@@ -539,6 +551,16 @@
 		],
 		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/mainwindow.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myapplicationpage.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp",
 			"Mu",
 			null
 		],

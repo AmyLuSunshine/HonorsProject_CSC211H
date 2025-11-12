@@ -501,4 +501,11 @@ CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QFile \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qfile.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDir \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdir.h
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdir.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgraphicseffect.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QPropertyAnimation \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qpropertyanimation.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qvariantanimation.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractanimation.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeasingcurve.h

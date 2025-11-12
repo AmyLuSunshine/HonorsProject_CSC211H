@@ -487,6 +487,54 @@ src/ui/mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.s
 .PHONY : src/ui/mainwindow.cpp.s
 
+src/ui/myapplicationpage.obj: src/ui/myapplicationpage.cpp.obj
+.PHONY : src/ui/myapplicationpage.obj
+
+# target to build an object file
+src/ui/myapplicationpage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj
+.PHONY : src/ui/myapplicationpage.cpp.obj
+
+src/ui/myapplicationpage.i: src/ui/myapplicationpage.cpp.i
+.PHONY : src/ui/myapplicationpage.i
+
+# target to preprocess a source file
+src/ui/myapplicationpage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.i
+.PHONY : src/ui/myapplicationpage.cpp.i
+
+src/ui/myapplicationpage.s: src/ui/myapplicationpage.cpp.s
+.PHONY : src/ui/myapplicationpage.s
+
+# target to generate assembly for a file
+src/ui/myapplicationpage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.s
+.PHONY : src/ui/myapplicationpage.cpp.s
+
+src/ui/myprofilepage.obj: src/ui/myprofilepage.cpp.obj
+.PHONY : src/ui/myprofilepage.obj
+
+# target to build an object file
+src/ui/myprofilepage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj
+.PHONY : src/ui/myprofilepage.cpp.obj
+
+src/ui/myprofilepage.i: src/ui/myprofilepage.cpp.i
+.PHONY : src/ui/myprofilepage.i
+
+# target to preprocess a source file
+src/ui/myprofilepage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.i
+.PHONY : src/ui/myprofilepage.cpp.i
+
+src/ui/myprofilepage.s: src/ui/myprofilepage.cpp.s
+.PHONY : src/ui/myprofilepage.s
+
+# target to generate assembly for a file
+src/ui/myprofilepage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.s
+.PHONY : src/ui/myprofilepage.cpp.s
+
 src/ui/profilewidget.obj: src/ui/profilewidget.cpp.obj
 .PHONY : src/ui/profilewidget.obj
 
@@ -586,6 +634,12 @@ help:
 	@echo ... src/ui/mainwindow.obj
 	@echo ... src/ui/mainwindow.i
 	@echo ... src/ui/mainwindow.s
+	@echo ... src/ui/myapplicationpage.obj
+	@echo ... src/ui/myapplicationpage.i
+	@echo ... src/ui/myapplicationpage.s
+	@echo ... src/ui/myprofilepage.obj
+	@echo ... src/ui/myprofilepage.i
+	@echo ... src/ui/myprofilepage.s
 	@echo ... src/ui/profilewidget.obj
 	@echo ... src/ui/profilewidget.i
 	@echo ... src/ui/profilewidget.s

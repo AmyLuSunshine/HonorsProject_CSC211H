@@ -32,6 +32,8 @@ set(PROJECT_SOURCES
     src/ui/jobdetailwidget.cpp
     src/ui/joblistwidget.cpp
     src/ui/mainwindow.cpp
+    src/ui/myprofilepage.cpp
+    src/ui/myapplicationpage.cpp
     src/ui/profilewidget.cpp
     src/ui/searchfilterwidget.cpp
     src/ui/interviewwidget.cpp
@@ -48,6 +50,8 @@ set(PROJECT_HEADERS
     include/ui/jobdetailwidget.h
     include/ui/joblistwidget.h
     include/ui/mainwindow.h
+    include/ui/myprofilepage.h
+    include/ui/myapplicationpage.h
     include/ui/profilewidget.h
     include/ui/searchfilterwidget.h
     include/ui/interviewwidget.h

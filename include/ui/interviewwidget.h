@@ -11,7 +11,8 @@
 #include <QTimer>
 
 // Question structure
-struct Question {
+struct Question
+{
     QString text;
     QString correctAnswer;
     QVector<QString> options;
@@ -22,7 +23,7 @@ class InterviewWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit InterviewWidget(const QString& major, QWidget *parent = nullptr);
+    explicit InterviewWidget(const QString &major, QWidget *parent = nullptr);
 
 signals:
     void interviewComplete(int finalScore);
@@ -31,13 +32,13 @@ signals:
 private slots:
     void checkAnswer();
     void nextQuestion();
-    void showResult(const QString& result);
+    void showResult(const QString &result);
 
 private:
     void setupQuestions();
     void setupUI();
     void setupStyles();
-    const Question* getCurrentQuestions() const;
+    const Question *getCurrentQuestions() const;
     int getCurrentQuestionsCount() const;
     void showFinalResult();
 
@@ -51,12 +52,12 @@ private:
     QVector<Question> scienceQuestions;
 
     // UI elements
-    QLabel* questionLabel;
-    QLabel* feedbackLabel;
-    QVector<QPushButton*> answerButtons;
-    QPushButton* nextButton;
+    QLabel *questionLabel;
+    QLabel *feedbackLabel;
+    QVector<QPushButton *> answerButtons;
+    QPushButton *nextButton;
 
-    QVBoxLayout* mainLayout;
+    QVBoxLayout *mainLayout;
 };
 
 #endif // INTERVIEWWIDGET_H

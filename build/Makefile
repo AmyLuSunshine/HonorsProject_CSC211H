@@ -415,54 +415,6 @@ src/ui/interviewwidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.s
 .PHONY : src/ui/interviewwidget.cpp.s
 
-src/ui/jobdetailwidget.obj: src/ui/jobdetailwidget.cpp.obj
-.PHONY : src/ui/jobdetailwidget.obj
-
-# target to build an object file
-src/ui/jobdetailwidget.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj
-.PHONY : src/ui/jobdetailwidget.cpp.obj
-
-src/ui/jobdetailwidget.i: src/ui/jobdetailwidget.cpp.i
-.PHONY : src/ui/jobdetailwidget.i
-
-# target to preprocess a source file
-src/ui/jobdetailwidget.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.i
-.PHONY : src/ui/jobdetailwidget.cpp.i
-
-src/ui/jobdetailwidget.s: src/ui/jobdetailwidget.cpp.s
-.PHONY : src/ui/jobdetailwidget.s
-
-# target to generate assembly for a file
-src/ui/jobdetailwidget.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.s
-.PHONY : src/ui/jobdetailwidget.cpp.s
-
-src/ui/joblistwidget.obj: src/ui/joblistwidget.cpp.obj
-.PHONY : src/ui/joblistwidget.obj
-
-# target to build an object file
-src/ui/joblistwidget.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj
-.PHONY : src/ui/joblistwidget.cpp.obj
-
-src/ui/joblistwidget.i: src/ui/joblistwidget.cpp.i
-.PHONY : src/ui/joblistwidget.i
-
-# target to preprocess a source file
-src/ui/joblistwidget.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.i
-.PHONY : src/ui/joblistwidget.cpp.i
-
-src/ui/joblistwidget.s: src/ui/joblistwidget.cpp.s
-.PHONY : src/ui/joblistwidget.s
-
-# target to generate assembly for a file
-src/ui/joblistwidget.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.s
-.PHONY : src/ui/joblistwidget.cpp.s
-
 src/ui/mainwindow.obj: src/ui/mainwindow.cpp.obj
 .PHONY : src/ui/mainwindow.obj
 
@@ -534,6 +486,30 @@ src/ui/myprofilepage.s: src/ui/myprofilepage.cpp.s
 src/ui/myprofilepage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.s
 .PHONY : src/ui/myprofilepage.cpp.s
+
+src/ui/oncampusjobspage.obj: src/ui/oncampusjobspage.cpp.obj
+.PHONY : src/ui/oncampusjobspage.obj
+
+# target to build an object file
+src/ui/oncampusjobspage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj
+.PHONY : src/ui/oncampusjobspage.cpp.obj
+
+src/ui/oncampusjobspage.i: src/ui/oncampusjobspage.cpp.i
+.PHONY : src/ui/oncampusjobspage.i
+
+# target to preprocess a source file
+src/ui/oncampusjobspage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.i
+.PHONY : src/ui/oncampusjobspage.cpp.i
+
+src/ui/oncampusjobspage.s: src/ui/oncampusjobspage.cpp.s
+.PHONY : src/ui/oncampusjobspage.s
+
+# target to generate assembly for a file
+src/ui/oncampusjobspage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.s
+.PHONY : src/ui/oncampusjobspage.cpp.s
 
 src/ui/profilewidget.obj: src/ui/profilewidget.cpp.obj
 .PHONY : src/ui/profilewidget.obj
@@ -625,12 +601,6 @@ help:
 	@echo ... src/ui/interviewwidget.obj
 	@echo ... src/ui/interviewwidget.i
 	@echo ... src/ui/interviewwidget.s
-	@echo ... src/ui/jobdetailwidget.obj
-	@echo ... src/ui/jobdetailwidget.i
-	@echo ... src/ui/jobdetailwidget.s
-	@echo ... src/ui/joblistwidget.obj
-	@echo ... src/ui/joblistwidget.i
-	@echo ... src/ui/joblistwidget.s
 	@echo ... src/ui/mainwindow.obj
 	@echo ... src/ui/mainwindow.i
 	@echo ... src/ui/mainwindow.s
@@ -640,6 +610,9 @@ help:
 	@echo ... src/ui/myprofilepage.obj
 	@echo ... src/ui/myprofilepage.i
 	@echo ... src/ui/myprofilepage.s
+	@echo ... src/ui/oncampusjobspage.obj
+	@echo ... src/ui/oncampusjobspage.i
+	@echo ... src/ui/oncampusjobspage.s
 	@echo ... src/ui/profilewidget.obj
 	@echo ... src/ui/profilewidget.i
 	@echo ... src/ui/profilewidget.s

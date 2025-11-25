@@ -59,7 +59,26 @@ public:
     bool hasDocument(int userId, const QString &documentType);
 
     User getUserData(const QString &email);
+
+    // Job management methods
     std::vector<Job> getJobs();
+    std::vector<Job> getJobsByCategory(const QString &category);
+    std::vector<Job> searchJobs(const QString &keyword, const QString &statusFilter = "",
+                                const QString &categoryFilter = "", bool workStudyOnly = false,
+                                int minHours = 0, int maxHours = 40,
+                                double minPay = 0, double maxPay = 100);
+    Job getJobById(int jobId);
+    int getJobCountByCategory(const QString &category);
+
+    // Job application methods
+    bool applyForJob(int userId, int jobId, const QString &resumePath,
+                     const QString &coverLetterPath, const QString &whyInterested,
+                     const QString &availability, const QString &references);
+    bool expressInterest(int userId, int jobId, const QString &message);
+    bool saveJob(int userId, int jobId);
+    bool unsaveJob(int userId, int jobId);
+    std::vector<int> getSavedJobs(int userId);
+    bool isJobSaved(int userId, int jobId);
 
 private:
     QSqlDatabase db;

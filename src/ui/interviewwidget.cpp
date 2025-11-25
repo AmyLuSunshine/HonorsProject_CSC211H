@@ -3,11 +3,11 @@
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 
-InterviewWidget::InterviewWidget(const QString& major, QWidget *parent)
+InterviewWidget::InterviewWidget(const QString &major, QWidget *parent)
     : QWidget(parent),
-    studentMajor(major),
-    currentQuestionIndex(0),
-    score(0)
+      studentMajor(major),
+      currentQuestionIndex(0),
+      score(0)
 {
     setupQuestions();
     setupUI();
@@ -20,15 +20,13 @@ void InterviewWidget::setupQuestions()
     artsQuestions = {
         {"What is the capital of France?", "Paris", {"London", "Paris", "Berlin", "Madrid"}},
         {"Who painted the Mona Lisa?", "Leonardo da Vinci", {"Michelangelo", "Leonardo da Vinci", "Raphael", "Donatello"}},
-        {"In what year did World War II end?", "1945", {"1943", "1944", "1945", "1946"}}
-    };
+        {"In what year did World War II end?", "1945", {"1943", "1944", "1945", "1946"}}};
 
     // Science questions
     scienceQuestions = {
         {"What is the chemical symbol for water?", "H2O", {"CO2", "H2O", "O2", "NaCl"}},
         {"What is the speed of light?", "299,792,458 m/s", {"150,000,000 m/s", "299,792,458 m/s", "300,000,000 m/s", "250,000,000 m/s"}},
-        {"What is the powerhouse of the cell?", "Mitochondria", {"Nucleus", "Ribosome", "Mitochondria", "Chloroplast"}}
-    };
+        {"What is the powerhouse of the cell?", "Mitochondria", {"Nucleus", "Ribosome", "Mitochondria", "Chloroplast"}}};
 }
 
 void InterviewWidget::setupUI()
@@ -45,13 +43,13 @@ void InterviewWidget::setupUI()
         "padding: 20px; "
         "background: white; "
         "border-radius: 10px; "
-        "color: #1976D2;"
-    );
+        "color: #1976D2;");
     mainLayout->addWidget(questionLabel);
 
     // Create answer buttons
-    for (int i = 0; i < 4; ++i) {
-        QPushButton* button = new QPushButton(this);
+    for (int i = 0; i < 4; ++i)
+    {
+        QPushButton *button = new QPushButton(this);
         button->setStyleSheet(
             "QPushButton { "
             "   padding: 15px; "
@@ -69,8 +67,7 @@ void InterviewWidget::setupUI()
             "}"
             "QPushButton:disabled { "
             "   background: #F5F5F5; "
-            "}"
-        );
+            "}");
         connect(button, &QPushButton::clicked, this, &InterviewWidget::checkAnswer);
         answerButtons.append(button);
         mainLayout->addWidget(button);
@@ -81,13 +78,10 @@ void InterviewWidget::setupUI()
         "font-size: 15px; "
         "padding: 15px; "
         "background: white; "
-        "border-radius: 8px;"
-    );
+        "border-radius: 8px;");
     feedbackLabel->setWordWrap(true);
     mainLayout->addWidget(feedbackLabel);
 
-
-    
     nextButton = new QPushButton("Next Question", this);
     nextButton->setEnabled(false);
     nextButton->setStyleSheet(
@@ -107,8 +101,7 @@ void InterviewWidget::setupUI()
         "}"
         "QPushButton:disabled { "
         "   background: #BDBDBD; "
-        "}"
-    );
+        "}");
     connect(nextButton, &QPushButton::clicked, this, &InterviewWidget::nextQuestion);
     mainLayout->addWidget(nextButton);
 
@@ -125,14 +118,13 @@ void InterviewWidget::setupStyles()
         "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
         "       stop:0 #ffffff, stop:1 #f8f9fa);"
         "   font-family: 'Segoe UI', Arial, sans-serif;"
-        "}"
-    );
-    
+        "}");
+
     // Apply smooth fade-in effect
-    QGraphicsOpacityEffect* effect = new QGraphicsOpacityEffect(this);
+    QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
     setGraphicsEffect(effect);
-    
-    QPropertyAnimation* animation = new QPropertyAnimation(effect, "opacity");
+
+    QPropertyAnimation *animation = new QPropertyAnimation(effect, "opacity");
     animation->setDuration(400);
     animation->setStartValue(0.0);
     animation->setEndValue(1.0);
@@ -142,24 +134,30 @@ void InterviewWidget::setupStyles()
 
 void InterviewWidget::checkAnswer()
 {
-    QPushButton* clickedButton = qobject_cast<QPushButton*>(sender());
-    if (!clickedButton) return;
+    QPushButton *clickedButton = qobject_cast<QPushButton *>(sender());
+    if (!clickedButton)
+        return;
 
-    const Question* questions = getCurrentQuestions();
-    if (currentQuestionIndex >= getCurrentQuestionsCount()) return;
+    const Question *questions = getCurrentQuestions();
+    if (currentQuestionIndex >= getCurrentQuestionsCount())
+        return;
 
-    const Question& currentQuestion = questions[currentQuestionIndex];
+    const Question &currentQuestion = questions[currentQuestionIndex];
     QString selectedAnswer = clickedButton->text();
 
     // Disable all answer buttons
-    for (QPushButton* btn : answerButtons) {
+    for (QPushButton *btn : answerButtons)
+    {
         btn->setEnabled(false);
     }
 
-    if (selectedAnswer == currentQuestion.correctAnswer) {
+    if (selectedAnswer == currentQuestion.correctAnswer)
+    {
         showResult("Correct! ✓");
         score++;
-    } else {
+    }
+    else
+    {
         showResult("Incorrect. The correct answer was: " + currentQuestion.correctAnswer);
     }
 
@@ -168,28 +166,31 @@ void InterviewWidget::checkAnswer()
 
 void InterviewWidget::nextQuestion()
 {
-    const Question* questions = getCurrentQuestions();
+    const Question *questions = getCurrentQuestions();
 
-    if (currentQuestionIndex >= getCurrentQuestionsCount()) {
+    if (currentQuestionIndex >= getCurrentQuestionsCount())
+    {
         showFinalResult();
         return;
     }
 
-    const Question& question = questions[currentQuestionIndex];
+    const Question &question = questions[currentQuestionIndex];
 
     questionLabel->setText(QString("Question %1: %2")
                                .arg(currentQuestionIndex + 1)
                                .arg(question.text));
 
     // Set button texts
-    for (int i = 0; i < answerButtons.size() && i < question.options.size(); ++i) {
+    for (int i = 0; i < answerButtons.size() && i < question.options.size(); ++i)
+    {
         answerButtons[i]->setText(question.options[i]);
         answerButtons[i]->setEnabled(true);
         answerButtons[i]->show();
     }
 
     // Hide extra buttons if needed
-    for (int i = question.options.size(); i < answerButtons.size(); ++i) {
+    for (int i = question.options.size(); i < answerButtons.size(); ++i)
+    {
         answerButtons[i]->hide();
     }
 
@@ -198,24 +199,27 @@ void InterviewWidget::nextQuestion()
     currentQuestionIndex++;
 }
 
-void InterviewWidget::showResult(const QString& result)
+void InterviewWidget::showResult(const QString &result)
 {
     feedbackLabel->setText(result);
 
-    if (result.startsWith("Correct")) {
+    if (result.startsWith("Correct"))
+    {
         feedbackLabel->setStyleSheet("color: green; font-weight: bold; padding: 10px;");
-    } else {
+    }
+    else
+    {
         feedbackLabel->setStyleSheet("color: red; font-weight: bold; padding: 10px;");
     }
 
     // Auto-advance after 2 seconds
-    QTimer::singleShot(2000, this, [this]() {
+    QTimer::singleShot(2000, this, [this]()
+                       {
         if (currentQuestionIndex < getCurrentQuestionsCount()) {
             nextQuestion();
         } else {
             showFinalResult();
-        }
-    });
+        } });
 }
 
 void InterviewWidget::showFinalResult()
@@ -233,20 +237,26 @@ void InterviewWidget::showFinalResult()
     emit interviewComplete(score);
 }
 
-const Question* InterviewWidget::getCurrentQuestions() const
+const Question *InterviewWidget::getCurrentQuestions() const
 {
-    if (studentMajor == "Arts") {
+    if (studentMajor == "Arts")
+    {
         return artsQuestions.constData();
-    } else {
+    }
+    else
+    {
         return scienceQuestions.constData();
     }
 }
 
 int InterviewWidget::getCurrentQuestionsCount() const
 {
-    if (studentMajor == "Arts") {
+    if (studentMajor == "Arts")
+    {
         return artsQuestions.size();
-    } else {
+    }
+    else
+    {
         return scienceQuestions.size();
     }
 }

@@ -8,10 +8,11 @@
 #include <QGroupBox>
 #include "database/database.h"
 
-class MyProfilePage : public QWidget {
+class MyProfilePage : public QWidget
+{
     Q_OBJECT
 public:
-    explicit MyProfilePage(Database* db, QWidget* parent = nullptr);
+    explicit MyProfilePage(Database *db, QWidget *parent = nullptr);
     void setUserId(int userId);
 
 signals:
@@ -26,23 +27,23 @@ private:
     void setupStyles();
     void loadUser();
 
-    Database* database;
+    Database *database;
     int currentUserId;
 
     // Personal info widgets
-    QLabel* nameLabel;
-    QLineEdit* fullNameEdit;
-    QLineEdit* emplidEdit;
-    QLineEdit* emailEdit;
-    QLineEdit* addressEdit;
-    QLineEdit* majorEdit;
-    QLineEdit* gpaEdit;
-    QDateEdit* gradDateEdit;
+    QLabel *nameLabel;
+    QLineEdit *fullNameEdit;
+    QLineEdit *emplidEdit;
+    QLineEdit *emailEdit;
+    QLineEdit *addressEdit;
+    QLineEdit *majorEdit;
+    QLineEdit *gpaEdit;
+    QDateEdit *gradDateEdit;
 
     // Account info widgets
-    QLineEdit* usernameEdit; // mirrors email for now
-    QLineEdit* newPasswordEdit;
-    QLineEdit* confirmPasswordEdit;
-    QPushButton* saveButton;
-    QPushButton* changePasswordButton;
+    QLineEdit *usernameEdit; // mirrors email for now
+    QLineEdit *newPasswordEdit;
+    QLineEdit *confirmPasswordEdit;
+    QPushButton *saveButton;
+    QPushButton *changePasswordButton;
 };

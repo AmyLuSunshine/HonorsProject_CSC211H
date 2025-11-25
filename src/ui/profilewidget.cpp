@@ -258,12 +258,12 @@ void ProfileWidget::setupStyles()
         "QPushButton:pressed { "
         "   background-color: #2E7D32; "
         "}");
-    
+
     // Apply smooth fade-in effect when profile widget is shown
-    QGraphicsOpacityEffect* effect = new QGraphicsOpacityEffect(this);
+    QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
     setGraphicsEffect(effect);
-    
-    QPropertyAnimation* animation = new QPropertyAnimation(effect, "opacity");
+
+    QPropertyAnimation *animation = new QPropertyAnimation(effect, "opacity");
     animation->setDuration(400);
     animation->setStartValue(0.0);
     animation->setEndValue(1.0);

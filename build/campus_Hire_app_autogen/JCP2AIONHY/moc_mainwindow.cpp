@@ -40,22 +40,22 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MainWindow",
-        "switchToJobs",
-        "",
         "switchToProfile",
+        "",
         "switchToApplication",
         "switchToInterview",
+        "switchToOnCampusJobs",
         "handleLogout"
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'switchToJobs'
-        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'switchToProfile'
-        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'switchToApplication'
-        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'switchToInterview'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'switchToOnCampusJobs'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'handleLogout'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
@@ -82,10 +82,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->switchToJobs(); break;
-        case 1: _t->switchToProfile(); break;
-        case 2: _t->switchToApplication(); break;
-        case 3: _t->switchToInterview(); break;
+        case 0: _t->switchToProfile(); break;
+        case 1: _t->switchToApplication(); break;
+        case 2: _t->switchToInterview(); break;
+        case 3: _t->switchToOnCampusJobs(); break;
         case 4: _t->handleLogout(); break;
         default: ;
         }

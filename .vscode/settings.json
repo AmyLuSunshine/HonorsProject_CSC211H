@@ -16,6 +16,12 @@
         "qsqlerror": "cpp",
         "qvariant": "cpp",
         "qhboxlayout": "cpp",
-        "qfile": "cpp"
+        "qfile": "cpp",
+        "qpropertyanimation": "cpp",
+        "qgraphicsopacityeffect": "cpp",
+        "qpushbutton": "cpp",
+        "qlineedit": "cpp",
+        "qformlayout": "cpp",
+        "qtextbrowser": "cpp"
     }
 }

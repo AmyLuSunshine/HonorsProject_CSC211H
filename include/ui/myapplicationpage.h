@@ -9,10 +9,11 @@
 #include <QDate>
 #include "database/database.h"
 
-class MyApplicationPage : public QWidget {
+class MyApplicationPage : public QWidget
+{
     Q_OBJECT
 public:
-    explicit MyApplicationPage(Database* db, QWidget* parent = nullptr);
+    explicit MyApplicationPage(Database *db, QWidget *parent = nullptr);
     void setUserId(int userId);
 
 signals:
@@ -29,24 +30,24 @@ private:
     void loadDocuments();
     void updateDocumentCounts();
 
-    Database* database;
+    Database *database;
     int currentUserId;
 
     // Upload widgets
-    QPushButton* uploadTranscriptBtn;
-    QPushButton* uploadCVBtn;
-    QLabel* transcriptLabel;
-    QLabel* cvLabel;
+    QPushButton *uploadTranscriptBtn;
+    QPushButton *uploadCVBtn;
+    QLabel *transcriptLabel;
+    QLabel *cvLabel;
 
     // Status labels
-    QLabel* pendingDocsLabel;
-    QLabel* completedDocsLabel;
-    QLabel* processingDocsLabel;
+    QLabel *pendingDocsLabel;
+    QLabel *completedDocsLabel;
+    QLabel *processingDocsLabel;
 
     // History
-    QTableWidget* documentsTable;
+    QTableWidget *documentsTable;
 
     // Actions
-    QPushButton* saveButton;
-    QPushButton* onboardingButton;
+    QPushButton *saveButton;
+    QPushButton *onboardingButton;
 };

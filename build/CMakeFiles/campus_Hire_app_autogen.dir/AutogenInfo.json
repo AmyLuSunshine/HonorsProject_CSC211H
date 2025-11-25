@@ -378,18 +378,6 @@
 			null
 		],
 		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/jobdetailwidget.h",
-			"Mu",
-			"JCP2AIONHY/moc_jobdetailwidget.cpp",
-			null
-		],
-		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/joblistwidget.h",
-			"Mu",
-			"JCP2AIONHY/moc_joblistwidget.cpp",
-			null
-		],
-		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/mainwindow.h",
 			"Mu",
 			"JCP2AIONHY/moc_mainwindow.cpp",
@@ -405,6 +393,12 @@
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h",
 			"Mu",
 			"JCP2AIONHY/moc_myprofilepage.cpp",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h",
+			"Mu",
+			"JCP2AIONHY/moc_oncampusjobspage.cpp",
 			null
 		],
 		[
@@ -540,16 +534,6 @@
 			null
 		],
 		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/jobdetailwidget.cpp",
-			"Mu",
-			null
-		],
-		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/joblistwidget.cpp",
-			"Mu",
-			null
-		],
-		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/mainwindow.cpp",
 			"Mu",
 			null
@@ -561,6 +545,11 @@
 		],
 		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/oncampusjobspage.cpp",
 			"Mu",
 			null
 		],

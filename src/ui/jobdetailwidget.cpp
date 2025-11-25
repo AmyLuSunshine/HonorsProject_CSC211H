@@ -1,13 +1,15 @@
 #include "ui/jobdetailwidget.h"
 #include <QVBoxLayout>
 
-JobDetailWidget::JobDetailWidget(Database* db, QWidget *parent)
-    : QWidget(parent), database(db) {
+JobDetailWidget::JobDetailWidget(Database *db, QWidget *parent)
+    : QWidget(parent), database(db)
+{
     setupUI();
     setupStyles();
 }
 
-void JobDetailWidget::setupUI() {
+void JobDetailWidget::setupUI()
+{
     auto layout = new QVBoxLayout(this);
 
     titleLabel = new QLabel(this);
@@ -23,17 +25,18 @@ void JobDetailWidget::setupUI() {
     layout->addWidget(applyButton);
 }
 
-void JobDetailWidget::setupStyles() {
+void JobDetailWidget::setupStyles()
+{
     setStyleSheet(
         "QLabel { font-size: 16px; margin: 5px; }"
         "QPushButton { padding: 10px; background-color: #2196F3; "
-        "color: white; border: none; border-radius: 5px; }"
-        );
+        "color: white; border: none; border-radius: 5px; }");
 }
 
-void JobDetailWidget::setJob(const Job& job) {
+void JobDetailWidget::setJob(const Job &job)
+{
     titleLabel->setText(job.getTitle());
     departmentLabel->setText(job.getDepartment());
     descriptionLabel->setText(job.getDescription());
-    payLabel->setText(QString("$%1/hr").arg(job.getPayRate(), 0, 'f', 2));
+    payLabel->setText(job.getPayRateString());
 }

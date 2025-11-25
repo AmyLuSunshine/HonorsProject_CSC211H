@@ -191,7 +191,10 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsql-config.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsqlglobal.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QCheckBox \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDateEdit \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDialog \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QFileDialog \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
@@ -200,9 +203,15 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSplitter \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QStackedWidget \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextBrowser \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QToolBar \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTreeWidget \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QWidget \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -212,6 +221,8 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcheckbox.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdatetimeedit.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qfiledialog.h \
@@ -227,8 +238,10 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsplitter.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstackedwidget.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h \
@@ -236,7 +249,12 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextbrowser.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtoolbar.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtreeview.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtreewidget.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -486,6 +504,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h \
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h \
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/interviewwidget.h \
-  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/joblistwidget.h \
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
-  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h
+  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h \
+  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h

@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Qt Meta-Object Compiler settings
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC OFF)  # Disabled since you're not using .ui files
+set(CMAKE_AUTOUIC OFF) # Disabled since you're not using .ui files
 
 # Find Qt packages
 find_package(Qt6 COMPONENTS
@@ -29,11 +29,10 @@ set(PROJECT_SOURCES
     src/models/user.cpp
     src/models/job.cpp
     src/models/application.cpp
-    src/ui/jobdetailwidget.cpp
-    src/ui/joblistwidget.cpp
     src/ui/mainwindow.cpp
     src/ui/myprofilepage.cpp
     src/ui/myapplicationpage.cpp
+    src/ui/oncampusjobspage.cpp
     src/ui/profilewidget.cpp
     src/ui/searchfilterwidget.cpp
     src/ui/interviewwidget.cpp
@@ -47,11 +46,10 @@ set(PROJECT_HEADERS
     include/models/user.h
     include/models/job.h
     include/models/application.h
-    include/ui/jobdetailwidget.h
-    include/ui/joblistwidget.h
     include/ui/mainwindow.h
     include/ui/myprofilepage.h
     include/ui/myapplicationpage.h
+    include/ui/oncampusjobspage.h
     include/ui/profilewidget.h
     include/ui/searchfilterwidget.h
     include/ui/interviewwidget.h
@@ -59,13 +57,14 @@ set(PROJECT_HEADERS
 
 # Optional: Add resource files when needed
 # set(PROJECT_RESOURCES
-#     resources/resources.qrc
+# resources/resources.qrc
 # )
 
 # Create executable
 add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCES}
     ${PROJECT_HEADERS}
+
     # ${PROJECT_RESOURCES}
 )
 

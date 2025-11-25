@@ -194,41 +194,11 @@ CMakeFiles/campus_Hire_app.dir/src/models/application.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/campus_Hire_app.dir/src/models/application.cpp.s"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\models\application.cpp -o CMakeFiles\campus_Hire_app.dir\src\models\application.cpp.s
 
-CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/flags.make
-CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
-CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/jobdetailwidget.cpp
-CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj"
-	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\jobdetailwidget.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\jobdetailwidget.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\jobdetailwidget.cpp
-
-CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.i"
-	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\jobdetailwidget.cpp > CMakeFiles\campus_Hire_app.dir\src\ui\jobdetailwidget.cpp.i
-
-CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.s"
-	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\jobdetailwidget.cpp -o CMakeFiles\campus_Hire_app.dir\src\ui\jobdetailwidget.cpp.s
-
-CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/flags.make
-CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
-CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/joblistwidget.cpp
-CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj"
-	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\joblistwidget.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\joblistwidget.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\joblistwidget.cpp
-
-CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.i"
-	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\joblistwidget.cpp > CMakeFiles\campus_Hire_app.dir\src\ui\joblistwidget.cpp.i
-
-CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.s"
-	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\joblistwidget.cpp -o CMakeFiles\campus_Hire_app.dir\src\ui\joblistwidget.cpp.s
-
 CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: CMakeFiles/campus_Hire_app.dir/flags.make
 CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
 CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/mainwindow.cpp
 CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\mainwindow.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\mainwindow.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\mainwindow.cpp
 
 CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.i: cmake_force
@@ -243,7 +213,7 @@ CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj: CMakeFiles/campus_H
 CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
 CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp
 CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\myprofilepage.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\myprofilepage.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\myprofilepage.cpp
 
 CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.i: cmake_force
@@ -258,7 +228,7 @@ CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj: CMakeFiles/camp
 CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
 CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myapplicationpage.cpp
 CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\myapplicationpage.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\myapplicationpage.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\myapplicationpage.cpp
 
 CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.i: cmake_force
@@ -269,11 +239,26 @@ CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.s"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\myapplicationpage.cpp -o CMakeFiles\campus_Hire_app.dir\src\ui\myapplicationpage.cpp.s
 
+CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj: CMakeFiles/campus_Hire_app.dir/flags.make
+CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
+CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/oncampusjobspage.cpp
+CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj"
+	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\oncampusjobspage.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\oncampusjobspage.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\oncampusjobspage.cpp
+
+CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.i"
+	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\oncampusjobspage.cpp > CMakeFiles\campus_Hire_app.dir\src\ui\oncampusjobspage.cpp.i
+
+CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.s"
+	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\oncampusjobspage.cpp -o CMakeFiles\campus_Hire_app.dir\src\ui\oncampusjobspage.cpp.s
+
 CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/flags.make
 CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
 CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/profilewidget.cpp
 CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\profilewidget.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\profilewidget.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\profilewidget.cpp
 
 CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.i: cmake_force
@@ -288,7 +273,7 @@ CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj: CMakeFiles/cam
 CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
 CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/searchfilterwidget.cpp
 CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\searchfilterwidget.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\searchfilterwidget.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\searchfilterwidget.cpp
 
 CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.i: cmake_force
@@ -303,7 +288,7 @@ CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj: CMakeFiles/campus
 CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
 CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/interviewwidget.cpp
 CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\interviewwidget.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\interviewwidget.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\interviewwidget.cpp
 
 CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.i: cmake_force
@@ -324,11 +309,10 @@ campus_Hire_app_OBJECTS = \
 "CMakeFiles/campus_Hire_app.dir/src/models/user.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/models/job.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/models/application.cpp.obj" \
-"CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj" \
-"CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj" \
+"CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj"
@@ -344,11 +328,10 @@ campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/database/database.cpp.ob
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/models/user.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/models/job.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/models/application.cpp.obj
-campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/jobdetailwidget.cpp.obj
-campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/joblistwidget.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj
+campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj
@@ -361,7 +344,7 @@ campus_Hire_app.exe: C:/Qt-Community/6.9.0/mingw_64/lib/libQt6EntryPoint.a
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/linkLibs.rsp
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/objects1.rsp
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable campus_Hire_app.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable campus_Hire_app.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\campus_Hire_app.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

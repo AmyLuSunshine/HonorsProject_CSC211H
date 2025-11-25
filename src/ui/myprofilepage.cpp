@@ -5,16 +5,16 @@
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 
-MyProfilePage::MyProfilePage(Database* db, QWidget* parent)
+MyProfilePage::MyProfilePage(Database *db, QWidget *parent)
     : QWidget(parent), database(db), currentUserId(-1)
 {
     setupUI();
     setupStyles();
 
     // Smooth fade-in when shown
-    auto* effect = new QGraphicsOpacityEffect(this);
+    auto *effect = new QGraphicsOpacityEffect(this);
     setGraphicsEffect(effect);
-    auto* anim = new QPropertyAnimation(effect, "opacity");
+    auto *anim = new QPropertyAnimation(effect, "opacity");
     anim->setDuration(350);
     anim->setStartValue(0.0);
     anim->setEndValue(1.0);
@@ -121,8 +121,7 @@ void MyProfilePage::setupStyles()
         "QLineEdit:focus, QDateEdit:focus { border: 2px solid #2196F3; background: #f8fcff; }"
         "QPushButton { background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 #2196F3, stop:1 #1976D2); color:white;"
         "  padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; border: none; min-height: 40px; }"
-        "QPushButton:hover { background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 #1976D2, stop:1 #0D47A1); }"
-    );
+        "QPushButton:hover { background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 #1976D2, stop:1 #0D47A1); }");
 }
 
 void MyProfilePage::setUserId(int userId)
@@ -133,7 +132,8 @@ void MyProfilePage::setUserId(int userId)
 
 void MyProfilePage::loadUser()
 {
-    if (!database || currentUserId < 0) return;
+    if (!database || currentUserId < 0)
+        return;
     User u = database->getUserDataById(currentUserId);
     nameLabel->setText(u.getFullName());
     fullNameEdit->setText(u.getFullName());
@@ -145,32 +145,40 @@ void MyProfilePage::loadUser()
     gpaEdit->setText(u.getGpa());
     // gradDate stored as yyyy-MM-dd; show month/year if parseable
     QDate parsed = QDate::fromString(u.getGradDate(), "yyyy-MM-dd");
-    if (!parsed.isValid()) parsed = QDate::fromString(u.getGradDate(), "MM/yyyy");
-    if (parsed.isValid()) gradDateEdit->setDate(parsed);
+    if (!parsed.isValid())
+        parsed = QDate::fromString(u.getGradDate(), "MM/yyyy");
+    if (parsed.isValid())
+        gradDateEdit->setDate(parsed);
 }
 
 void MyProfilePage::handleSaveProfile()
 {
-    if (!database || currentUserId < 0) return;
+    if (!database || currentUserId < 0)
+        return;
     const QString major = majorEdit->text().trimmed();
     const QString gpa = gpaEdit->text().trimmed();
     const QString grad = gradDateEdit->date().toString("yyyy-MM-dd");
     bool ok = database->updateProfileById(currentUserId, major, gpa, grad);
-    if (ok) {
+    if (ok)
+    {
         QMessageBox::information(this, "Profile", "Profile updated successfully.");
         emit profileSaved();
-    } else {
+    }
+    else
+    {
         QMessageBox::warning(this, "Profile", "Failed to update profile.");
     }
 }
 
 void MyProfilePage::handleChangePassword()
 {
-    if (newPasswordEdit->text().isEmpty() || confirmPasswordEdit->text().isEmpty()) {
+    if (newPasswordEdit->text().isEmpty() || confirmPasswordEdit->text().isEmpty())
+    {
         QMessageBox::warning(this, "Password", "Please enter and confirm your new password.");
         return;
     }
-    if (newPasswordEdit->text() != confirmPasswordEdit->text()) {
+    if (newPasswordEdit->text() != confirmPasswordEdit->text())
+    {
         QMessageBox::warning(this, "Password", "Passwords do not match.");
         return;
     }

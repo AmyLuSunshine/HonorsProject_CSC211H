@@ -441,32 +441,11 @@ CMakeFiles/campus_Hire_app.dir/campus_Hire_app_autogen/mocs_compilation.cpp.obj:
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeventloop.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdeadlinetimer.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qelapsedtimer.h \
- C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_jobdetailwidget.cpp \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/jobdetailwidget.h \
- C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_joblistwidget.cpp \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/joblistwidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QListWidget \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistwidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistview.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemview.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qitemselectionmodel.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qvalidator.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabbar.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_mainwindow.cpp \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/mainwindow.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QStackedWidget \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstackedwidget.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QToolBar \
@@ -476,12 +455,26 @@ CMakeFiles/campus_Hire_app.dir/campus_Hire_app_autogen/mocs_compilation.cpp.obj:
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdatetimeedit.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qvalidator.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qregularexpression.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qitemselectionmodel.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabbar.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QFileDialog \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qfiledialog.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdir.h \
@@ -521,12 +514,36 @@ CMakeFiles/campus_Hire_app.dir/campus_Hire_app_autogen/mocs_compilation.cpp.obj:
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qfileinfo.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDate \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QListWidget \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistwidget.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistview.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextBrowser \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextbrowser.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QCheckBox \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcheckbox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTreeWidget \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtreewidget.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtreeview.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDialog \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSplitter \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsplitter.h \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/interviewwidget.h \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_myapplicationpage.cpp \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_myprofilepage.cpp \
+ C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_oncampusjobspage.cpp \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_profilewidget.cpp \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_searchfilterwidget.cpp \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcombobox.h
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h

@@ -7,16 +7,16 @@
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 
-MyApplicationPage::MyApplicationPage(Database* db, QWidget* parent)
+MyApplicationPage::MyApplicationPage(Database *db, QWidget *parent)
     : QWidget(parent), database(db), currentUserId(-1)
 {
     setupUI();
     setupStyles();
 
     // Fade-in
-    auto* effect = new QGraphicsOpacityEffect(this);
+    auto *effect = new QGraphicsOpacityEffect(this);
     setGraphicsEffect(effect);
-    auto* anim = new QPropertyAnimation(effect, "opacity");
+    auto *anim = new QPropertyAnimation(effect, "opacity");
     anim->setDuration(350);
     anim->setStartValue(0.0);
     anim->setEndValue(1.0);
@@ -60,7 +60,8 @@ void MyApplicationPage::setupUI()
     completedDocsLabel = new QLabel("✓ Completed: 0", this);
     processingDocsLabel = new QLabel("⚙ Processing: 0", this);
 
-    for (auto* lbl : {pendingDocsLabel, completedDocsLabel, processingDocsLabel}) {
+    for (auto *lbl : {pendingDocsLabel, completedDocsLabel, processingDocsLabel})
+    {
         lbl->setAlignment(Qt::AlignCenter);
     }
     pendingDocsLabel->setStyleSheet("background:#FFF9C4; padding:15px; border-radius:8px; font-weight:bold; border:2px solid #FBC02D;");
@@ -110,8 +111,7 @@ void MyApplicationPage::setupStyles()
         " padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; border: none; min-height: 40px; }"
         "QPushButton:hover { background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 #1976D2, stop:1 #0D47A1); }"
         "QTableWidget { border: 1px solid #E0E0E0; border-radius: 8px; gridline-color: #F5F5F5; background: white; }"
-        "QHeaderView::section { background-color: #F5F5F5; padding: 10px; border: none; font-weight: bold; color: #424242; }"
-    );
+        "QHeaderView::section { background-color: #F5F5F5; padding: 10px; border: none; font-weight: bold; color: #424242; }");
 }
 
 void MyApplicationPage::setUserId(int userId)
@@ -124,10 +124,12 @@ void MyApplicationPage::setUserId(int userId)
 void MyApplicationPage::loadDocuments()
 {
     documentsTable->setRowCount(0);
-    if (!database || currentUserId < 0) return;
+    if (!database || currentUserId < 0)
+        return;
     auto docs = database->getUserDocuments(currentUserId);
     int row = 0;
-    for (const auto& d : docs) {
+    for (const auto &d : docs)
+    {
         documentsTable->insertRow(row);
         documentsTable->setItem(row, 0, new QTableWidgetItem(d.documentType));
         documentsTable->setItem(row, 1, new QTableWidgetItem(d.uploadDate));
@@ -139,7 +141,8 @@ void MyApplicationPage::loadDocuments()
 
 void MyApplicationPage::updateDocumentCounts()
 {
-    if (!database || currentUserId < 0) return;
+    if (!database || currentUserId < 0)
+        return;
     int pending = database->getDocumentCountByStatus(currentUserId, "Pending");
     int completed = database->getDocumentCountByStatus(currentUserId, "Completed");
     int processing = database->getDocumentCountByStatus(currentUserId, "Processing");
@@ -150,30 +153,40 @@ void MyApplicationPage::updateDocumentCounts()
 
 void MyApplicationPage::uploadTranscript()
 {
-    if (currentUserId < 0 || !database) return;
+    if (currentUserId < 0 || !database)
+        return;
     QString filePath = QFileDialog::getOpenFileName(this, "Select Transcript (PDF)", QString(), "PDF Files (*.pdf);;All Files (*.*)");
-    if (filePath.isEmpty()) return;
-    if (database->addDocument(currentUserId, "Transcript", filePath, "Pending")) {
+    if (filePath.isEmpty())
+        return;
+    if (database->addDocument(currentUserId, "Transcript", filePath, "Pending"))
+    {
         transcriptLabel->setText(QFileInfo(filePath).fileName());
         loadDocuments();
         updateDocumentCounts();
         emit documentsUpdated();
-    } else {
+    }
+    else
+    {
         QMessageBox::warning(this, "Upload", "Failed to save transcript record.");
     }
 }
 
 void MyApplicationPage::uploadCV()
 {
-    if (currentUserId < 0 || !database) return;
+    if (currentUserId < 0 || !database)
+        return;
     QString filePath = QFileDialog::getOpenFileName(this, "Select CV/Resume", QString(), "PDF Files (*.pdf);;All Files (*.*)");
-    if (filePath.isEmpty()) return;
-    if (database->addDocument(currentUserId, "CV", filePath, "Pending")) {
+    if (filePath.isEmpty())
+        return;
+    if (database->addDocument(currentUserId, "CV", filePath, "Pending"))
+    {
         cvLabel->setText(QFileInfo(filePath).fileName());
         loadDocuments();
         updateDocumentCounts();
         emit documentsUpdated();
-    } else {
+    }
+    else
+    {
         QMessageBox::warning(this, "Upload", "Failed to save CV record.");
     }
 }

@@ -51,30 +51,48 @@ void LandingPage::setupUI()
 
     mainLayout->addSpacing(20);
 
-    // FEATURE BOXES - side by side
+    // FEATURE BOXES - side by side (clickable)
     featuresLayout = new QHBoxLayout();
     featuresLayout->setSpacing(10);
 
-    // Feature 1
+    // Feature 1 - Jobs Box (clickable)
     auto feature1Box = createFeatureBox(
         "💼",
         "On-Campus Jobs",
         "Browse positions tailored to your skills. Filter by department and eligibility.");
-    featuresLayout->addWidget(feature1Box);
+    auto jobsBtn = new QPushButton(this);
+    jobsBtn->setLayout(feature1Box->layout());
+    jobsBtn->setMinimumSize(300, 250);
+    jobsBtn->setStyleSheet("QPushButton { background: white; border: 1px solid #ddd; } QPushButton:hover { background: #f5f5f5; }");
+    jobsBtn->setCursor(Qt::PointingHandCursor);
+    connect(jobsBtn, &QPushButton::clicked, this, &LandingPage::jobsBoxClicked);
+    featuresLayout->addWidget(jobsBtn);
 
-    // Feature 2
+    // Feature 2 - Onboarding Box (clickable)
     auto feature2Box = createFeatureBox(
         "📋",
         "Smart On-boarding",
         "Upload documents once and auto-fill applications. Track paperwork seamlessly.");
-    featuresLayout->addWidget(feature2Box);
+    auto onboardingBtn = new QPushButton(this);
+    onboardingBtn->setLayout(feature2Box->layout());
+    onboardingBtn->setMinimumSize(300, 250);
+    onboardingBtn->setStyleSheet("QPushButton { background: white; border: 1px solid #ddd; } QPushButton:hover { background: #f5f5f5; }");
+    onboardingBtn->setCursor(Qt::PointingHandCursor);
+    connect(onboardingBtn, &QPushButton::clicked, this, &LandingPage::onboardingBoxClicked);
+    featuresLayout->addWidget(onboardingBtn);
 
-    // Feature 3
+    // Feature 3 - Interview Box (clickable)
     auto feature3Box = createFeatureBox(
         "🎯",
         "Interview Prep",
         "Get personalized tips and practice resources to land your dream campus job.");
-    featuresLayout->addWidget(feature3Box);
+    auto interviewBtn = new QPushButton(this);
+    interviewBtn->setLayout(feature3Box->layout());
+    interviewBtn->setMinimumSize(300, 250);
+    interviewBtn->setStyleSheet("QPushButton { background: white; border: 1px solid #ddd; } QPushButton:hover { background: #f5f5f5; }");
+    interviewBtn->setCursor(Qt::PointingHandCursor);
+    connect(interviewBtn, &QPushButton::clicked, this, &LandingPage::interviewBoxClicked);
+    featuresLayout->addWidget(interviewBtn);
 
     mainLayout->addLayout(featuresLayout);
 
@@ -111,13 +129,13 @@ void LandingPage::setupUI()
 // Simple function to create one feature box
 // Takes: icon (emoji), title (bold text), description (normal text)
 // Returns: a simple white box with the content
-QWidget* LandingPage::createFeatureBox(const QString &icon,
+QWidget *LandingPage::createFeatureBox(const QString &icon,
                                        const QString &title,
                                        const QString &description)
 {
     // Create the box container
     auto box = new QWidget(this);
-    box->setFixedSize(300, 250);  // Fixed size 
+    box->setFixedSize(300, 250); // Fixed size
 
     // Vertical layout - stacks icon, title, description from top to bottom
     auto layout = new QVBoxLayout(box);
@@ -152,8 +170,7 @@ QWidget* LandingPage::createFeatureBox(const QString &icon,
         "QWidget { "
         "    background-color: white; "
         "    border-radius: 8px; "
-        "}"
-    );
+        "}");
 
     return box;
 }
@@ -217,8 +234,7 @@ void LandingPage::setupStyles()
 
         "QScrollBar::handle:vertical:hover {"
         "    background: #9E9E9E;"
-        "}"
-    );
+        "}");
 
     skipBtn->setObjectName("skipBtn");
 }

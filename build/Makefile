@@ -463,6 +463,30 @@ src/ui/mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.s
 .PHONY : src/ui/mainwindow.cpp.s
 
+src/ui/myaccountpage.obj: src/ui/myaccountpage.cpp.obj
+.PHONY : src/ui/myaccountpage.obj
+
+# target to build an object file
+src/ui/myaccountpage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj
+.PHONY : src/ui/myaccountpage.cpp.obj
+
+src/ui/myaccountpage.i: src/ui/myaccountpage.cpp.i
+.PHONY : src/ui/myaccountpage.i
+
+# target to preprocess a source file
+src/ui/myaccountpage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.i
+.PHONY : src/ui/myaccountpage.cpp.i
+
+src/ui/myaccountpage.s: src/ui/myaccountpage.cpp.s
+.PHONY : src/ui/myaccountpage.s
+
+# target to generate assembly for a file
+src/ui/myaccountpage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.s
+.PHONY : src/ui/myaccountpage.cpp.s
+
 src/ui/myapplicationpage.obj: src/ui/myapplicationpage.cpp.obj
 .PHONY : src/ui/myapplicationpage.obj
 
@@ -510,6 +534,30 @@ src/ui/myprofilepage.s: src/ui/myprofilepage.cpp.s
 src/ui/myprofilepage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.s
 .PHONY : src/ui/myprofilepage.cpp.s
+
+src/ui/onboardingPage.obj: src/ui/onboardingPage.cpp.obj
+.PHONY : src/ui/onboardingPage.obj
+
+# target to build an object file
+src/ui/onboardingPage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.obj
+.PHONY : src/ui/onboardingPage.cpp.obj
+
+src/ui/onboardingPage.i: src/ui/onboardingPage.cpp.i
+.PHONY : src/ui/onboardingPage.i
+
+# target to preprocess a source file
+src/ui/onboardingPage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.i
+.PHONY : src/ui/onboardingPage.cpp.i
+
+src/ui/onboardingPage.s: src/ui/onboardingPage.cpp.s
+.PHONY : src/ui/onboardingPage.s
+
+# target to generate assembly for a file
+src/ui/onboardingPage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.s
+.PHONY : src/ui/onboardingPage.cpp.s
 
 src/ui/oncampusjobspage.obj: src/ui/oncampusjobspage.cpp.obj
 .PHONY : src/ui/oncampusjobspage.obj
@@ -583,6 +631,30 @@ src/ui/searchfilterwidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.s
 .PHONY : src/ui/searchfilterwidget.cpp.s
 
+src/ui/settingspage.obj: src/ui/settingspage.cpp.obj
+.PHONY : src/ui/settingspage.obj
+
+# target to build an object file
+src/ui/settingspage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj
+.PHONY : src/ui/settingspage.cpp.obj
+
+src/ui/settingspage.i: src/ui/settingspage.cpp.i
+.PHONY : src/ui/settingspage.i
+
+# target to preprocess a source file
+src/ui/settingspage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.i
+.PHONY : src/ui/settingspage.cpp.i
+
+src/ui/settingspage.s: src/ui/settingspage.cpp.s
+.PHONY : src/ui/settingspage.s
+
+# target to generate assembly for a file
+src/ui/settingspage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.s
+.PHONY : src/ui/settingspage.cpp.s
+
 src/ui/studentsurveydialog.obj: src/ui/studentsurveydialog.cpp.obj
 .PHONY : src/ui/studentsurveydialog.obj
 
@@ -655,12 +727,18 @@ help:
 	@echo ... src/ui/mainwindow.obj
 	@echo ... src/ui/mainwindow.i
 	@echo ... src/ui/mainwindow.s
+	@echo ... src/ui/myaccountpage.obj
+	@echo ... src/ui/myaccountpage.i
+	@echo ... src/ui/myaccountpage.s
 	@echo ... src/ui/myapplicationpage.obj
 	@echo ... src/ui/myapplicationpage.i
 	@echo ... src/ui/myapplicationpage.s
 	@echo ... src/ui/myprofilepage.obj
 	@echo ... src/ui/myprofilepage.i
 	@echo ... src/ui/myprofilepage.s
+	@echo ... src/ui/onboardingPage.obj
+	@echo ... src/ui/onboardingPage.i
+	@echo ... src/ui/onboardingPage.s
 	@echo ... src/ui/oncampusjobspage.obj
 	@echo ... src/ui/oncampusjobspage.i
 	@echo ... src/ui/oncampusjobspage.s
@@ -670,6 +748,9 @@ help:
 	@echo ... src/ui/searchfilterwidget.obj
 	@echo ... src/ui/searchfilterwidget.i
 	@echo ... src/ui/searchfilterwidget.s
+	@echo ... src/ui/settingspage.obj
+	@echo ... src/ui/settingspage.i
+	@echo ... src/ui/settingspage.s
 	@echo ... src/ui/studentsurveydialog.obj
 	@echo ... src/ui/studentsurveydialog.i
 	@echo ... src/ui/studentsurveydialog.s

@@ -26,6 +26,11 @@ signals:
     // Signal emitted when user clicks "Skip for Now"
     void skipToJobs();
 
+    // Signals for feature box clicks
+    void jobsBoxClicked();
+    void onboardingBoxClicked();
+    void interviewBoxClicked();
+
 private:
     // Setup functions
     void setupUI();     // Creates all widgets and layouts

@@ -11,21 +11,26 @@
 #include "ui/interviewwidget.h"
 #include "ui/landingpage.h"
 #include "ui/studentsurveydialog.h"
+#include "ui/onboardingpage.h"
+#include "ui/myaccountpage.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+
 public:
     explicit MainWindow(Database *db, const QString &username, QWidget *parent = nullptr);
 
 private slots:
+    void switchToHome();
     void switchToProfile();
-    void switchToApplication();
+    void switchToOnboarding();
     void switchToInterview();
     void switchToOnCampusJobs();
     void handleLogout();
     void showStudentSurvey();
     void handleSurveyCompleted();
+    void switchToAccount();
 
 private:
     void setupUI();
@@ -43,4 +48,6 @@ private:
     OnCampusJobsPage *onCampusJobsPage;
     InterviewWidget *interviewWidget;
     LandingPage *landingPage;
+    OnboardingPage *onboardingPage;
+    MyAccountPage *accountPage;
 };

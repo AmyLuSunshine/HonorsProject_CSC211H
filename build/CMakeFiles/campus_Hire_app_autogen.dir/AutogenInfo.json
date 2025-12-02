@@ -390,6 +390,12 @@
 			null
 		],
 		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myaccountpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_myaccountpage.cpp",
+			null
+		],
+		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h",
 			"Mu",
 			"JCP2AIONHY/moc_myapplicationpage.cpp",
@@ -399,6 +405,12 @@
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h",
 			"Mu",
 			"JCP2AIONHY/moc_myprofilepage.cpp",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/onboardingpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_onboardingpage.cpp",
 			null
 		],
 		[
@@ -417,6 +429,12 @@
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h",
 			"Mu",
 			"JCP2AIONHY/moc_searchfilterwidget.cpp",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/settingspage.h",
+			"Mu",
+			"JCP2AIONHY/moc_settingspage.cpp",
 			null
 		],
 		[
@@ -556,12 +574,22 @@
 			null
 		],
 		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myaccountpage.cpp",
+			"Mu",
+			null
+		],
+		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myapplicationpage.cpp",
 			"Mu",
 			null
 		],
 		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/onboardingPage.cpp",
 			"Mu",
 			null
 		],
@@ -577,6 +605,11 @@
 		],
 		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/searchfilterwidget.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/settingspage.cpp",
 			"Mu",
 			null
 		],

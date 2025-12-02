@@ -27,9 +27,7 @@ private slots:
 private:
     void setupUI();
     void setupStyles();
-    QString parseResumeData(const QString &filePath);
-    QString parseTranscriptForGPA(const QString &filePath);
-    QString parseTranscriptForCourses(const QString &filePath);
+    // Parsing features removed
 
     Database *database;
     int currentUserId;
@@ -52,8 +50,7 @@ private:
     QPushButton *transcriptBrowseBtn;
     QLabel *transcriptStatusLabel;
 
-    // Parsed data preview
-    QTextEdit *parsedDataPreview;
+    // Parsed data preview removed
 
     // Progress
     QProgressBar *progressBar;
@@ -62,8 +59,5 @@ private:
     QPushButton *submitBtn;
     QPushButton *skipBtn;
 
-    // Parsed data storage
-    QString parsedResumeData;
-    QString parsedGPA;
-    QString parsedCourses;
+    // Parsed data storage removed
 };

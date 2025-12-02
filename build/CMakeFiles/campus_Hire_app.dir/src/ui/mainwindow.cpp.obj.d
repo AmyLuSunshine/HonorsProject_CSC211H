@@ -525,6 +525,8 @@ CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj: \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/studentsurveydialog.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QProgressBar \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qprogressbar.h \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/onboardingpage.h \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myaccountpage.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMessageBox \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmessagebox.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \

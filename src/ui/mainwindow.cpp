@@ -42,9 +42,10 @@ void MainWindow::setupUI()
     toolbar->setMovable(false);
     addToolBar(Qt::TopToolBarArea, toolbar);
 
-    // Add toolbar actions (removed My Profile from main toolbar)
+    // Add toolbar actions
+    auto homeAction = toolbar->addAction("Home");
     auto onCampusJobsAction = toolbar->addAction("On-Campus Jobs");
-    auto applicationAction = toolbar->addAction("My Application");
+    auto onboardingAction = toolbar->addAction("On-Boarding");
     auto interviewAction = toolbar->addAction("Interview");
 
     // Add an expanding spacer to push Settings to the right
@@ -59,6 +60,7 @@ void MainWindow::setupUI()
     auto settingsMenu = new QMenu(settingsButton);
 
     QAction *settingsProfileAction = settingsMenu->addAction("👤 My Profile");
+    QAction *settingsAccountAction = settingsMenu->addAction("🔽 My Account");
     QAction *settingsLogoutAction = settingsMenu->addAction("⏻ Logout");
 
     settingsButton->setMenu(settingsMenu);
@@ -71,18 +73,32 @@ void MainWindow::setupUI()
     landingPage = new LandingPage(database, -1, this); // userId set later
     profilePage = new MyProfilePage(database, this);
     applicationPage = new MyApplicationPage(database, this);
+    onboardingPage = new OnboardingPage(false, this);            // Simple onboarding page
     onCampusJobsPage = new OnCampusJobsPage(database, -1, this); // userId set later
     interviewWidget = new InterviewWidget(currentUser.getMajor(), this);
+    accountPage = new MyAccountPage(database, this);
 
     stackedWidget->addWidget(landingPage);
     stackedWidget->addWidget(onCampusJobsPage);
     stackedWidget->addWidget(profilePage);
     stackedWidget->addWidget(applicationPage);
+    stackedWidget->addWidget(onboardingPage);
     stackedWidget->addWidget(interviewWidget);
+    stackedWidget->addWidget(accountPage);
 
     // Connect landing page signals
     connect(landingPage, &LandingPage::startSurvey, this, &MainWindow::showStudentSurvey);
     connect(landingPage, &LandingPage::skipToJobs, this, &MainWindow::switchToOnCampusJobs);
+    connect(landingPage, &LandingPage::jobsBoxClicked, this, &MainWindow::switchToOnCampusJobs);
+    connect(landingPage, &LandingPage::onboardingBoxClicked, this, &MainWindow::switchToOnboarding);
+    connect(landingPage, &LandingPage::interviewBoxClicked, this, &MainWindow::switchToInterview);
+
+    // Connect onboarding page signals
+    connect(onboardingPage, &OnboardingPage::backButtonClicked, this, &MainWindow::switchToHome);
+    connect(onboardingPage, &OnboardingPage::viewApplicationClicked, [this]()
+            {
+        applyFadeTransition(applicationPage);
+        stackedWidget->setCurrentWidget(applicationPage); });
 
     // Set layout
     auto layout = new QVBoxLayout(centralWidget);
@@ -90,14 +106,17 @@ void MainWindow::setupUI()
     layout->addWidget(stackedWidget);
 
     // Connect signals
+    connect(homeAction, &QAction::triggered, this, &MainWindow::switchToHome);
     connect(onCampusJobsAction, &QAction::triggered, this, &MainWindow::switchToOnCampusJobs);
-    connect(applicationAction, &QAction::triggered, this, &MainWindow::switchToApplication);
+    connect(onboardingAction, &QAction::triggered, this, &MainWindow::switchToOnboarding);
     connect(interviewAction, &QAction::triggered, this, &MainWindow::switchToInterview);
     connect(settingsProfileAction, &QAction::triggered, this, &MainWindow::switchToProfile);
+    connect(settingsAccountAction, &QAction::triggered, this, &MainWindow::switchToAccount);
     connect(settingsLogoutAction, &QAction::triggered, this, &MainWindow::handleLogout);
+    connect(accountPage, &MyAccountPage::backToHomeRequested, this, &MainWindow::switchToHome);
 
-    // Start with On-Campus Jobs page
-    switchToOnCampusJobs();
+    // Start at Landing (Home) page
+    switchToHome();
 }
 
 void MainWindow::setupStyles()
@@ -166,6 +185,12 @@ void MainWindow::applyFadeTransition(QWidget *widget)
     animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
+void MainWindow::switchToHome()
+{
+    applyFadeTransition(landingPage);
+    stackedWidget->setCurrentWidget(landingPage);
+}
+
 void MainWindow::switchToOnCampusJobs()
 {
     applyFadeTransition(onCampusJobsPage);
@@ -178,10 +203,16 @@ void MainWindow::switchToProfile()
     stackedWidget->setCurrentWidget(profilePage);
 }
 
-void MainWindow::switchToApplication()
+void MainWindow::switchToAccount()
 {
-    applyFadeTransition(applicationPage);
-    stackedWidget->setCurrentWidget(applicationPage);
+    applyFadeTransition(accountPage);
+    stackedWidget->setCurrentWidget(accountPage);
+}
+
+void MainWindow::switchToOnboarding()
+{
+    applyFadeTransition(onboardingPage);
+    stackedWidget->setCurrentWidget(onboardingPage);
 }
 
 void MainWindow::switchToInterview()
@@ -237,6 +268,7 @@ void MainWindow::loadUserData(const QString &email)
     landingPage->setUserId(uid);
     profilePage->setUserId(uid);
     applicationPage->setUserId(uid);
+    accountPage->setUserId(uid);
 
     // Update onCampusJobsPage with new userId
     delete onCampusJobsPage;
@@ -248,17 +280,8 @@ void MainWindow::loadUserData(const QString &email)
 
 void MainWindow::checkAndShowLandingPage()
 {
-    // Check if user has completed survey
-    if (!currentUser.getSurveyCompleted())
-    {
-        // Show landing page for new users
-        stackedWidget->setCurrentWidget(landingPage);
-    }
-    else
-    {
-        // Go directly to jobs page for returning users
-        switchToOnCampusJobs();
-    }
+    // Always show landing page after login
+    stackedWidget->setCurrentWidget(landingPage);
 }
 
 void MainWindow::showStudentSurvey()

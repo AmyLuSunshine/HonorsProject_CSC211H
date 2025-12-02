@@ -132,17 +132,7 @@ void StudentSurveyDialog::setupUI()
 
     mainLayout->addWidget(transcriptGroup);
 
-    // Parsed data preview
-    auto previewGroup = new QGroupBox("Parsed Information", this);
-    auto previewLayout = new QVBoxLayout(previewGroup);
-
-    parsedDataPreview = new QTextEdit(this);
-    parsedDataPreview->setReadOnly(true);
-    parsedDataPreview->setPlaceholderText("Upload documents to see parsed data preview...");
-    parsedDataPreview->setMaximumHeight(150);
-    previewLayout->addWidget(parsedDataPreview);
-
-    mainLayout->addWidget(previewGroup);
+    // Parsed information preview removed for simplicity
 
     // Progress bar
     progressBar = new QProgressBar(this);
@@ -290,21 +280,7 @@ void StudentSurveyDialog::browseResume()
         resumePathEdit->setText(fileName);
         resumeStatusLabel->setText("✓ Resume uploaded successfully!");
 
-        // Parse resume
-        progressBar->setVisible(true);
-        progressBar->setValue(30);
-
-        parsedResumeData = parseResumeData(fileName);
-
-        progressBar->setValue(60);
-
-        // Update preview
-        QString preview = parsedDataPreview->toPlainText();
-        preview += "\n=== RESUME DATA ===\n" + parsedResumeData + "\n";
-        parsedDataPreview->setPlainText(preview);
-
-        progressBar->setValue(100);
-        progressBar->setVisible(false);
+        // Parsing removed; no preview generated
     }
 }
 
@@ -321,60 +297,8 @@ void StudentSurveyDialog::browseTranscript()
         transcriptPathEdit->setText(fileName);
         transcriptStatusLabel->setText("✓ Transcript uploaded successfully!");
 
-        // Parse transcript
-        progressBar->setVisible(true);
-        progressBar->setValue(30);
-
-        parsedGPA = parseTranscriptForGPA(fileName);
-        parsedCourses = parseTranscriptForCourses(fileName);
-
-        progressBar->setValue(80);
-
-        // Update preview
-        QString preview = parsedDataPreview->toPlainText();
-        preview += "\n=== TRANSCRIPT DATA ===\n";
-        preview += "GPA: " + parsedGPA + "\n";
-        preview += "Courses: " + parsedCourses + "\n";
-        parsedDataPreview->setPlainText(preview);
-
-        progressBar->setValue(100);
-        progressBar->setVisible(false);
+        // Parsing removed; no GPA/courses preview
     }
-}
-
-QString StudentSurveyDialog::parseResumeData(const QString &filePath)
-{
-    // Simple placeholder parsing - in production, use PDF parsing library
-    // For demo purposes, extract filename and return mock data
-    QString fileName = QFileInfo(filePath).fileName();
-
-    QString mockData;
-    mockData += "Name: [Extracted from resume]\n";
-    mockData += "Email: [Contact info extracted]\n";
-    mockData += "Phone: [Contact extracted]\n";
-    mockData += "Skills: [Skills section parsed]\n";
-    mockData += "Experience: [Work history extracted]\n";
-    mockData += "Education: [Education details]\n";
-    mockData += "\nNote: Full parsing will be implemented with PDF library.";
-
-    return mockData;
-}
-
-QString StudentSurveyDialog::parseTranscriptForGPA(const QString &filePath)
-{
-    // Simple placeholder - would use PDF library to extract GPA
-    // Look for patterns like "GPA: 3.75" or "Cumulative GPA 3.8"
-
-    // Mock for demo
-    return "3.75 (Placeholder - will parse from actual PDF)";
-}
-
-QString StudentSurveyDialog::parseTranscriptForCourses(const QString &filePath)
-{
-    // Simple placeholder - would extract course codes and names
-
-    // Mock for demo
-    return "CSC 101, CSC 211, MAT 131, ENG 101, ... (Placeholder - will parse from actual PDF)";
 }
 
 void StudentSurveyDialog::submitSurvey()
@@ -399,9 +323,9 @@ void StudentSurveyDialog::submitSurvey()
         isInternational,
         resumePath,
         transcriptPath,
-        parsedResumeData,
-        parsedGPA,
-        parsedCourses);
+        "",
+        "",
+        "");
 
     if (success)
     {

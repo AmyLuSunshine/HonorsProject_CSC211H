@@ -30,6 +30,8 @@
         "qscrollarea": "cpp",
         "qscreen": "cpp",
         "qlabel": "cpp",
-        "qregularexpressionvalidator": "cpp"
+        "qregularexpressionvalidator": "cpp",
+        "qcheckbox": "cpp",
+        "qurl": "cpp"
     }
 }

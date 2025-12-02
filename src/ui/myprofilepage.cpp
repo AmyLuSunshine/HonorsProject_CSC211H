@@ -72,39 +72,14 @@ void MyProfilePage::setupUI()
 
     mainLayout->addWidget(personalGroup);
 
-    // Account Information
-    auto accountGroup = new QGroupBox("Login / Account Information", this);
-    auto accountLayout = new QVBoxLayout(accountGroup);
-
-    usernameEdit = new QLineEdit(this);
-    usernameEdit->setPlaceholderText("Username (email)");
-    usernameEdit->setReadOnly(true);
-    newPasswordEdit = new QLineEdit(this);
-    newPasswordEdit->setPlaceholderText("New Password");
-    newPasswordEdit->setEchoMode(QLineEdit::Password);
-    confirmPasswordEdit = new QLineEdit(this);
-    confirmPasswordEdit->setPlaceholderText("Confirm Password");
-    confirmPasswordEdit->setEchoMode(QLineEdit::Password);
-
-    changePasswordButton = new QPushButton("Change Password", this);
+    // Save button for profile only
     saveButton = new QPushButton("Save Changes", this);
-
-    accountLayout->addWidget(new QLabel("Username:"));
-    accountLayout->addWidget(usernameEdit);
-    accountLayout->addSpacing(8);
-    accountLayout->addWidget(new QLabel("Change Password:"));
-    accountLayout->addWidget(newPasswordEdit);
-    accountLayout->addWidget(confirmPasswordEdit);
     auto btnRow = new QHBoxLayout();
-    btnRow->addWidget(changePasswordButton);
     btnRow->addStretch();
     btnRow->addWidget(saveButton);
-    accountLayout->addLayout(btnRow);
-
-    mainLayout->addWidget(accountGroup);
+    mainLayout->addLayout(btnRow);
 
     connect(saveButton, &QPushButton::clicked, this, &MyProfilePage::handleSaveProfile);
-    connect(changePasswordButton, &QPushButton::clicked, this, &MyProfilePage::handleChangePassword);
 }
 
 void MyProfilePage::setupStyles()
@@ -139,7 +114,7 @@ void MyProfilePage::loadUser()
     fullNameEdit->setText(u.getFullName());
     emplidEdit->setText(u.getEmplid());
     emailEdit->setText(u.getEmail());
-    usernameEdit->setText(u.getEmail());
+    // Username and password moved to Settings -> My Account
 
     majorEdit->setText(u.getMajor());
     gpaEdit->setText(u.getGpa());
@@ -172,16 +147,5 @@ void MyProfilePage::handleSaveProfile()
 
 void MyProfilePage::handleChangePassword()
 {
-    if (newPasswordEdit->text().isEmpty() || confirmPasswordEdit->text().isEmpty())
-    {
-        QMessageBox::warning(this, "Password", "Please enter and confirm your new password.");
-        return;
-    }
-    if (newPasswordEdit->text() != confirmPasswordEdit->text())
-    {
-        QMessageBox::warning(this, "Password", "Passwords do not match.");
-        return;
-    }
-    // No password update API yet; placeholder
-    QMessageBox::information(this, "Password", "Password change is not implemented yet in the database layer.");
+    QMessageBox::information(this, "My Account", "Login and password settings moved to Settings > My Account.");
 }

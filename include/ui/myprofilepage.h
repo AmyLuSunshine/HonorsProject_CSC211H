@@ -40,10 +40,6 @@ private:
     QLineEdit *gpaEdit;
     QDateEdit *gradDateEdit;
 
-    // Account info widgets
-    QLineEdit *usernameEdit; // mirrors email for now
-    QLineEdit *newPasswordEdit;
-    QLineEdit *confirmPasswordEdit;
+    // Account info moved to SettingsPage
     QPushButton *saveButton;
-    QPushButton *changePasswordButton;
 };

@@ -539,11 +539,22 @@ CMakeFiles/campus_Hire_app.dir/campus_Hire_app_autogen/mocs_compilation.cpp.obj:
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/studentsurveydialog.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QProgressBar \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qprogressbar.h \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/onboardingpage.h \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myaccountpage.h \
+ C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_myaccountpage.cpp \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_myapplicationpage.cpp \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_myprofilepage.cpp \
+ C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_onboardingpage.cpp \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/onboardingpage.h \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_oncampusjobspage.cpp \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_profilewidget.cpp \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_searchfilterwidget.cpp \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h \
+ C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_settingspage.cpp \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/settingspage.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTabWidget \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h \
  C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\campus_Hire_app_autogen\JCP2AIONHY/moc_studentsurveydialog.cpp

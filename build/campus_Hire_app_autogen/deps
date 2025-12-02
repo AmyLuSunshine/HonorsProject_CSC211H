@@ -196,10 +196,12 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QProgressBar \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton \
+	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSplitter \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QStackedWidget \
+	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTabWidget \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextBrowser \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
@@ -231,6 +233,7 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qprogressbar.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
+	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -752,11 +755,14 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/interviewwidget.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/landingpage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/mainwindow.h \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myaccountpage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/onboardingpage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/settingspage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/studentsurveydialog.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/auth/loginwindow.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/auth/registerwindow.cpp \
@@ -768,10 +774,13 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/interviewwidget.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/landingpage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/mainwindow.cpp \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myaccountpage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myapplicationpage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/onboardingPage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/oncampusjobspage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/profilewidget.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/searchfilterwidget.cpp \
+	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/settingspage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/studentsurveydialog.cpp \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

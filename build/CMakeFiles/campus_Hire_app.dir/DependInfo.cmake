@@ -20,11 +20,14 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/interviewwidget.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj.d"
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/landingpage.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/landingpage.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/landingpage.cpp.obj.d"
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/mainwindow.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/mainwindow.cpp.obj.d"
+  "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myaccountpage.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj.d"
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myapplicationpage.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/myapplicationpage.cpp.obj.d"
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj.d"
+  "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/onboardingPage.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.obj.d"
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/oncampusjobspage.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj.d"
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/profilewidget.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/profilewidget.cpp.obj.d"
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/searchfilterwidget.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.obj.d"
+  "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/settingspage.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj.d"
   "C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/studentsurveydialog.cpp" "CMakeFiles/campus_Hire_app.dir/src/ui/studentsurveydialog.cpp.obj" "gcc" "CMakeFiles/campus_Hire_app.dir/src/ui/studentsurveydialog.cpp.obj.d"
   )
 

@@ -42,7 +42,10 @@ template <> constexpr inline auto LandingPage::qt_create_metaobjectdata<qt_meta_
         "LandingPage",
         "startSurvey",
         "",
-        "skipToJobs"
+        "skipToJobs",
+        "jobsBoxClicked",
+        "onboardingBoxClicked",
+        "interviewBoxClicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -50,6 +53,12 @@ template <> constexpr inline auto LandingPage::qt_create_metaobjectdata<qt_meta_
         QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'skipToJobs'
         QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'jobsBoxClicked'
+        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'onboardingBoxClicked'
+        QtMocHelpers::SignalData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'interviewBoxClicked'
+        QtMocHelpers::SignalData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -75,6 +84,9 @@ void LandingPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->startSurvey(); break;
         case 1: _t->skipToJobs(); break;
+        case 2: _t->jobsBoxClicked(); break;
+        case 3: _t->onboardingBoxClicked(); break;
+        case 4: _t->interviewBoxClicked(); break;
         default: ;
         }
     }
@@ -82,6 +94,12 @@ void LandingPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         if (QtMocHelpers::indexOfMethod<void (LandingPage::*)()>(_a, &LandingPage::startSurvey, 0))
             return;
         if (QtMocHelpers::indexOfMethod<void (LandingPage::*)()>(_a, &LandingPage::skipToJobs, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (LandingPage::*)()>(_a, &LandingPage::jobsBoxClicked, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (LandingPage::*)()>(_a, &LandingPage::onboardingBoxClicked, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (LandingPage::*)()>(_a, &LandingPage::interviewBoxClicked, 4))
             return;
     }
 }
@@ -105,14 +123,14 @@ int LandingPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 5;
     }
     return _id;
 }
@@ -127,5 +145,23 @@ void LandingPage::startSurvey()
 void LandingPage::skipToJobs()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void LandingPage::jobsBoxClicked()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+}
+
+// SIGNAL 3
+void LandingPage::onboardingBoxClicked()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+}
+
+// SIGNAL 4
+void LandingPage::interviewBoxClicked()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
 }
 QT_WARNING_POP

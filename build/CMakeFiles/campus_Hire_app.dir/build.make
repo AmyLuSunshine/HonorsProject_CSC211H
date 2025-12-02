@@ -344,11 +344,26 @@ CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.s"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\onboardingPage.cpp -o CMakeFiles\campus_Hire_app.dir\src\ui\onboardingPage.cpp.s
 
+CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj: CMakeFiles/campus_Hire_app.dir/flags.make
+CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
+CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/settingspage.cpp
+CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj"
+	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\settingspage.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\settingspage.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\settingspage.cpp
+
+CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.i"
+	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\settingspage.cpp > CMakeFiles\campus_Hire_app.dir\src\ui\settingspage.cpp.i
+
+CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.s"
+	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\settingspage.cpp -o CMakeFiles\campus_Hire_app.dir\src\ui\settingspage.cpp.s
+
 CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj: CMakeFiles/campus_Hire_app.dir/flags.make
 CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj: CMakeFiles/campus_Hire_app.dir/includes_CXX.rsp
 CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj: C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myaccountpage.cpp
 CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj: CMakeFiles/campus_Hire_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj"
 	C:\Qt-Community\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj -MF CMakeFiles\campus_Hire_app.dir\src\ui\myaccountpage.cpp.obj.d -o CMakeFiles\campus_Hire_app.dir\src\ui\myaccountpage.cpp.obj -c C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\src\ui\myaccountpage.cpp
 
 CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.i: cmake_force
@@ -379,6 +394,7 @@ campus_Hire_app_OBJECTS = \
 "CMakeFiles/campus_Hire_app.dir/src/ui/landingpage.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/studentsurveydialog.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.obj" \
+"CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj" \
 "CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj"
 
 # External object files for target campus_Hire_app
@@ -402,6 +418,7 @@ campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.o
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/landingpage.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/studentsurveydialog.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/onboardingPage.cpp.obj
+campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/src/ui/myaccountpage.cpp.obj
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/build.make
 campus_Hire_app.exe: C:/Qt-Community/6.9.0/mingw_64/lib/libQt6Widgets.a
@@ -412,7 +429,7 @@ campus_Hire_app.exe: C:/Qt-Community/6.9.0/mingw_64/lib/libQt6EntryPoint.a
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/linkLibs.rsp
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/objects1.rsp
 campus_Hire_app.exe: CMakeFiles/campus_Hire_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable campus_Hire_app.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\yangm\Documents\Masters\CSProjects\Qt_HonorsProject_CSC211H\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable campus_Hire_app.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\campus_Hire_app.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

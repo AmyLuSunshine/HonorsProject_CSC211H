@@ -1591,8 +1591,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/profilewidget.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/auth/registerwindow.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/application.h
-C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h
-C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/interviewwidget.h
  mmc:Q_OBJECT
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QString
@@ -1983,6 +1981,8 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campus_Hire_app_autogen/moc_predefs.h
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/interviewwidget.h
+C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h
+C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/landingpage.h
  mmc:Q_OBJECT
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDateTime
@@ -2587,7 +2587,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMainWindow
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QProgressBar
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSplitter
@@ -2623,7 +2622,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qprogressbar.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h
@@ -3369,7 +3367,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q20type_traits.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q20utility.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q23utility.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qanystringview.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qarraydata.h
@@ -3534,38 +3531,21 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsql-config.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsqlexports.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsqlglobal.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDateEdit
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLabel
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLineEdit
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QWidget
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdatetimeedit.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qframe.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlabel.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayout.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlineedit.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyle.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabbar.h
- mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h
@@ -4264,6 +4244,8 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h
+C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myaccountpage.cpp
+C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/models/application.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h
  mmc:Q_OBJECT
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDateTime
@@ -4726,8 +4708,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h
-C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/models/application.cpp
-C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myaccountpage.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h
  mmc:Q_OBJECT
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q17memory.h
@@ -5535,13 +5515,13 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h
  mdp:C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/studentsurveydialog.h
-C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/auth/loginwindow.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/mainwindow.cpp
+C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/auth/loginwindow.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/database/database.cpp
-C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/main.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp
-C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/models/job.cpp
+C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/main.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/oncampusjobspage.cpp
+C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/models/job.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/models/user.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/interviewwidget.cpp
 C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/landingpage.cpp

@@ -12,4 +12,5 @@
 #include "JCP2AIONHY/moc_oncampusjobspage.cpp"
 #include "JCP2AIONHY/moc_profilewidget.cpp"
 #include "JCP2AIONHY/moc_searchfilterwidget.cpp"
+#include "JCP2AIONHY/moc_settingspage.cpp"
 #include "JCP2AIONHY/moc_studentsurveydialog.cpp"

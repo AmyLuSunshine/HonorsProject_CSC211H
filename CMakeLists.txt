@@ -39,6 +39,7 @@ set(PROJECT_SOURCES
     src/ui/landingpage.cpp
     src/ui/studentsurveydialog.cpp
     src/ui/onboardingPage.cpp
+    src/ui/settingspage.cpp
     src/ui/myaccountpage.cpp
 )
 
@@ -60,6 +61,7 @@ set(PROJECT_HEADERS
     include/ui/landingpage.h
     include/ui/studentsurveydialog.h
     include/ui/onboardingpage.h
+    include/ui/settingspage.h
     include/ui/myaccountpage.h
 )
 

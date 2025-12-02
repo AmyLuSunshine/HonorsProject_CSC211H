@@ -197,7 +197,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QProgressBar \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSplitter \
@@ -233,7 +232,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qprogressbar.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \

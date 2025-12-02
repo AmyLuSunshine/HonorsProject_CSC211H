@@ -32,7 +32,6 @@
         "qlabel": "cpp",
         "qregularexpressionvalidator": "cpp",
         "qcheckbox": "cpp",
-        "qurl": "cpp",
-        "qgridlayout": "cpp"
+        "qurl": "cpp"
     }
 }

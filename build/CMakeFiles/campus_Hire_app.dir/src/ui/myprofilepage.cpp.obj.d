@@ -409,6 +409,25 @@ CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabbar.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/database/database.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QObject \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qobject.h \
@@ -425,12 +444,6 @@ CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj: \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMessageBox \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmessagebox.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
@@ -441,4 +454,7 @@ CMakeFiles/campus_Hire_app.dir/src/ui/myprofilepage.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qpropertyanimation.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qvariantanimation.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractanimation.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeasingcurve.h
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeasingcurve.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h

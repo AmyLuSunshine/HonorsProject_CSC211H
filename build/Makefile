@@ -631,30 +631,6 @@ src/ui/searchfilterwidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.s
 .PHONY : src/ui/searchfilterwidget.cpp.s
 
-src/ui/settingspage.obj: src/ui/settingspage.cpp.obj
-.PHONY : src/ui/settingspage.obj
-
-# target to build an object file
-src/ui/settingspage.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.obj
-.PHONY : src/ui/settingspage.cpp.obj
-
-src/ui/settingspage.i: src/ui/settingspage.cpp.i
-.PHONY : src/ui/settingspage.i
-
-# target to preprocess a source file
-src/ui/settingspage.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.i
-.PHONY : src/ui/settingspage.cpp.i
-
-src/ui/settingspage.s: src/ui/settingspage.cpp.s
-.PHONY : src/ui/settingspage.s
-
-# target to generate assembly for a file
-src/ui/settingspage.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/settingspage.cpp.s
-.PHONY : src/ui/settingspage.cpp.s
-
 src/ui/studentsurveydialog.obj: src/ui/studentsurveydialog.cpp.obj
 .PHONY : src/ui/studentsurveydialog.obj
 
@@ -748,9 +724,6 @@ help:
 	@echo ... src/ui/searchfilterwidget.obj
 	@echo ... src/ui/searchfilterwidget.i
 	@echo ... src/ui/searchfilterwidget.s
-	@echo ... src/ui/settingspage.obj
-	@echo ... src/ui/settingspage.i
-	@echo ... src/ui/settingspage.s
 	@echo ... src/ui/studentsurveydialog.obj
 	@echo ... src/ui/studentsurveydialog.i
 	@echo ... src/ui/studentsurveydialog.s

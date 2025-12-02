@@ -174,19 +174,86 @@ bool Database::createTables()
         }
     }
 
-    // Insert sample jobs if table is empty (legacy minimal sample)
+    // Insert real sample jobs if table is empty (seed from MYND reference)
     query.exec("SELECT COUNT(*) FROM jobs");
     if (query.next() && query.value(0).toInt() == 0)
     {
-        success = query.exec(
-            "INSERT INTO jobs (title, department, description, pay_rate) VALUES "
-            "('Student Assistant', 'Computer Science', 'Help with lab sessions', 15.00),"
-            "('Library Assistant', 'Library', 'Help students find resources', 16.00),"
-            "('IT Support', 'IT Services', 'Provide technical support', 17.50)");
-        if (!success)
+        // College Assistant
         {
-            qDebug() << "Error inserting sample jobs:" << query.lastError().text();
-            return false;
+            QSqlQuery ins;
+            ins.prepare(
+                "INSERT INTO jobs (title, department, category, description, requirements, duties, pay_rate_min, pay_rate_max, hours_per_week, positions_available, status, work_study_eligible, international_eligible, deadline, contact_email, schedule) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            ins.addBindValue("College Assistant");
+            ins.addBindValue("Various Departments");
+            ins.addBindValue("Administrative");
+            ins.addBindValue("Work in various departments while gaining valuable experience.");
+            ins.addBindValue("Basic computer skills; strong communication; reliability");
+            ins.addBindValue("Assist staff, support daily operations, help students");
+            ins.addBindValue(15.61);
+            ins.addBindValue(15.61);
+            ins.addBindValue(10);
+            ins.addBindValue(5);
+            ins.addBindValue(static_cast<int>(JobStatus::Open));
+            ins.addBindValue(1);
+            ins.addBindValue(1);
+            ins.addBindValue("2025-12-31");
+            ins.addBindValue("jobs@bmcc.cuny.edu");
+            ins.addBindValue("10-15 hours/week");
+            if (!ins.exec())
+                qDebug() << "Seed insert College Assistant failed:" << ins.lastError().text();
+        }
+
+        // Mentor
+        {
+            QSqlQuery ins;
+            ins.prepare(
+                "INSERT INTO jobs (title, department, category, description, requirements, duties, pay_rate_min, pay_rate_max, hours_per_week, positions_available, status, work_study_eligible, international_eligible, deadline, contact_email, schedule) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            ins.addBindValue("Mentor");
+            ins.addBindValue("Student Services");
+            ins.addBindValue("Student Services");
+            ins.addBindValue("Guide and support fellow students in their academic journey.");
+            ins.addBindValue("Minimum 3.0 GPA; completed credits; strong interpersonal skills");
+            ins.addBindValue("Conduct mentoring sessions; organize workshops; provide support");
+            ins.addBindValue(16.50);
+            ins.addBindValue(16.50);
+            ins.addBindValue(12);
+            ins.addBindValue(10);
+            ins.addBindValue(static_cast<int>(JobStatus::Open));
+            ins.addBindValue(1);
+            ins.addBindValue(1);
+            ins.addBindValue("2026-01-15");
+            ins.addBindValue("mentor@bmcc.cuny.edu");
+            ins.addBindValue("12-15 hours/week");
+            if (!ins.exec())
+                qDebug() << "Seed insert Mentor failed:" << ins.lastError().text();
+        }
+
+        // Student Instructor (SI)
+        {
+            QSqlQuery ins;
+            ins.prepare(
+                "INSERT INTO jobs (title, department, category, description, requirements, duties, pay_rate_min, pay_rate_max, hours_per_week, positions_available, status, work_study_eligible, international_eligible, deadline, contact_email, schedule) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            ins.addBindValue("Student Instructor");
+            ins.addBindValue("Academic Support");
+            ins.addBindValue("Academic Support");
+            ins.addBindValue("Help other students succeed in their courses.");
+            ins.addBindValue("High course grades; communication skills; tutoring experience preferred");
+            ins.addBindValue("Lead study sessions; assist with coursework; track student progress");
+            ins.addBindValue(17.00);
+            ins.addBindValue(17.00);
+            ins.addBindValue(10);
+            ins.addBindValue(8);
+            ins.addBindValue(static_cast<int>(JobStatus::Open));
+            ins.addBindValue(1);
+            ins.addBindValue(1);
+            ins.addBindValue("2026-02-01");
+            ins.addBindValue("si@bmcc.cuny.edu");
+            ins.addBindValue("10-12 hours/week");
+            if (!ins.exec())
+                qDebug() << "Seed insert Student Instructor failed:" << ins.lastError().text();
         }
     }
 
@@ -195,6 +262,30 @@ bool Database::createTables()
 
 bool Database::validateLogin(const QString &email, const QString &password)
 {
+    // Ensure at least one demo user exists for testing if table is empty
+    {
+        QSqlQuery countQ;
+        if (countQ.exec("SELECT COUNT(*) FROM users") && countQ.next() && countQ.value(0).toInt() == 0)
+        {
+            QString demoPassHash = QString(QCryptographicHash::hash(
+                                               QString("123456").toUtf8(), QCryptographicHash::Sha256)
+                                               .toHex());
+            QSqlQuery ins;
+            ins.prepare("INSERT INTO users (full_name, email, password, emplid, major, gpa, grad_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            ins.addBindValue("Demo User");
+            ins.addBindValue("test@stu.bmcc.cuny.edu");
+            ins.addBindValue(demoPassHash);
+            ins.addBindValue("00000000");
+            ins.addBindValue("Computer Science");
+            ins.addBindValue("3.5");
+            ins.addBindValue("2026-06-01");
+            if (!ins.exec())
+            {
+                qDebug() << "Error inserting demo user:" << ins.lastError().text();
+            }
+        }
+    }
+
     QSqlQuery query;
     query.prepare("SELECT password FROM users WHERE email = ?");
     query.addBindValue(email);

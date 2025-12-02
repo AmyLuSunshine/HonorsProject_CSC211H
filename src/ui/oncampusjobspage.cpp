@@ -220,129 +220,72 @@ OnCampusJobsPage::OnCampusJobsPage(Database *db, int userId, QWidget *parent)
 
 void OnCampusJobsPage::setupUI()
 {
+    // Simple two-column layout: job list on left, details on right
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(10);
+    mainLayout->setContentsMargins(20, 20, 20, 20);
 
-    // Create splitter for resizable panels
-    auto splitter = new QSplitter(Qt::Horizontal, this);
-
-    // LEFT PANEL - Categories (25%)
-    auto leftPanel = new QWidget();
+    // LEFT COLUMN - Job List
+    auto leftPanel = new QWidget(this);
     auto leftLayout = new QVBoxLayout(leftPanel);
-    leftLayout->setContentsMargins(10, 10, 10, 10);
 
-    auto categoryLabel = new QLabel("Job Categories");
-    categoryLabel->setStyleSheet("font-size: 16px; font-weight: 600; color: #1976D2; padding: 10px;");
-    leftLayout->addWidget(categoryLabel);
+    auto titleLabel = new QLabel("On-Campus Jobs", this);
+    titleLabel->setStyleSheet("font-size: 20px; font-weight: bold; color: #1976D2;");
+    leftLayout->addWidget(titleLabel);
 
-    categoryTree = new QTreeWidget(this);
-    categoryTree->setHeaderHidden(true);
-    categoryTree->setAnimated(true);
-    connect(categoryTree, &QTreeWidget::itemClicked, this, &OnCampusJobsPage::onCategorySelected);
-    leftLayout->addWidget(categoryTree);
-
-    leftPanel->setMinimumWidth(250);
-    leftPanel->setMaximumWidth(400);
-
-    // CENTER PANEL - Search & Job List (50%)
-    auto centerPanel = new QWidget();
-    auto centerLayout = new QVBoxLayout(centerPanel);
-    centerLayout->setContentsMargins(10, 10, 10, 10);
-
-    // Search bar
+    // Simple search bar
     searchEdit = new QLineEdit(this);
-    searchEdit->setPlaceholderText("🔍 Search jobs by title, department, or keyword...");
-    searchEdit->setMinimumHeight(40);
+    searchEdit->setPlaceholderText("Search jobs...");
     connect(searchEdit, &QLineEdit::textChanged, this, &OnCampusJobsPage::onSearchTextChanged);
-    centerLayout->addWidget(searchEdit);
-
-    // Filters
-    auto filterLayout = new QHBoxLayout();
-
-    statusFilter = new QComboBox(this);
-    statusFilter->addItem("All Status", "");
-    statusFilter->addItem("Available", "0");
-    statusFilter->addItem("Closed", "2");
-    statusFilter->addItem("Upcoming", "3");
-    connect(statusFilter, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &OnCampusJobsPage::onFilterChanged);
-
-    auto eligibilityLabel = new QLabel("Eligibility:", this);
-    eligibilityFilter = new QComboBox(this);
-    eligibilityFilter->addItem("All Students", 0);
-    eligibilityFilter->addItem("Work Study Only", 1);
-    eligibilityFilter->addItem("International students available", 2);
-    connect(eligibilityFilter, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &OnCampusJobsPage::onFilterChanged);
-
-    clearFiltersBtn = new QPushButton("Clear Filters", this);
-    connect(clearFiltersBtn, &QPushButton::clicked, this, &OnCampusJobsPage::clearFilters);
-
-    filterLayout->addWidget(statusFilter);
-    filterLayout->addWidget(eligibilityLabel);
-    filterLayout->addWidget(eligibilityFilter);
-    filterLayout->addStretch();
-    filterLayout->addWidget(clearFiltersBtn);
-    centerLayout->addLayout(filterLayout);
+    leftLayout->addWidget(searchEdit);
 
     // Results count
     resultsCountLabel = new QLabel("Showing 0 jobs");
-    resultsCountLabel->setStyleSheet("color: #757575; padding: 5px;");
-    centerLayout->addWidget(resultsCountLabel);
+    resultsCountLabel->setStyleSheet("color: #666; font-size: 12px;");
+    leftLayout->addWidget(resultsCountLabel);
 
-    // Job list
+    // Job list widget
     jobListWidget = new QListWidget(this);
-    jobListWidget->setSpacing(8);
     connect(jobListWidget, &QListWidget::itemClicked, this, &OnCampusJobsPage::onJobCardClicked);
-    centerLayout->addWidget(jobListWidget);
+    leftLayout->addWidget(jobListWidget);
 
-    centerPanel->setMinimumWidth(400);
+    leftPanel->setMinimumWidth(350);
+    mainLayout->addWidget(leftPanel, 1);
 
-    // RIGHT PANEL - Job Details (25%)
+    // RIGHT COLUMN - Job Details
     detailScrollArea = new QScrollArea(this);
     detailPanel = new QWidget();
     auto detailLayout = new QVBoxLayout(detailPanel);
-    detailLayout->setContentsMargins(15, 15, 15, 15);
 
-    // Job header
     jobTitleLabel = new QLabel("Select a job to view details");
-    jobTitleLabel->setStyleSheet("font-size: 18px; font-weight: 600; color: #1976D2;");
+    jobTitleLabel->setStyleSheet("font-size: 18px; font-weight: bold; color: #1976D2;");
     jobTitleLabel->setWordWrap(true);
     detailLayout->addWidget(jobTitleLabel);
 
     jobDepartmentLabel = new QLabel("");
-    jobDepartmentLabel->setStyleSheet("font-size: 13px; color: #757575;");
+    jobDepartmentLabel->setStyleSheet("color: #666;");
     detailLayout->addWidget(jobDepartmentLabel);
 
     statusBadgeLabel = new QLabel("");
     detailLayout->addWidget(statusBadgeLabel);
 
     // Action buttons
-    auto actionLayout = new QHBoxLayout();
-    saveJobButton = new QPushButton("💾 Save Job", this);
+    auto btnLayout = new QHBoxLayout();
+    saveJobButton = new QPushButton("Save Job", this);
     saveJobButton->setVisible(false);
     connect(saveJobButton, &QPushButton::clicked, this, &OnCampusJobsPage::toggleSaveJob);
 
     actionButton = new QPushButton("Apply Now", this);
     actionButton->setVisible(false);
     connect(actionButton, &QPushButton::clicked, this, &OnCampusJobsPage::applyForJob);
-    actionLayout->addWidget(saveJobButton);
-    actionLayout->addStretch();
-    actionLayout->addWidget(actionButton);
-    detailLayout->addLayout(actionLayout);
-
-    detailLayout->addSpacing(10);
-
-    // Quick facts
-    quickFactsWidget = new QWidget();
-    quickFactsWidget->setVisible(false);
-    auto factsLayout = new QVBoxLayout(quickFactsWidget);
-    factsLayout->setContentsMargins(0, 0, 0, 0);
-    detailLayout->addWidget(quickFactsWidget);
+    btnLayout->addWidget(saveJobButton);
+    btnLayout->addStretch();
+    btnLayout->addWidget(actionButton);
+    detailLayout->addLayout(btnLayout);
 
     // Description
     jobDescriptionEdit = new QTextBrowser(this);
     jobDescriptionEdit->setVisible(false);
-    jobDescriptionEdit->setOpenExternalLinks(false);
     detailLayout->addWidget(jobDescriptionEdit);
 
     // Requirements
@@ -355,108 +298,55 @@ void OnCampusJobsPage::setupUI()
     dutiesEdit->setVisible(false);
     detailLayout->addWidget(dutiesEdit);
 
-    // Skills
-    skillsLabel = new QLabel("");
-    skillsLabel->setVisible(false);
-    skillsLabel->setWordWrap(true);
-    detailLayout->addWidget(skillsLabel);
-
-    // Supervisor
-    supervisorLabel = new QLabel("");
-    supervisorLabel->setVisible(false);
-    supervisorLabel->setWordWrap(true);
-    detailLayout->addWidget(supervisorLabel);
-
     detailLayout->addStretch();
 
     detailPanel->setLayout(detailLayout);
     detailScrollArea->setWidget(detailPanel);
     detailScrollArea->setWidgetResizable(true);
-    detailScrollArea->setMinimumWidth(300);
+    mainLayout->addWidget(detailScrollArea, 1);
 
-    // Add panels to splitter
-    splitter->addWidget(leftPanel);
-    splitter->addWidget(centerPanel);
-    splitter->addWidget(detailScrollArea);
-    splitter->setStretchFactor(0, 1); // 25%
-    splitter->setStretchFactor(1, 2); // 50%
-    splitter->setStretchFactor(2, 1); // 25%
-
-    mainLayout->addWidget(splitter);
+    // Hidden widgets for removed features (avoid crashes)
+    categoryTree = new QTreeWidget(this);
+    categoryTree->setVisible(false);
+    statusFilter = new QComboBox(this);
+    statusFilter->setVisible(false);
+    eligibilityFilter = new QComboBox(this);
+    eligibilityFilter->setVisible(false);
+    clearFiltersBtn = new QPushButton(this);
+    clearFiltersBtn->setVisible(false);
+    payRateSlider = new QSlider(this);
+    payRateSlider->setVisible(false);
+    payRangeLabel = new QLabel(this);
+    payRangeLabel->setVisible(false);
+    departmentFilter = new QComboBox(this);
+    departmentFilter->setVisible(false);
+    quickFactsWidget = new QWidget(this);
+    quickFactsWidget->setVisible(false);
+    skillsLabel = new QLabel(this);
+    skillsLabel->setVisible(false);
+    supervisorLabel = new QLabel(this);
+    supervisorLabel->setVisible(false);
+    applicationProcessEdit = new QTextBrowser(this);
+    applicationProcessEdit->setVisible(false);
 }
 
 void OnCampusJobsPage::setupStyles()
 {
     setStyleSheet(
-        "QWidget { background: #FAFAFA; font-family: 'Segoe UI', Arial, sans-serif; }"
-        "QLineEdit { padding: 10px; border: 2px solid #E0E0E0; border-radius: 8px; background: white; font-size: 14px; }"
-        "QLineEdit:focus { border: 2px solid #2196F3; }"
-        "QComboBox, QPushButton { padding: 8px 16px; border-radius: 6px; font-size: 14px; }"
-        "QPushButton { background: #2196F3; color: white; border: none; font-weight: 600; }"
+        "QWidget { background: white; font-family: Arial, sans-serif; }"
+        "QLineEdit { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }"
+        "QPushButton { background: #2196F3; color: white; border: none; padding: 8px 16px; border-radius: 4px; font-weight: bold; }"
         "QPushButton:hover { background: #1976D2; }"
-        "QListWidget { background: white; border: 1px solid #E0E0E0; border-radius: 8px; }"
-        "QListWidget::item { border-left: 3px solid transparent; padding: 10px; margin: 2px; background: white; border-radius: 6px; }"
-        "QListWidget::item:hover { border-left: 3px solid #2196F3; background: #F5F5F5; }"
-        "QListWidget::item:selected { border-left: 3px solid #2196F3; background: #E3F2FD; }"
-        "QTreeWidget { background: white; border: 1px solid #E0E0E0; border-radius: 8px; }"
-        "QTextBrowser { background: white; border: 1px solid #E0E0E0; border-radius: 6px; padding: 10px; }");
+        "QListWidget { background: #f9f9f9; border: 1px solid #ddd; }"
+        "QListWidget::item { padding: 10px; margin: 4px; background: white; border-radius: 4px; }"
+        "QListWidget::item:hover { background: #e3f2fd; }"
+        "QListWidget::item:selected { background: #bbdefb; }"
+        "QTextBrowser { background: white; border: 1px solid #ddd; border-radius: 4px; padding: 8px; }");
 }
 
 void OnCampusJobsPage::loadCategories()
 {
-    categoryTree->clear();
-
-    // All jobs shortcut
-    auto allItem = new QTreeWidgetItem(categoryTree);
-    allItem->setText(0, "📋 All Jobs");
-    allItem->setData(0, Qt::UserRole, "");
-
-    // Academic Support group with children
-    int academicCount = database->getJobCountByCategory("Academic Support");
-    auto academicItem = new QTreeWidgetItem(categoryTree);
-    academicItem->setText(0, QString("%1 Academic Support (%2)").arg(getCategoryIcon("Academic Support")).arg(academicCount));
-    academicItem->setData(0, Qt::UserRole, "Academic Support");
-    QStringList academicRoles = {"Tutor", "SI - Supplemental Instructor", "Peer Mentor", "Research Assistant"};
-    for (const auto &role : academicRoles)
-    {
-        auto child = new QTreeWidgetItem(academicItem);
-        child->setText(0, role);
-        child->setData(0, Qt::UserRole, "Academic Support"); // category filter
-        child->setData(0, Qt::UserRole + 1, role);           // keyword filter
-    }
-
-    // Administrative group with children (merging Library, Food, Fitness)
-    int adminCount = database->getJobCountByCategory("Administrative") + database->getJobCountByCategory("Library Services") + database->getJobCountByCategory("Food Services") + database->getJobCountByCategory("Recreation & Fitness");
-    auto adminItem = new QTreeWidgetItem(categoryTree);
-    adminItem->setText(0, QString("%1 Administrative (%2)").arg(getCategoryIcon("Administrative")).arg(adminCount));
-    adminItem->setData(0, Qt::UserRole, "Administrative_GROUP"); // special marker
-
-    QStringList adminRoles = {"College Assistant", "Data Entry Assistant", "Student Ambassador"};
-    for (const auto &role : adminRoles)
-    {
-        auto child = new QTreeWidgetItem(adminItem);
-        child->setText(0, role);
-        child->setData(0, Qt::UserRole, "Administrative");
-        child->setData(0, Qt::UserRole + 1, role);
-    }
-    // Moved categories as children under Administrative
-    for (const QString &movedCat : {QString("Library Services"), QString("Food Services"), QString("Recreation & Fitness")})
-    {
-        auto child = new QTreeWidgetItem(adminItem);
-        int count = database->getJobCountByCategory(movedCat);
-        child->setText(0, QString("%1 (%2)").arg(movedCat).arg(count));
-        child->setData(0, Qt::UserRole, movedCat);
-        child->setData(0, Qt::UserRole + 1, "");
-    }
-
-    // Keep Technology and Student Services as top-level
-    for (const QString &top : {QString("Technology"), QString("Student Services")})
-    {
-        int count = database->getJobCountByCategory(top);
-        auto item = new QTreeWidgetItem(categoryTree);
-        item->setText(0, QString("%1 %2 (%3)").arg(getCategoryIcon(top)).arg(top).arg(count));
-        item->setData(0, Qt::UserRole, top);
-    }
+    // Category tree removed for simpler UI; kept as stub to avoid crashes
 }
 
 void OnCampusJobsPage::loadJobs()
@@ -470,52 +360,27 @@ void OnCampusJobsPage::updateJobList(const std::vector<Job> &jobs)
     jobListWidget->clear();
     currentJobs = jobs;
 
-    resultsCountLabel->setText(QString("Showing %1 jobs").arg(jobs.size()));
+    resultsCountLabel->setText(QString("%1 jobs available").arg(jobs.size()));
 
     for (const auto &job : jobs)
     {
         auto item = new QListWidgetItem();
 
-        QString payText = (job.getPayRateMin() == 0 && job.getPayRateMax() == 0)
-                              ? "TBD"
-                              : job.getPayRateString();
-        QString hoursText = (job.getHoursPerWeek() <= 0)
-                                ? "10-15 hours/week"
-                                : QString("%1 hours/week").arg(job.getHoursPerWeek());
-        QString oneLineDesc = job.getDescription();
-        if (oneLineDesc.length() > 120)
-            oneLineDesc = oneLineDesc.left(117) + "...";
-        QString intlIcon = isInternationalEligible(job) ? " | 🌍 International" : "";
-        QString wsIcon = job.isWorkStudyEligible() ? " | 🎓 Work Study" : "";
+        // Simple card text
+        QString payText = job.getPayRateString();
+        QString hoursText = QString("%1 hrs/week").arg(job.getHoursPerWeek());
 
-        QString cardHtml = QString(
-                               "<div style='padding:5px;'>"
-                               "<div style='font-size:15px; font-weight:600; color:#212121;'>%1</div>"
-                               "<div style='font-size:12px; color:#757575; margin-top:2px;'>%2</div>"
-                               "<div style='margin-top:5px;'>%3</div>"
-                               "<div style='font-size:13px; color:#424242; margin-top:5px;'>"
-                               "💰 %4 | ⏰ %5%6%7</div>"
-                               "<div style='font-size:12px; color:#616161; margin-top:6px;'>%8</div>"
-                               "</div>")
+        QString cardText = QString("%1\n%2 | %3 | %4")
                                .arg(job.getTitle())
                                .arg(job.getDepartment())
-                               .arg(getStatusBadge(job.getStatus(), job.getPositionsAvailable()))
                                .arg(payText)
-                               .arg(hoursText)
-                               .arg(wsIcon)
-                               .arg(intlIcon)
-                               .arg(oneLineDesc);
+                               .arg(hoursText);
 
+        item->setText(cardText);
         item->setData(Qt::UserRole, job.getId());
-        item->setSizeHint(QSize(0, 100));
-        item->setToolTip(job.getDescription());
+        item->setSizeHint(QSize(0, 60));
 
         jobListWidget->addItem(item);
-
-        auto label = new QLabel(cardHtml);
-        label->setWordWrap(true);
-        label->setStyleSheet("padding: 8px;");
-        jobListWidget->setItemWidget(item, label);
     }
 }
 
@@ -526,24 +391,31 @@ void OnCampusJobsPage::showJobDetails(const Job &job)
     jobTitleLabel->setText(job.getTitle());
     jobTitleLabel->setVisible(true);
 
-    jobDepartmentLabel->setText(job.getDepartment());
+    jobDepartmentLabel->setText("Department: " + job.getDepartment());
     jobDepartmentLabel->setVisible(true);
 
-    statusBadgeLabel->setText(getStatusBadge(job.getStatus(), job.getPositionsAvailable()));
+    QString statusText;
+    if (job.getStatus() == JobStatus::Open)
+        statusText = "Status: OPEN";
+    else if (job.getStatus() == JobStatus::Closed)
+        statusText = "Status: CLOSED";
+    else
+        statusText = "Status: UPCOMING";
+    statusBadgeLabel->setText(statusText);
     statusBadgeLabel->setVisible(true);
 
     // Update action button
     if (job.getStatus() == JobStatus::Open)
     {
         actionButton->setText("Apply Now");
-        actionButton->setStyleSheet("background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 #4CAF50, stop:1 #388E3C); color:white; padding:10px; border-radius:6px; font-weight:600;");
+        actionButton->setStyleSheet("background: #4CAF50; color: white; padding: 10px; border-radius: 4px; font-weight: bold;");
         disconnect(actionButton, &QPushButton::clicked, this, &OnCampusJobsPage::expressInterest);
         connect(actionButton, &QPushButton::clicked, this, &OnCampusJobsPage::applyForJob);
     }
     else
     {
         actionButton->setText("Express Interest");
-        actionButton->setStyleSheet("background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 #2196F3, stop:1 #1976D2); color:white; padding:10px; border-radius:6px; font-weight:600;");
+        actionButton->setStyleSheet("background: #2196F3; color: white; padding: 10px; border-radius: 4px; font-weight: bold;");
         disconnect(actionButton, &QPushButton::clicked, this, &OnCampusJobsPage::applyForJob);
         connect(actionButton, &QPushButton::clicked, this, &OnCampusJobsPage::expressInterest);
     }
@@ -747,30 +619,15 @@ void OnCampusJobsPage::onFilterChanged()
 
 void OnCampusJobsPage::applyFilters()
 {
-    QString keyword = searchEdit->text();
-    QString statusFilterVal = statusFilter->currentData().toString();
-    int eligibility = eligibilityFilter->currentData().toInt();
-    bool workStudyOnly = (eligibility == 1);
-    bool internationalOnly = (eligibility == 2);
-
-    // With no hours filter, pass broad defaults
-    int minHours = 0;
-    int maxHours = 100;
-    auto jobs = database->searchJobs(keyword, statusFilterVal, "", workStudyOnly, minHours, maxHours, 0, 100);
-    if (internationalOnly)
+    QString keyword = searchEdit->text().trimmed();
+    if (keyword.isEmpty())
     {
-        std::vector<Job> filtered;
-        for (const auto &j : jobs)
-        {
-            if (isInternationalEligible(j))
-                filtered.push_back(j);
-        }
-        updateJobList(filtered);
+        loadJobs();
+        return;
     }
-    else
-    {
-        updateJobList(jobs);
-    }
+    // Simple search: filter jobs by keyword in title/department/description
+    auto jobs = database->searchJobs(keyword, "", "", false, 0, 100, 0, 100);
+    updateJobList(jobs);
 }
 
 void OnCampusJobsPage::clearFilters()

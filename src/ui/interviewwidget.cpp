@@ -1,262 +1,288 @@
 #include "interviewwidget.h"
 #include <QMessageBox>
-#include <QGraphicsOpacityEffect>
-#include <QPropertyAnimation>
 
-InterviewWidget::InterviewWidget(const QString &major, QWidget *parent)
-    : QWidget(parent),
-      studentMajor(major),
-      currentQuestionIndex(0),
-      score(0)
+// Constructor: Initialize the interview widget
+InterviewWidget::InterviewWidget(const QString &degree, QWidget *parent)
+    : QWidget(parent)
 {
-    setupQuestions();
-    setupUI();
-    setupStyles();
-}
+    // Save the student's degree from their profile
+    studentDegree = degree;
 
-void InterviewWidget::setupQuestions()
-{
-    // Arts questions
-    artsQuestions = {
-        {"What is the capital of France?", "Paris", {"London", "Paris", "Berlin", "Madrid"}},
-        {"Who painted the Mona Lisa?", "Leonardo da Vinci", {"Michelangelo", "Leonardo da Vinci", "Raphael", "Donatello"}},
-        {"In what year did World War II end?", "1945", {"1943", "1944", "1945", "1946"}}};
-
-    // Science questions
-    scienceQuestions = {
-        {"What is the chemical symbol for water?", "H2O", {"CO2", "H2O", "O2", "NaCl"}},
-        {"What is the speed of light?", "299,792,458 m/s", {"150,000,000 m/s", "299,792,458 m/s", "300,000,000 m/s", "250,000,000 m/s"}},
-        {"What is the powerhouse of the cell?", "Mitochondria", {"Nucleus", "Ribosome", "Mitochondria", "Chloroplast"}}};
-}
-
-void InterviewWidget::setupUI()
-{
-    mainLayout = new QVBoxLayout(this);
-    mainLayout->setSpacing(20);
-    mainLayout->setContentsMargins(40, 40, 40, 40);
-
-    questionLabel = new QLabel(this);
-    questionLabel->setWordWrap(true);
-    questionLabel->setStyleSheet(
-        "font-size: 18px; "
-        "font-weight: bold; "
-        "padding: 20px; "
-        "background: white; "
-        "border-radius: 10px; "
-        "color: #1976D2;");
-    mainLayout->addWidget(questionLabel);
-
-    // Create answer buttons
-    for (int i = 0; i < 4; ++i)
+    // Start with questions matching their degree
+    // If degree contains "Art" or "Humanities" -> Arts questions
+    // Otherwise -> Science questions
+    if (degree.contains("Art", Qt::CaseInsensitive))
     {
-        QPushButton *button = new QPushButton(this);
-        button->setStyleSheet(
-            "QPushButton { "
-            "   padding: 15px; "
-            "   margin: 5px; "
-            "   text-align: left; "
-            "   background: white; "
-            "   border: 2px solid #E0E0E0; "
-            "   border-radius: 8px; "
-            "   font-size: 14px;"
-            "   min-height: 44px;"
-            "}"
-            "QPushButton:hover { "
-            "   background: #E3F2FD; "
-            "   border: 2px solid #2196F3; "
-            "}"
-            "QPushButton:disabled { "
-            "   background: #F5F5F5; "
-            "}");
-        connect(button, &QPushButton::clicked, this, &InterviewWidget::checkAnswer);
-        answerButtons.append(button);
-        mainLayout->addWidget(button);
+        currentMode = "Arts";
+    }
+    else
+    {
+        currentMode = "Science";
     }
 
+    currentQuestionIndex = 0; // Start at first question
+    score = 0;                // No points yet
+
+    setupQuestions(); // Create all the questions
+    setupUI();        // Build the user interface
+}
+
+// Create all interview questions for both Arts and Science
+void InterviewWidget::setupQuestions()
+{
+    // === ARTS QUESTIONS ===
+    // Focus: Office software (Excel, Word) and customer service skills
+
+    artsQuestions.append({"In Microsoft Excel, which function adds up a range of numbers?",
+                          "SUM",
+                          {"COUNT", "SUM", "AVERAGE", "TOTAL"}});
+
+    artsQuestions.append({"In Microsoft Word, what does 'Ctrl + B' do?",
+                          "Makes text bold",
+                          {"Makes text italic", "Makes text bold", "Underlines text", "Saves the document"}});
+
+    artsQuestions.append({"A customer is upset about a delayed order. What should you do first?",
+                          "Listen and apologize",
+                          {"Ignore them", "Listen and apologize", "Blame shipping", "Offer a discount immediately"}});
+
+    // === SCIENCE QUESTIONS ===
+    // Focus: Simple coding logic (LeetCode-style thinking)
+
+    scienceQuestions.append({"What is the result of 5 % 2 in most programming languages?",
+                             "1",
+                             {"0", "1", "2", "2.5"}});
+
+    scienceQuestions.append({"Which data structure uses LIFO (Last In, First Out)?",
+                             "Stack",
+                             {"Queue", "Stack", "Array", "Tree"}});
+
+    scienceQuestions.append({"What does this code output? for(int i=0; i<3; i++) print(i);",
+                             "0 1 2",
+                             {"1 2 3", "0 1 2", "0 1 2 3", "1 2"}});
+}
+
+// Build the user interface
+void InterviewWidget::setupUI()
+{
+    // STEP 1: Create main layout (vertical stack)
+    mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(15);
+    mainLayout->setContentsMargins(30, 30, 30, 30);
+
+    // STEP 2: Create degree label (shows "Arts" or "Science")
+    degreeLabel = new QLabel(this);
+    degreeLabel->setText("Interview Questions: " + currentMode);
+    degreeLabel->setAlignment(Qt::AlignCenter);
+    // Simple styling: just bigger text and bold
+    degreeLabel->setStyleSheet("font-size: 18px; font-weight: bold;");
+    mainLayout->addWidget(degreeLabel);
+
+    // STEP 3: Create switch button
+    switchButton = new QPushButton(this);
+    // Set button text based on current mode
+    if (currentMode == "Arts")
+    {
+        switchButton->setText("Switch to Science Questions");
+    }
+    else
+    {
+        switchButton->setText("Switch to Arts Questions");
+    }
+    // Simple button - no fancy styling
+    switchButton->setMinimumHeight(40);
+    connect(switchButton, &QPushButton::clicked, this, &InterviewWidget::switchQuestionType);
+    mainLayout->addWidget(switchButton);
+
+    mainLayout->addSpacing(10);
+
+    // STEP 4: Create question label
+    questionLabel = new QLabel(this);
+    questionLabel->setWordWrap(true);
+    // Simple styling: just bigger text
+    questionLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
+    mainLayout->addWidget(questionLabel);
+
+    // STEP 5: Create 4 answer buttons
+    for (int i = 0; i < 4; i++)
+    {
+        QPushButton *answerBtn = new QPushButton(this);
+        // Simple button - just set minimum height
+        answerBtn->setMinimumHeight(50);
+
+        // Connect click to checkAnswer function
+        connect(answerBtn, &QPushButton::clicked, this, &InterviewWidget::checkAnswer);
+
+        answerButtons.append(answerBtn);
+        mainLayout->addWidget(answerBtn);
+    }
+
+    // STEP 6: Create feedback label (shows correct/wrong)
     feedbackLabel = new QLabel(this);
-    feedbackLabel->setStyleSheet(
-        "font-size: 15px; "
-        "padding: 15px; "
-        "background: white; "
-        "border-radius: 8px;");
     feedbackLabel->setWordWrap(true);
+    // Simple styling: just set font size
+    feedbackLabel->setStyleSheet("font-size: 14px;");
     mainLayout->addWidget(feedbackLabel);
 
+    // STEP 7: Create next button
     nextButton = new QPushButton("Next Question", this);
     nextButton->setEnabled(false);
-    nextButton->setStyleSheet(
-        "QPushButton { "
-        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
-        "       stop:0 #2196F3, stop:1 #1976D2);"
-        "   color: white; "
-        "   padding: 12px; "
-        "   border-radius: 8px; "
-        "   font-weight: bold; "
-        "   font-size: 14px;"
-        "   min-height: 44px;"
-        "}"
-        "QPushButton:hover { "
-        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
-        "       stop:0 #1976D2, stop:1 #0D47A1);"
-        "}"
-        "QPushButton:disabled { "
-        "   background: #BDBDBD; "
-        "}");
+    // Simple button - just set height
+    nextButton->setMinimumHeight(40);
     connect(nextButton, &QPushButton::clicked, this, &InterviewWidget::nextQuestion);
     mainLayout->addWidget(nextButton);
 
-    setLayout(mainLayout);
-
-    // Load first question
+    // STEP 8: Load first question
     nextQuestion();
 }
 
-void InterviewWidget::setupStyles()
-{
-    setStyleSheet(
-        "QWidget {"
-        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
-        "       stop:0 #ffffff, stop:1 #f8f9fa);"
-        "   font-family: 'Segoe UI', Arial, sans-serif;"
-        "}");
-
-    // Apply smooth fade-in effect
-    QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
-    setGraphicsEffect(effect);
-
-    QPropertyAnimation *animation = new QPropertyAnimation(effect, "opacity");
-    animation->setDuration(400);
-    animation->setStartValue(0.0);
-    animation->setEndValue(1.0);
-    animation->setEasingCurve(QEasingCurve::InOutQuad);
-    animation->start(QPropertyAnimation::DeleteWhenStopped);
-}
-
+// Called when student clicks an answer button
 void InterviewWidget::checkAnswer()
 {
+    // STEP 1: Find which button was clicked
     QPushButton *clickedButton = qobject_cast<QPushButton *>(sender());
     if (!clickedButton)
         return;
 
-    const Question *questions = getCurrentQuestions();
-    if (currentQuestionIndex >= getCurrentQuestionsCount())
+    // STEP 2: Get the current question list
+    QVector<Question> &questions = getCurrentQuestions();
+    if (currentQuestionIndex > questions.size())
         return;
 
-    const Question &currentQuestion = questions[currentQuestionIndex];
-    QString selectedAnswer = clickedButton->text();
+    // STEP 3: Get the question we just answered
+    const Question &q = questions[currentQuestionIndex - 1];
 
-    // Disable all answer buttons
-    for (QPushButton *btn : answerButtons)
+    // STEP 4: Get student's selected answer
+    QString studentAnswer = clickedButton->text();
+
+    // STEP 5: Disable all answer buttons (prevent clicking twice)
+    for (int i = 0; i < answerButtons.size(); i++)
     {
-        btn->setEnabled(false);
+        answerButtons[i]->setEnabled(false);
     }
 
-    if (selectedAnswer == currentQuestion.correctAnswer)
+    // STEP 6: Check if answer is correct
+    if (studentAnswer == q.correctAnswer)
     {
-        showResult("Correct! ✓");
-        score++;
+        // Correct answer!
+        feedbackLabel->setText("✓ Correct!");
+        feedbackLabel->setStyleSheet("color: green; font-weight: bold; font-size: 14px;");
+        score = score + 1;
     }
     else
     {
-        showResult("Incorrect. The correct answer was: " + currentQuestion.correctAnswer);
+        // Wrong answer
+        feedbackLabel->setText("✗ Wrong. Correct answer: " + q.correctAnswer);
+        feedbackLabel->setStyleSheet("color: red; font-weight: bold; font-size: 14px;");
     }
 
+    // STEP 7: Enable next button
     nextButton->setEnabled(true);
 }
 
+// Load the next question (or show results if done)
 void InterviewWidget::nextQuestion()
 {
-    const Question *questions = getCurrentQuestions();
+    // STEP 1: Get the question list
+    QVector<Question> &questions = getCurrentQuestions();
 
-    if (currentQuestionIndex >= getCurrentQuestionsCount())
+    // STEP 2: Check if we finished all questions
+    if (currentQuestionIndex >= questions.size())
     {
         showFinalResult();
         return;
     }
 
-    const Question &question = questions[currentQuestionIndex];
+    // STEP 3: Get the next question
+    const Question &q = questions[currentQuestionIndex];
 
-    questionLabel->setText(QString("Question %1: %2")
-                               .arg(currentQuestionIndex + 1)
-                               .arg(question.text));
+    // STEP 4: Show question text
+    int questionNumber = currentQuestionIndex + 1;
+    int totalQuestions = questions.size();
+    questionLabel->setText("Question " + QString::number(questionNumber) + " of " + QString::number(totalQuestions) + ": " + q.text);
 
-    // Set button texts
-    for (int i = 0; i < answerButtons.size() && i < question.options.size(); ++i)
+    // STEP 5: Fill in answer buttons
+    for (int i = 0; i < 4; i++)
     {
-        answerButtons[i]->setText(question.options[i]);
-        answerButtons[i]->setEnabled(true);
-        answerButtons[i]->show();
+        if (i < q.options.size())
+        {
+            answerButtons[i]->setText(q.options[i]);
+            answerButtons[i]->setEnabled(true);
+            answerButtons[i]->show();
+        }
+        else
+        {
+            answerButtons[i]->hide();
+        }
     }
 
-    // Hide extra buttons if needed
-    for (int i = question.options.size(); i < answerButtons.size(); ++i)
-    {
-        answerButtons[i]->hide();
-    }
-
+    // STEP 6: Clear old feedback
     feedbackLabel->clear();
+
+    // STEP 7: Disable next button
     nextButton->setEnabled(false);
+
+    // STEP 8: Move to next question
     currentQuestionIndex++;
 }
 
-void InterviewWidget::showResult(const QString &result)
+// Switch between Arts and Science questions
+void InterviewWidget::switchQuestionType()
 {
-    feedbackLabel->setText(result);
-
-    if (result.startsWith("Correct"))
+    // STEP 1: Switch the mode
+    if (currentMode == "Arts")
     {
-        feedbackLabel->setStyleSheet("color: green; font-weight: bold; padding: 10px;");
+        currentMode = "Science";
+        switchButton->setText("Switch to Arts Questions");
     }
     else
     {
-        feedbackLabel->setStyleSheet("color: red; font-weight: bold; padding: 10px;");
+        currentMode = "Arts";
+        switchButton->setText("Switch to Science Questions");
     }
 
-    // Auto-advance after 2 seconds
-    QTimer::singleShot(2000, this, [this]()
-                       {
-        if (currentQuestionIndex < getCurrentQuestionsCount()) {
-            nextQuestion();
-        } else {
-            showFinalResult();
-        } });
+    // STEP 2: Update the top label
+    degreeLabel->setText("Interview Questions: " + currentMode);
+
+    // STEP 3: Reset everything
+    currentQuestionIndex = 0;
+    score = 0;
+    feedbackLabel->clear();
+
+    // STEP 4: Load first question
+    nextQuestion();
 }
 
+// Show final score when all questions are answered
 void InterviewWidget::showFinalResult()
 {
-    int totalQuestions = getCurrentQuestionsCount();
-    double percentage = (static_cast<double>(score) / totalQuestions) * 100;
+    // STEP 1: Get total number of questions
+    QVector<Question> &questions = getCurrentQuestions();
+    int total = questions.size();
 
-    QString resultMessage = QString("Interview Complete!\n\nYour Score: %1/%2 (%3%)")
-                                .arg(score)
-                                .arg(totalQuestions)
-                                .arg(percentage, 0, 'f', 1);
+    // STEP 2: Calculate percentage
+    double percent = (score * 100.0) / total;
 
-    QMessageBox::information(this, "Interview Results", resultMessage);
+    // STEP 3: Build message
+    QString message = "Interview Complete!\n\n";
+    message += "Your Score: " + QString::number(score) + " / " + QString::number(total);
+    message += " (" + QString::number(percent, 'f', 1) + "%)";
 
+    // STEP 4: Show popup
+    QMessageBox::information(this, "Interview Results", message);
+
+    // STEP 5: Tell main window we're done
     emit interviewComplete(score);
 }
 
-const Question *InterviewWidget::getCurrentQuestions() const
+// Helper function: Get the current question list based on mode
+QVector<Question> &InterviewWidget::getCurrentQuestions()
 {
-    if (studentMajor == "Arts")
+    if (currentMode == "Arts")
     {
-        return artsQuestions.constData();
+        return artsQuestions;
     }
     else
     {
-        return scienceQuestions.constData();
-    }
-}
-
-int InterviewWidget::getCurrentQuestionsCount() const
-{
-    if (studentMajor == "Arts")
-    {
-        return artsQuestions.size();
-    }
-    else
-    {
-        return scienceQuestions.size();
+        return scienceQuestions;
     }
 }

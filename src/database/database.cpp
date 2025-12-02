@@ -48,12 +48,56 @@ bool Database::createTables()
         "grad_date TEXT,"
         "transcript_path TEXT,"
         "cv_path TEXT,"
+        "is_international_student INTEGER DEFAULT 0,"
+        "survey_completed INTEGER DEFAULT 0,"
+        "resume_path TEXT,"
+        "parsed_resume_data TEXT,"
+        "parsed_gpa TEXT,"
+        "parsed_courses TEXT,"
         "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
         ")");
     if (!success)
     {
         qDebug() << "Error creating users table:" << query.lastError().text();
         return false;
+    }
+
+    // Add new columns if upgrading from old schema
+    {
+        QSqlQuery pragma;
+        QStringList existingColumns;
+        if (pragma.exec("PRAGMA table_info(users)"))
+        {
+            while (pragma.next())
+            {
+                existingColumns << pragma.value(1).toString();
+            }
+        }
+
+        if (!existingColumns.contains("is_international_student"))
+        {
+            query.exec("ALTER TABLE users ADD COLUMN is_international_student INTEGER DEFAULT 0");
+        }
+        if (!existingColumns.contains("survey_completed"))
+        {
+            query.exec("ALTER TABLE users ADD COLUMN survey_completed INTEGER DEFAULT 0");
+        }
+        if (!existingColumns.contains("resume_path"))
+        {
+            query.exec("ALTER TABLE users ADD COLUMN resume_path TEXT");
+        }
+        if (!existingColumns.contains("parsed_resume_data"))
+        {
+            query.exec("ALTER TABLE users ADD COLUMN parsed_resume_data TEXT");
+        }
+        if (!existingColumns.contains("parsed_gpa"))
+        {
+            query.exec("ALTER TABLE users ADD COLUMN parsed_gpa TEXT");
+        }
+        if (!existingColumns.contains("parsed_courses"))
+        {
+            query.exec("ALTER TABLE users ADD COLUMN parsed_courses TEXT");
+        }
     }
 
     // Create documents table
@@ -245,7 +289,14 @@ User Database::getUserData(const QString &email)
             query.value("emplid").toString(),
             query.value("major").toString(),
             query.value("gpa").toString(),
-            query.value("grad_date").toString());
+            query.value("grad_date").toString(),
+            query.value("is_international_student").toBool(),
+            query.value("survey_completed").toBool(),
+            query.value("resume_path").toString(),
+            query.value("transcript_path").toString(),
+            query.value("parsed_resume_data").toString(),
+            query.value("parsed_gpa").toString(),
+            query.value("parsed_courses").toString());
     }
 
     return User();
@@ -266,7 +317,14 @@ User Database::getUserDataById(int userId)
             query.value("emplid").toString(),
             query.value("major").toString(),
             query.value("gpa").toString(),
-            query.value("grad_date").toString());
+            query.value("grad_date").toString(),
+            query.value("is_international_student").toBool(),
+            query.value("survey_completed").toBool(),
+            query.value("resume_path").toString(),
+            query.value("transcript_path").toString(),
+            query.value("parsed_resume_data").toString(),
+            query.value("parsed_gpa").toString(),
+            query.value("parsed_courses").toString());
     }
 
     return User();
@@ -694,4 +752,49 @@ bool Database::isJobSaved(int userId, int jobId)
         return query.value(0).toInt() > 0;
     }
     return false;
+}
+
+// Survey and document parsing methods
+bool Database::updateSurveyData(int userId, bool isInternational, const QString &resumePath,
+                                const QString &transcriptPath, const QString &parsedResumeData,
+                                const QString &parsedGPA, const QString &parsedCourses)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE users SET is_international_student = ?, resume_path = ?, "
+                  "transcript_path = ?, parsed_resume_data = ?, parsed_gpa = ?, "
+                  "parsed_courses = ?, survey_completed = 1 WHERE id = ?");
+    query.addBindValue(isInternational ? 1 : 0);
+    query.addBindValue(resumePath);
+    query.addBindValue(transcriptPath);
+    query.addBindValue(parsedResumeData);
+    query.addBindValue(parsedGPA);
+    query.addBindValue(parsedCourses);
+    query.addBindValue(userId);
+
+    bool success = query.exec();
+    if (!success)
+    {
+        qDebug() << "Error updating survey data:" << query.lastError().text();
+    }
+    return success;
+}
+
+bool Database::markSurveyCompleted(int userId, bool completed)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE users SET survey_completed = ? WHERE id = ?");
+    query.addBindValue(completed ? 1 : 0);
+    query.addBindValue(userId);
+
+    return query.exec();
+}
+
+bool Database::updateInternationalStatus(int userId, bool isInternational)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE users SET is_international_student = ? WHERE id = ?");
+    query.addBindValue(isInternational ? 1 : 0);
+    query.addBindValue(userId);
+
+    return query.exec();
 }

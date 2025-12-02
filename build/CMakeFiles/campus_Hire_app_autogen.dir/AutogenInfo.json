@@ -378,6 +378,12 @@
 			null
 		],
 		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/landingpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_landingpage.cpp",
+			null
+		],
+		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/mainwindow.h",
 			"Mu",
 			"JCP2AIONHY/moc_mainwindow.cpp",
@@ -411,6 +417,12 @@
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h",
 			"Mu",
 			"JCP2AIONHY/moc_searchfilterwidget.cpp",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/studentsurveydialog.h",
+			"Mu",
+			"JCP2AIONHY/moc_studentsurveydialog.cpp",
 			null
 		]
 	],
@@ -534,6 +546,11 @@
 			null
 		],
 		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/landingpage.cpp",
+			"Mu",
+			null
+		],
+		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/mainwindow.cpp",
 			"Mu",
 			null
@@ -560,6 +577,11 @@
 		],
 		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/searchfilterwidget.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/studentsurveydialog.cpp",
 			"Mu",
 			null
 		]

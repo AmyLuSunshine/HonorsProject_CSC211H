@@ -46,6 +46,13 @@ public:
     User getUserDataById(int userId);
     int getUserIdByEmail(const QString &email);
 
+    // Survey and document parsing methods
+    bool updateSurveyData(int userId, bool isInternational, const QString &resumePath,
+                          const QString &transcriptPath, const QString &parsedResumeData,
+                          const QString &parsedGPA, const QString &parsedCourses);
+    bool markSurveyCompleted(int userId, bool completed = true);
+    bool updateInternationalStatus(int userId, bool isInternational);
+
     // Document management methods
     bool addDocument(int userId, const QString &documentType,
                      const QString &filePath, const QString &status = "Pending");

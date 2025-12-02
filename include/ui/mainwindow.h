@@ -9,6 +9,8 @@
 #include "ui/myapplicationpage.h"
 #include "ui/oncampusjobspage.h"
 #include "ui/interviewwidget.h"
+#include "ui/landingpage.h"
+#include "ui/studentsurveydialog.h"
 
 class MainWindow : public QMainWindow
 {
@@ -22,12 +24,15 @@ private slots:
     void switchToInterview();
     void switchToOnCampusJobs();
     void handleLogout();
+    void showStudentSurvey();
+    void handleSurveyCompleted();
 
 private:
     void setupUI();
     void setupStyles();
     void loadUserData(const QString &username);
     void applyFadeTransition(QWidget *widget);
+    void checkAndShowLandingPage();
 
     Database *database;
     User currentUser;
@@ -37,4 +42,5 @@ private:
     MyApplicationPage *applicationPage;
     OnCampusJobsPage *onCampusJobsPage;
     InterviewWidget *interviewWidget;
+    LandingPage *landingPage;
 };

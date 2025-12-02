@@ -5,17 +5,15 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QVector>
 #include <QString>
-#include <QTimer>
 
-// Question structure
+// Simple structure to hold one interview question
 struct Question
 {
-    QString text;
-    QString correctAnswer;
-    QVector<QString> options;
+    QString text;             // The question text
+    QString correctAnswer;    // The correct answer
+    QVector<QString> options; // All answer choices (including correct one)
 };
 
 class InterviewWidget : public QWidget
@@ -23,41 +21,45 @@ class InterviewWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit InterviewWidget(const QString &major, QWidget *parent = nullptr);
+    // Constructor: takes the student's degree ("Arts" or "Science")
+    explicit InterviewWidget(const QString &degree, QWidget *parent = nullptr);
 
 signals:
-    void interviewComplete(int finalScore);
-    void backToMenu();
+    void interviewComplete(int finalScore); // Emitted when interview ends
 
 private slots:
-    void checkAnswer();
-    void nextQuestion();
-    void showResult(const QString &result);
+    void checkAnswer();        // Called when student clicks an answer
+    void nextQuestion();       // Loads the next question
+    void switchQuestionType(); // Switch between Arts and Science questions
 
 private:
-    void setupQuestions();
-    void setupUI();
-    void setupStyles();
-    const Question *getCurrentQuestions() const;
-    int getCurrentQuestionsCount() const;
-    void showFinalResult();
+    // Setup functions
+    void setupQuestions();  // Creates all the questions
+    void setupUI();         // Creates the visual layout
+    void showFinalResult(); // Shows score at the end
 
-    // Member variables
-    QString studentMajor;
-    int currentQuestionIndex;
-    int score;
+    // Helper to get current question list based on mode
+    QVector<Question> &getCurrentQuestions();
 
-    // Questions
-    QVector<Question> artsQuestions;
-    QVector<Question> scienceQuestions;
+    // Data
+    QString studentDegree;    // Student's degree from their profile
+    QString currentMode;      // "Arts" or "Science" - which questions are showing
+    int currentQuestionIndex; // Which question we're on (0, 1, 2...)
+    int score;                // How many questions answered correctly
+
+    // Question banks
+    QVector<Question> artsQuestions;    // Office & customer service questions
+    QVector<Question> scienceQuestions; // Simple coding logic questions
 
     // UI elements
-    QLabel *questionLabel;
-    QLabel *feedbackLabel;
-    QVector<QPushButton *> answerButtons;
-    QPushButton *nextButton;
+    QLabel *degreeLabel;                  // Shows current degree/mode
+    QLabel *questionLabel;                // Shows the question text
+    QLabel *feedbackLabel;                // Shows "Correct!" or "Wrong"
+    QVector<QPushButton *> answerButtons; // The 4 answer buttons
+    QPushButton *nextButton;              // "Next Question" button
+    QPushButton *switchButton;            // "Switch to Arts/Science" button
 
-    QVBoxLayout *mainLayout;
+    QVBoxLayout *mainLayout; // Main vertical layout
 };
 
 #endif // INTERVIEWWIDGET_H

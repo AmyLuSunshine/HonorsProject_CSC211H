@@ -110,3 +110,6 @@ private:
     QString contactEmail;
     QString schedule;
 };
+
+
+

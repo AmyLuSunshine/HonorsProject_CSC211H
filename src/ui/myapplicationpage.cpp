@@ -29,29 +29,6 @@ void MyApplicationPage::setupUI()
     mainLayout->setSpacing(20);
     mainLayout->setContentsMargins(40, 40, 40, 40);
 
-    // Upload section
-    auto documentsGroup = new QGroupBox("Document Upload", this);
-    auto documentsLayout = new QVBoxLayout(documentsGroup);
-
-    uploadTranscriptBtn = new QPushButton("📄 Upload Transcript (PDF)", this);
-    transcriptLabel = new QLabel("No transcript uploaded", this);
-    transcriptLabel->setStyleSheet("color:#757575; font-style: italic;");
-
-    uploadCVBtn = new QPushButton("📝 Upload CV/Resume", this);
-    cvLabel = new QLabel("No CV uploaded", this);
-    cvLabel->setStyleSheet("color:#757575; font-style: italic;");
-
-    documentsLayout->addWidget(uploadTranscriptBtn);
-    documentsLayout->addWidget(transcriptLabel);
-    documentsLayout->addSpacing(8);
-    documentsLayout->addWidget(uploadCVBtn);
-    documentsLayout->addWidget(cvLabel);
-
-    connect(uploadTranscriptBtn, &QPushButton::clicked, this, &MyApplicationPage::uploadTranscript);
-    connect(uploadCVBtn, &QPushButton::clicked, this, &MyApplicationPage::uploadCV);
-
-    mainLayout->addWidget(documentsGroup);
-
     // Status overview
     auto statusGroup = new QGroupBox("Document Status Overview", this);
     auto statusLayout = new QHBoxLayout(statusGroup);

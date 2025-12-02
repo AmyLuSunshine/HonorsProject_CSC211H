@@ -398,26 +398,11 @@ CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QVector \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qvector.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QString \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qstring.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QTimer \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtimer.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qelapsedtimer.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMessageBox \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmessagebox.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgraphicseffect.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QPropertyAnimation \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qpropertyanimation.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qvariantanimation.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractanimation.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeasingcurve.h
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h

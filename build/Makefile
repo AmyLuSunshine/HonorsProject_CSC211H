@@ -415,6 +415,30 @@ src/ui/interviewwidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.s
 .PHONY : src/ui/interviewwidget.cpp.s
 
+src/ui/landingpage.obj: src/ui/landingpage.cpp.obj
+.PHONY : src/ui/landingpage.obj
+
+# target to build an object file
+src/ui/landingpage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/landingpage.cpp.obj
+.PHONY : src/ui/landingpage.cpp.obj
+
+src/ui/landingpage.i: src/ui/landingpage.cpp.i
+.PHONY : src/ui/landingpage.i
+
+# target to preprocess a source file
+src/ui/landingpage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/landingpage.cpp.i
+.PHONY : src/ui/landingpage.cpp.i
+
+src/ui/landingpage.s: src/ui/landingpage.cpp.s
+.PHONY : src/ui/landingpage.s
+
+# target to generate assembly for a file
+src/ui/landingpage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/landingpage.cpp.s
+.PHONY : src/ui/landingpage.cpp.s
+
 src/ui/mainwindow.obj: src/ui/mainwindow.cpp.obj
 .PHONY : src/ui/mainwindow.obj
 
@@ -559,6 +583,30 @@ src/ui/searchfilterwidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/searchfilterwidget.cpp.s
 .PHONY : src/ui/searchfilterwidget.cpp.s
 
+src/ui/studentsurveydialog.obj: src/ui/studentsurveydialog.cpp.obj
+.PHONY : src/ui/studentsurveydialog.obj
+
+# target to build an object file
+src/ui/studentsurveydialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/studentsurveydialog.cpp.obj
+.PHONY : src/ui/studentsurveydialog.cpp.obj
+
+src/ui/studentsurveydialog.i: src/ui/studentsurveydialog.cpp.i
+.PHONY : src/ui/studentsurveydialog.i
+
+# target to preprocess a source file
+src/ui/studentsurveydialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/studentsurveydialog.cpp.i
+.PHONY : src/ui/studentsurveydialog.cpp.i
+
+src/ui/studentsurveydialog.s: src/ui/studentsurveydialog.cpp.s
+.PHONY : src/ui/studentsurveydialog.s
+
+# target to generate assembly for a file
+src/ui/studentsurveydialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\campus_Hire_app.dir\build.make CMakeFiles/campus_Hire_app.dir/src/ui/studentsurveydialog.cpp.s
+.PHONY : src/ui/studentsurveydialog.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -601,6 +649,9 @@ help:
 	@echo ... src/ui/interviewwidget.obj
 	@echo ... src/ui/interviewwidget.i
 	@echo ... src/ui/interviewwidget.s
+	@echo ... src/ui/landingpage.obj
+	@echo ... src/ui/landingpage.i
+	@echo ... src/ui/landingpage.s
 	@echo ... src/ui/mainwindow.obj
 	@echo ... src/ui/mainwindow.i
 	@echo ... src/ui/mainwindow.s
@@ -619,6 +670,9 @@ help:
 	@echo ... src/ui/searchfilterwidget.obj
 	@echo ... src/ui/searchfilterwidget.i
 	@echo ... src/ui/searchfilterwidget.s
+	@echo ... src/ui/studentsurveydialog.obj
+	@echo ... src/ui/studentsurveydialog.i
+	@echo ... src/ui/studentsurveydialog.s
 .PHONY : help
 
 

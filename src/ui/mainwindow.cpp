@@ -26,6 +26,9 @@ MainWindow::MainWindow(Database *db, const QString &username, QWidget *parent)
     int x = (screenGeometry.width() - width()) / 2;
     int y = (screenGeometry.height() - height()) / 2;
     move(x, y);
+
+    // Check if we should show landing page
+    checkAndShowLandingPage();
 }
 
 void MainWindow::setupUI()
@@ -65,15 +68,21 @@ void MainWindow::setupUI()
     stackedWidget = new QStackedWidget(centralWidget);
 
     // Create pages
+    landingPage = new LandingPage(database, -1, this); // userId set later
     profilePage = new MyProfilePage(database, this);
     applicationPage = new MyApplicationPage(database, this);
     onCampusJobsPage = new OnCampusJobsPage(database, -1, this); // userId set later
     interviewWidget = new InterviewWidget(currentUser.getMajor(), this);
 
+    stackedWidget->addWidget(landingPage);
     stackedWidget->addWidget(onCampusJobsPage);
     stackedWidget->addWidget(profilePage);
     stackedWidget->addWidget(applicationPage);
     stackedWidget->addWidget(interviewWidget);
+
+    // Connect landing page signals
+    connect(landingPage, &LandingPage::startSurvey, this, &MainWindow::showStudentSurvey);
+    connect(landingPage, &LandingPage::skipToJobs, this, &MainWindow::switchToOnCampusJobs);
 
     // Set layout
     auto layout = new QVBoxLayout(centralWidget);
@@ -223,6 +232,9 @@ void MainWindow::loadUserData(const QString &email)
 {
     currentUser = database->getUserData(email);
     int uid = currentUser.getId();
+
+    // Update all pages with user ID
+    landingPage->setUserId(uid);
     profilePage->setUserId(uid);
     applicationPage->setUserId(uid);
 
@@ -232,4 +244,41 @@ void MainWindow::loadUserData(const QString &email)
     stackedWidget->insertWidget(1, onCampusJobsPage);
 
     // Optionally refresh interviewWidget if needed
+}
+
+void MainWindow::checkAndShowLandingPage()
+{
+    // Check if user has completed survey
+    if (!currentUser.getSurveyCompleted())
+    {
+        // Show landing page for new users
+        stackedWidget->setCurrentWidget(landingPage);
+    }
+    else
+    {
+        // Go directly to jobs page for returning users
+        switchToOnCampusJobs();
+    }
+}
+
+void MainWindow::showStudentSurvey()
+{
+    StudentSurveyDialog dialog(database, currentUser.getId(), this);
+    connect(&dialog, &StudentSurveyDialog::surveyCompleted, this, &MainWindow::handleSurveyCompleted);
+    dialog.exec();
+}
+
+void MainWindow::handleSurveyCompleted()
+{
+    // Reload user data to get updated survey status
+    loadUserData(currentUser.getEmail());
+
+    // Switch to jobs page
+    switchToOnCampusJobs();
+
+    // Show welcome message
+    QMessageBox::information(
+        this,
+        "Welcome!",
+        "Your profile is all set! You can now explore on-campus job opportunities.");
 }

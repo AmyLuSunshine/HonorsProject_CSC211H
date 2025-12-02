@@ -43,11 +43,9 @@ template <> constexpr inline auto InterviewWidget::qt_create_metaobjectdata<qt_m
         "interviewComplete",
         "",
         "finalScore",
-        "backToMenu",
         "checkAnswer",
         "nextQuestion",
-        "showResult",
-        "result"
+        "switchQuestionType"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -55,16 +53,12 @@ template <> constexpr inline auto InterviewWidget::qt_create_metaobjectdata<qt_m
         QtMocHelpers::SignalData<void(int)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::Int, 3 },
         }}),
-        // Signal 'backToMenu'
-        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'checkAnswer'
-        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'nextQuestion'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'switchQuestionType'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'showResult'
-        QtMocHelpers::SlotData<void(const QString &)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 8 },
-        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -89,17 +83,14 @@ void InterviewWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->interviewComplete((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 1: _t->backToMenu(); break;
-        case 2: _t->checkAnswer(); break;
-        case 3: _t->nextQuestion(); break;
-        case 4: _t->showResult((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 1: _t->checkAnswer(); break;
+        case 2: _t->nextQuestion(); break;
+        case 3: _t->switchQuestionType(); break;
         default: ;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
         if (QtMocHelpers::indexOfMethod<void (InterviewWidget::*)(int )>(_a, &InterviewWidget::interviewComplete, 0))
-            return;
-        if (QtMocHelpers::indexOfMethod<void (InterviewWidget::*)()>(_a, &InterviewWidget::backToMenu, 1))
             return;
     }
 }
@@ -123,14 +114,14 @@ int InterviewWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 4;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 4;
     }
     return _id;
 }
@@ -139,11 +130,5 @@ int InterviewWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void InterviewWidget::interviewComplete(int _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
-}
-
-// SIGNAL 1
-void InterviewWidget::backToMenu()
-{
-    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 QT_WARNING_POP

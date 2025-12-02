@@ -22,6 +22,14 @@
         "qpushbutton": "cpp",
         "qlineedit": "cpp",
         "qformlayout": "cpp",
-        "qtextbrowser": "cpp"
+        "qtextbrowser": "cpp",
+        "qsqlquery": "cpp",
+        "qmenu": "cpp",
+        "qspaceritem": "cpp",
+        "qtoolbutton": "cpp",
+        "qscrollarea": "cpp",
+        "qscreen": "cpp",
+        "qlabel": "cpp",
+        "qregularexpressionvalidator": "cpp"
     }
 }

@@ -4,7 +4,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDateTime \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QObject \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QString \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QTimer \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QVector \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q20functional.h \
@@ -13,7 +12,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q20type_traits.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q20utility.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q23utility.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qanystringview.h \
@@ -24,7 +22,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qatomic.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qbasicatomic.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -45,13 +42,10 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdatastream.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdatetime.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdebug.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdir.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdirlisting.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qendian.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qfile.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qfiledevice.h \
@@ -133,7 +127,6 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtextstream.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtformat_impl.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtimer.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtimezone.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qtnoop.h \
@@ -202,6 +195,7 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QProgressBar \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider \
@@ -236,6 +230,7 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistwidget.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qprogressbar.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
@@ -504,6 +499,8 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/job.h \
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/models/user.h \
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/interviewwidget.h \
+  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/landingpage.h \
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
   C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h \
-  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h
+  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h \
+  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/studentsurveydialog.h

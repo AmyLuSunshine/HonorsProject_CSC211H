@@ -28,36 +28,40 @@ signals:
     void interviewComplete(int finalScore); // Emitted when interview ends
 
 private slots:
-    void checkAnswer();        // Called when student clicks an answer
-    void nextQuestion();       // Loads the next question
-    void switchQuestionType(); // Switch between Arts and Science questions
+    void checkAnswer();             // Called when student clicks an answer
+    void nextQuestion();            // Loads the next question
+    void startBehaviorQuestions();  // Start behavior questions quiz
+    void startTechnicalQuestions(); // Start technical questions quiz
+    void backToLanding();           // Go back to landing screen
 
 private:
     // Setup functions
     void setupQuestions();  // Creates all the questions
-    void setupUI();         // Creates the visual layout
+    void setupLandingUI();  // Creates the landing screen with 2 blocks
+    void setupQuestionUI(); // Creates the question screen
     void showFinalResult(); // Shows score at the end
 
     // Helper to get current question list based on mode
     QVector<Question> &getCurrentQuestions();
 
     // Data
-    QString studentDegree;    // Student's degree from their profile
-    QString currentMode;      // "Arts" or "Science" - which questions are showing
+    QString currentMode;      // "Behavior Questions" or "Technical Questions"
     int currentQuestionIndex; // Which question we're on (0, 1, 2...)
     int score;                // How many questions answered correctly
 
     // Question banks
-    QVector<Question> artsQuestions;    // Office & customer service questions
-    QVector<Question> scienceQuestions; // Simple coding logic questions
+    QVector<Question> behaviorQuestions;  // Behavior questions
+    QVector<Question> technicalQuestions; // Technical questions
 
     // UI elements
-    QLabel *degreeLabel;                  // Shows current degree/mode
+    QWidget *landingWidget;  // Landing screen container
+    QWidget *questionWidget; // Question screen container
+
     QLabel *questionLabel;                // Shows the question text
     QLabel *feedbackLabel;                // Shows "Correct!" or "Wrong"
     QVector<QPushButton *> answerButtons; // The 4 answer buttons
     QPushButton *nextButton;              // "Next Question" button
-    QPushButton *switchButton;            // "Switch to Arts/Science" button
+    QPushButton *backButton;              // "Back to Landing" button
 
     QVBoxLayout *mainLayout; // Main vertical layout
 };

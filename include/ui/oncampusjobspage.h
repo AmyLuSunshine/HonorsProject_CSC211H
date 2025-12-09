@@ -9,6 +9,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QCheckBox>
+#include <QRadioButton>
 #include <QSlider>
 #include <QTreeWidget>
 #include <QDialog>
@@ -73,7 +74,6 @@ signals:
     void jobApplied();
 
 private slots:
-    void onCategorySelected(QTreeWidgetItem *item, int column);
     void onJobCardClicked(QListWidgetItem *item);
     void onSearchTextChanged(const QString &text);
     void onFilterChanged();
@@ -81,7 +81,6 @@ private slots:
     void clearFilters();
     void applyForJob();
     void expressInterest();
-    void toggleSaveJob();
 
 private:
     void setupUI();
@@ -99,17 +98,13 @@ private:
     std::vector<Job> currentJobs;
     std::vector<int> savedJobIds;
 
-    // Left panel - Categories
-    QTreeWidget *categoryTree;
-
-    // Center panel - Search & Job List
+    // Left panel - Search & Job List
     QLineEdit *searchEdit;
-    QComboBox *statusFilter;
-    QComboBox *departmentFilter;
     QComboBox *eligibilityFilter;
-    QSlider *payRateSlider;
-    QLabel *payRangeLabel;
     QPushButton *clearFiltersBtn;
+    QRadioButton *allStudentsBtn;
+    QRadioButton *workStudyBtn;
+    QRadioButton *intlBtn;
     QLabel *resultsCountLabel;
     QListWidget *jobListWidget;
 
@@ -119,15 +114,11 @@ private:
     QLabel *jobTitleLabel;
     QLabel *jobDepartmentLabel;
     QLabel *statusBadgeLabel;
+    QLabel *eligibilityInfoLabel;
     QPushButton *actionButton;
-    QPushButton *saveJobButton;
     QTextBrowser *jobDescriptionEdit;
-    QWidget *quickFactsWidget;
-    QTextBrowser *requirementsEdit;
-    QTextBrowser *dutiesEdit;
+    QLabel *requirementsLabel;
     QLabel *skillsLabel;
-    QLabel *supervisorLabel;
-    QTextBrowser *applicationProcessEdit;
 
     // Helpers
     bool isInternationalEligible(const Job &job) const;

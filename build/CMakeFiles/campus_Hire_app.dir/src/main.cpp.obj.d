@@ -452,14 +452,8 @@ CMakeFiles/campus_Hire_app.dir/src/main.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qregularexpression.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h \
- C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemview.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qitemselectionmodel.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h \
@@ -467,6 +461,20 @@ CMakeFiles/campus_Hire_app.dir/src/main.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabbar.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QCheckBox \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcheckbox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myapplicationpage.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qitemselectionmodel.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QFileDialog \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qfiledialog.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdir.h \
@@ -507,18 +515,12 @@ CMakeFiles/campus_Hire_app.dir/src/main.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/QDate \
  C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QListWidget \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistwidget.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistview.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextBrowser \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextbrowser.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QCheckBox \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcheckbox.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTreeWidget \

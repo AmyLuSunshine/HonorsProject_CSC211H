@@ -2587,6 +2587,7 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMainWindow
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QProgressBar
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSplitter
@@ -2622,6 +2623,7 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qprogressbar.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h
@@ -3367,6 +3369,7 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q20type_traits.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q20utility.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/q23utility.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qanystringview.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qarraydata.h
@@ -3531,21 +3534,38 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsql-config.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsqlexports.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsqlglobal.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QCheckBox
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QComboBox
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDateEdit
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QGroupBox
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLabel
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLineEdit
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QWidget
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcheckbox.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdatetimeedit.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qframe.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlabel.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlineedit.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qslider.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyle.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabbar.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h
@@ -3957,6 +3977,7 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLineEdit
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QListWidget
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QScrollArea
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSplitter
@@ -3980,6 +4001,7 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistview.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlistwidget.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h
+ mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h

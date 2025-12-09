@@ -420,24 +420,6 @@
 			null
 		],
 		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h",
-			"Mu",
-			"JCP2AIONHY/moc_profilewidget.cpp",
-			null
-		],
-		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h",
-			"Mu",
-			"JCP2AIONHY/moc_searchfilterwidget.cpp",
-			null
-		],
-		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/settingspage.h",
-			"Mu",
-			"JCP2AIONHY/moc_settingspage.cpp",
-			null
-		],
-		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/studentsurveydialog.h",
 			"Mu",
 			"JCP2AIONHY/moc_studentsurveydialog.cpp",
@@ -595,21 +577,6 @@
 		],
 		[
 			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/oncampusjobspage.cpp",
-			"Mu",
-			null
-		],
-		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/profilewidget.cpp",
-			"Mu",
-			null
-		],
-		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/searchfilterwidget.cpp",
-			"Mu",
-			null
-		],
-		[
-			"C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/settingspage.cpp",
 			"Mu",
 			null
 		],

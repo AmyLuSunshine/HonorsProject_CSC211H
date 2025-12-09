@@ -201,7 +201,6 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSlider \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QSplitter \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QStackedWidget \
-	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTabWidget \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextBrowser \
 	C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
@@ -760,9 +759,6 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/myprofilepage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/onboardingpage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/oncampusjobspage.h \
-	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/profilewidget.h \
-	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/searchfilterwidget.h \
-	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/settingspage.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/include/ui/studentsurveydialog.h \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/auth/loginwindow.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/auth/registerwindow.cpp \
@@ -779,8 +775,5 @@ campus_Hire_app_autogen/timestamp: \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/myprofilepage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/onboardingPage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/oncampusjobspage.cpp \
-	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/profilewidget.cpp \
-	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/searchfilterwidget.cpp \
-	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/settingspage.cpp \
 	C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/src/ui/studentsurveydialog.cpp \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

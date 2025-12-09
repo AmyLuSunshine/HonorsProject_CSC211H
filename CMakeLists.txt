@@ -33,13 +33,10 @@ set(PROJECT_SOURCES
     src/ui/myprofilepage.cpp
     src/ui/myapplicationpage.cpp
     src/ui/oncampusjobspage.cpp
-    src/ui/profilewidget.cpp
-    src/ui/searchfilterwidget.cpp
     src/ui/interviewwidget.cpp
     src/ui/landingpage.cpp
     src/ui/studentsurveydialog.cpp
     src/ui/onboardingPage.cpp
-    src/ui/settingspage.cpp
     src/ui/myaccountpage.cpp
 )
 
@@ -55,13 +52,10 @@ set(PROJECT_HEADERS
     include/ui/myprofilepage.h
     include/ui/myapplicationpage.h
     include/ui/oncampusjobspage.h
-    include/ui/profilewidget.h
-    include/ui/searchfilterwidget.h
     include/ui/interviewwidget.h
     include/ui/landingpage.h
     include/ui/studentsurveydialog.h
     include/ui/onboardingpage.h
-    include/ui/settingspage.h
     include/ui/myaccountpage.h
 )
 

@@ -2,6 +2,9 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QMessageBox>
+#include <QScrollArea>
+#include <QScrollBar>
+#include <QSqlQuery>
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 
@@ -21,65 +24,151 @@ MyProfilePage::MyProfilePage(Database *db, QWidget *parent)
     anim->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
+void MyProfilePage::setUserId(int userId)
+{
+    currentUserId = userId;
+    loadUser();
+}
+
 void MyProfilePage::setupUI()
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setSpacing(20);
-    mainLayout->setContentsMargins(40, 40, 40, 40);
+    auto *mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    // Personal Information
-    auto personalGroup = new QGroupBox("Personal Information", this);
-    auto personalLayout = new QVBoxLayout(personalGroup);
+    // Create scrollable content area
+    auto *scrollArea = new QScrollArea(this);
+    auto *scrollWidget = new QWidget(this);
+    auto *contentLayout = new QVBoxLayout(scrollWidget);
+    contentLayout->setSpacing(20);
+    contentLayout->setContentsMargins(16, 16, 16, 16);
 
-    nameLabel = new QLabel("", this);
-    nameLabel->setStyleSheet("font-size: 18px; font-weight: 600; color: #1976D2;");
-    personalLayout->addWidget(nameLabel);
-
+    // Section 1: Personal Information
+    auto *personalGroup = new QGroupBox("Personal Information", this);
+    auto *personalLayout = new QVBoxLayout(personalGroup);
+    personalLayout->addWidget(new QLabel("Full Name:"));
     fullNameEdit = new QLineEdit(this);
+    personalLayout->addWidget(fullNameEdit);
+    personalLayout->addWidget(new QLabel("Student ID:"));
     emplidEdit = new QLineEdit(this);
+    emplidEdit->setReadOnly(true);
+    personalLayout->addWidget(emplidEdit);
+    personalLayout->addWidget(new QLabel("Email Address:"));
     emailEdit = new QLineEdit(this);
+    personalLayout->addWidget(emailEdit);
+    personalLayout->addWidget(new QLabel("Phone Number:"));
+    phoneEdit = new QLineEdit(this);
+    personalLayout->addWidget(phoneEdit);
+    personalLayout->addWidget(new QLabel("Address:"));
     addressEdit = new QLineEdit(this);
-    majorEdit = new QLineEdit(this);
-    gpaEdit = new QLineEdit(this);
+    personalLayout->addWidget(addressEdit);
+    contentLayout->addWidget(personalGroup);
+
+    // Section 2: Academic Information
+    auto *academicGroup = new QGroupBox("Academic Information", this);
+    auto *academicLayout = new QVBoxLayout(academicGroup);
+    academicLayout->addWidget(new QLabel("Major:"));
+    majorCombo = new QComboBox(this);
+    majorCombo->addItems({"Computer Science", "Science", "Arts", "Business"});
+    academicLayout->addWidget(majorCombo);
+    academicLayout->addWidget(new QLabel("Current Year:"));
+    currentYearCombo = new QComboBox(this);
+    currentYearCombo->addItems({"Freshman", "Sophomore", "Junior", "Senior"});
+    academicLayout->addWidget(currentYearCombo);
+    academicLayout->addWidget(new QLabel("Expected Graduation Date:"));
     gradDateEdit = new QDateEdit(this);
     gradDateEdit->setDisplayFormat("MM/yyyy");
     gradDateEdit->setCalendarPopup(true);
+    academicLayout->addWidget(gradDateEdit);
+    academicLayout->addWidget(new QLabel("Current GPA:"));
+    gpaEdit = new QLineEdit(this);
+    academicLayout->addWidget(gpaEdit);
+    academicLayout->addWidget(new QLabel("Degree/Major:"));
+    degreeEdit = new QLineEdit(this);
+    academicLayout->addWidget(degreeEdit);
+    academicLayout->addWidget(new QLabel("Courses Completed:"));
+    coursesEdit = new QTextEdit(this);
+    coursesEdit->setMaximumHeight(80);
+    academicLayout->addWidget(coursesEdit);
+    academicLayout->addWidget(new QLabel("Credits Taken:"));
+    creditsTakenEdit = new QLineEdit(this);
+    creditsTakenEdit->setReadOnly(true);
+    academicLayout->addWidget(creditsTakenEdit);
+    academicLayout->addWidget(new QLabel("International Student:"));
+    intlYesRadio = new QRadioButton("Yes", this);
+    intlNoRadio = new QRadioButton("No", this);
+    internationalCheckbox = new QCheckBox("Mark as International", this);
+    auto *intlRow = new QHBoxLayout();
+    intlRow->addWidget(intlYesRadio);
+    intlRow->addWidget(intlNoRadio);
+    intlRow->addWidget(internationalCheckbox);
+    academicLayout->addLayout(intlRow);
+    academicLayout->addWidget(new QLabel("Country of Origin:"));
+    countryOfOriginEdit = new QLineEdit(this);
+    academicLayout->addWidget(countryOfOriginEdit);
+    contentLayout->addWidget(academicGroup);
 
-    fullNameEdit->setPlaceholderText("Full Name");
-    emplidEdit->setPlaceholderText("EMPLID");
-    emailEdit->setPlaceholderText("Email");
-    addressEdit->setPlaceholderText("Address (optional)");
-    majorEdit->setPlaceholderText("Major");
-    gpaEdit->setPlaceholderText("GPA 0.00-4.00");
+    // Section 3: Documents
+    auto *docsGroup = new QGroupBox("Documents", this);
+    auto *docsLayout = new QVBoxLayout(docsGroup);
+    docsLayout->addWidget(new QLabel("Resume/CV:"));
+    resumePathEdit = new QLineEdit(this);
+    resumePathEdit->setReadOnly(true);
+    uploadResumeButton = new QPushButton("Upload Resume", this);
+    viewResumeButton = new QPushButton("View", this);
+    deleteResumeButton = new QPushButton("Delete", this);
+    auto *resumeRow = new QHBoxLayout();
+    resumeRow->addWidget(resumePathEdit, 1);
+    resumeRow->addWidget(viewResumeButton);
+    resumeRow->addWidget(deleteResumeButton);
+    docsLayout->addLayout(resumeRow);
+    docsLayout->addWidget(uploadResumeButton);
 
-    emailEdit->setReadOnly(true);
-    emplidEdit->setReadOnly(true);
+    docsLayout->addSpacing(8);
+    docsLayout->addWidget(new QLabel("Transcript:"));
+    transcriptPathEdit = new QLineEdit(this);
+    transcriptPathEdit->setReadOnly(true);
+    uploadTranscriptButton = new QPushButton("Upload Transcript", this);
+    viewTranscriptButton = new QPushButton("View", this);
+    deleteTranscriptButton = new QPushButton("Delete", this);
+    auto *transcriptRow = new QHBoxLayout();
+    transcriptRow->addWidget(transcriptPathEdit, 1);
+    transcriptRow->addWidget(viewTranscriptButton);
+    transcriptRow->addWidget(deleteTranscriptButton);
+    docsLayout->addLayout(transcriptRow);
+    docsLayout->addWidget(uploadTranscriptButton);
+    contentLayout->addWidget(docsGroup);
 
-    personalLayout->addWidget(new QLabel("Full Name:"));
-    personalLayout->addWidget(fullNameEdit);
-    personalLayout->addWidget(new QLabel("EMPLID:"));
-    personalLayout->addWidget(emplidEdit);
-    personalLayout->addWidget(new QLabel("Email:"));
-    personalLayout->addWidget(emailEdit);
-    personalLayout->addWidget(new QLabel("Address:"));
-    personalLayout->addWidget(addressEdit);
-    personalLayout->addWidget(new QLabel("Major:"));
-    personalLayout->addWidget(majorEdit);
-    personalLayout->addWidget(new QLabel("GPA:"));
-    personalLayout->addWidget(gpaEdit);
-    personalLayout->addWidget(new QLabel("Expected Graduation:"));
-    personalLayout->addWidget(gradDateEdit);
+    // Section 4: Work Preferences
+    auto *workGroup = new QGroupBox("Work Preferences", this);
+    auto *workLayout = new QVBoxLayout(workGroup);
+    workLayout->addWidget(new QLabel("Work Study Eligible:"));
+    workStudyYesRadio = new QRadioButton("Yes", this);
+    workStudyNoRadio = new QRadioButton("No", this);
+    auto *workRow = new QHBoxLayout();
+    workRow->addWidget(workStudyYesRadio);
+    workRow->addWidget(workStudyNoRadio);
+    workLayout->addLayout(workRow);
+    contentLayout->addWidget(workGroup);
 
-    mainLayout->addWidget(personalGroup);
-
-    // Save button for profile only
+    // Bottom buttons
+    auto *profileButtons = new QHBoxLayout();
     saveButton = new QPushButton("Save Changes", this);
-    auto btnRow = new QHBoxLayout();
-    btnRow->addStretch();
-    btnRow->addWidget(saveButton);
-    mainLayout->addLayout(btnRow);
+    cancelButton = new QPushButton("Cancel", this);
+    profileButtons->addStretch();
+    profileButtons->addWidget(saveButton);
+    profileButtons->addWidget(cancelButton);
+    contentLayout->addLayout(profileButtons);
+
+    contentLayout->addStretch();
+
+    scrollArea->setWidget(scrollWidget);
+    scrollArea->setWidgetResizable(true);
+    mainLayout->addWidget(scrollArea);
 
     connect(saveButton, &QPushButton::clicked, this, &MyProfilePage::handleSaveProfile);
+    connect(cancelButton, &QPushButton::clicked, this, [this]()
+            { loadUser(); });
 }
 
 void MyProfilePage::setupStyles()
@@ -92,60 +181,108 @@ void MyProfilePage::setupStyles()
         "QGroupBox { font-weight: 600; font-size: 14px; border: 2px solid #BDBDBD; border-radius: 10px;"
         "  margin-top: 14px; padding-top: 12px; background: white; }"
         "QGroupBox::title { left: 15px; padding: 0 8px; color: #1976D2; background: white; }"
-        "QLineEdit, QDateEdit { padding: 12px; border: 2px solid #E0E0E0; border-radius: 8px; background: white; font-size: 14px; }"
-        "QLineEdit:focus, QDateEdit:focus { border: 2px solid #2196F3; background: #f8fcff; }"
+        "QLineEdit, QDateEdit, QComboBox { padding: 12px; border: 2px solid #E0E0E0; border-radius: 8px; background: white; font-size: 14px; }"
+        "QLineEdit:focus, QDateEdit:focus, QComboBox:focus { border: 2px solid #2196F3; background: #f8fcff; }"
+        "QTextEdit { padding: 8px; border: 2px solid #E0E0E0; border-radius: 8px; background: white; font-size: 14px; }"
+        "QTextEdit:focus { border: 2px solid #2196F3; background: #f8fcff; }"
         "QPushButton { background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 #2196F3, stop:1 #1976D2); color:white;"
         "  padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; border: none; min-height: 40px; }"
         "QPushButton:hover { background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 #1976D2, stop:1 #0D47A1); }");
-}
-
-void MyProfilePage::setUserId(int userId)
-{
-    currentUserId = userId;
-    loadUser();
 }
 
 void MyProfilePage::loadUser()
 {
     if (!database || currentUserId < 0)
         return;
-    User u = database->getUserDataById(currentUserId);
-    nameLabel->setText(u.getFullName());
-    fullNameEdit->setText(u.getFullName());
-    emplidEdit->setText(u.getEmplid());
-    emailEdit->setText(u.getEmail());
-    // Username and password moved to Settings -> My Account
 
-    majorEdit->setText(u.getMajor());
-    gpaEdit->setText(u.getGpa());
-    // gradDate stored as yyyy-MM-dd; show month/year if parseable
-    QDate parsed = QDate::fromString(u.getGradDate(), "yyyy-MM-dd");
+    User user = database->getUserDataById(currentUserId);
+    // Personal
+    fullNameEdit->setText(user.getFullName());
+    emplidEdit->setText(user.getEmplid());
+    emailEdit->setText(user.getEmail());
+    addressEdit->setText("");
+    phoneEdit->setText("");
+
+    // Academic
+    int majorIndex = majorCombo->findText(user.getMajor(), Qt::MatchFixedString);
+    if (majorIndex >= 0)
+        majorCombo->setCurrentIndex(majorIndex);
+    gpaEdit->setText(user.getGpa());
+    QDate parsed = QDate::fromString(user.getGradDate(), "yyyy-MM-dd");
     if (!parsed.isValid())
-        parsed = QDate::fromString(u.getGradDate(), "MM/yyyy");
+        parsed = QDate::fromString(user.getGradDate(), "MM/yyyy");
     if (parsed.isValid())
         gradDateEdit->setDate(parsed);
+
+    // Load profile data from survey
+    QSqlQuery query;
+    query.prepare("SELECT is_international_student, resume_path, transcript_path, "
+                  "parsed_gpa, parsed_courses, major FROM users WHERE id = ?");
+    query.addBindValue(currentUserId);
+
+    if (query.exec() && query.next())
+    {
+        bool isInternational = query.value(0).toBool();
+        QString resumePath = query.value(1).toString();
+        QString transcriptPath = query.value(2).toString();
+        QString parsedGPA = query.value(3).toString();
+        QString parsedCourses = query.value(4).toString();
+        QString major = query.value(5).toString();
+
+        // International radio
+        intlYesRadio->setChecked(isInternational);
+        intlNoRadio->setChecked(!isInternational);
+        internationalCheckbox->setChecked(isInternational);
+        resumePathEdit->setText(resumePath.isEmpty() ? "No resume uploaded" : resumePath);
+        transcriptPathEdit->setText(transcriptPath.isEmpty() ? "No transcript uploaded" : transcriptPath);
+        gpaEdit->setText(parsedGPA);
+        coursesEdit->setPlainText(parsedCourses);
+        degreeEdit->setText(major);
+
+        // Parse credits from courses if available
+        if (!parsedCourses.isEmpty())
+        {
+            int courseCount = parsedCourses.split(",").count();
+            creditsTakenEdit->setText(QString::number(courseCount * 3));
+        }
+    }
 }
 
 void MyProfilePage::handleSaveProfile()
 {
     if (!database || currentUserId < 0)
         return;
-    const QString major = majorEdit->text().trimmed();
-    const QString gpa = gpaEdit->text().trimmed();
-    const QString grad = gradDateEdit->date().toString("yyyy-MM-dd");
-    bool ok = database->updateProfileById(currentUserId, major, gpa, grad);
-    if (ok)
+
+    // Update profile fields
+    bool isInternational = intlYesRadio->isChecked();
+    QString degree = degreeEdit->text().trimmed();
+    QString gpa = gpaEdit->text().trimmed();
+    QString courses = coursesEdit->toPlainText().trimmed();
+    QString fullName = fullNameEdit->text().trimmed();
+    QString address = addressEdit->text().trimmed();
+    QString phone = phoneEdit->text().trimmed();
+
+    // Update international status
+    database->updateInternationalStatus(currentUserId, isInternational);
+
+    // Update basic info
+    QSqlQuery query;
+    query.prepare("UPDATE users SET full_name = ?, parsed_gpa = ?, address = ?, phone = ? WHERE id = ?");
+    query.addBindValue(fullName);
+    query.addBindValue(gpa);
+    query.addBindValue(address);
+    query.addBindValue(phone);
+    query.addBindValue(currentUserId);
+
+    if (query.exec())
     {
-        QMessageBox::information(this, "Profile", "Profile updated successfully.");
+        QMessageBox::information(this, "Profile Updated",
+                                 "Your profile information has been saved successfully!");
         emit profileSaved();
     }
     else
     {
-        QMessageBox::warning(this, "Profile", "Failed to update profile.");
+        QMessageBox::warning(this, "Update Failed",
+                             "Failed to save profile changes. Please try again.");
     }
-}
-
-void MyProfilePage::handleChangePassword()
-{
-    QMessageBox::information(this, "My Account", "Login and password settings moved to Settings > My Account.");
 }

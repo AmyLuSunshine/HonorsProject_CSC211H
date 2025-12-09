@@ -45,7 +45,9 @@ template <> constexpr inline auto InterviewWidget::qt_create_metaobjectdata<qt_m
         "finalScore",
         "checkAnswer",
         "nextQuestion",
-        "switchQuestionType"
+        "startBehaviorQuestions",
+        "startTechnicalQuestions",
+        "backToLanding"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -57,8 +59,12 @@ template <> constexpr inline auto InterviewWidget::qt_create_metaobjectdata<qt_m
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'nextQuestion'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'switchQuestionType'
+        // Slot 'startBehaviorQuestions'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'startTechnicalQuestions'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'backToLanding'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -85,7 +91,9 @@ void InterviewWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 0: _t->interviewComplete((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 1: _t->checkAnswer(); break;
         case 2: _t->nextQuestion(); break;
-        case 3: _t->switchQuestionType(); break;
+        case 3: _t->startBehaviorQuestions(); break;
+        case 4: _t->startTechnicalQuestions(); break;
+        case 5: _t->backToLanding(); break;
         default: ;
         }
     }
@@ -114,14 +122,14 @@ int InterviewWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }

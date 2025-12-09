@@ -174,15 +174,32 @@ bool Database::createTables()
         }
     }
 
-    // Insert sample jobs if table is empty (legacy minimal sample)
+    // Insert test user if users table is empty
+    query.exec("SELECT COUNT(*) FROM users");
+    if (query.next() && query.value(0).toInt() == 0)
+    {
+        // SHA256 hash of "test123"
+        success = query.exec(
+            "INSERT INTO users (full_name, email, password, emplid, major, gpa, grad_date) VALUES "
+            "('Test Student', 'test@stu.bmcc.cuny.edu', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', '12345678', 'Computer Science', '3.8', '2026-05-15')");
+        if (!success)
+        {
+            qDebug() << "Error inserting test user:" << query.lastError().text();
+            return false;
+        }
+    }
+
+    // Insert sample jobs if table is empty
     query.exec("SELECT COUNT(*) FROM jobs");
     if (query.next() && query.value(0).toInt() == 0)
     {
         success = query.exec(
-            "INSERT INTO jobs (title, department, description, pay_rate) VALUES "
-            "('Student Assistant', 'Computer Science', 'Help with lab sessions', 15.00),"
-            "('Library Assistant', 'Library', 'Help students find resources', 16.00),"
-            "('IT Support', 'IT Services', 'Provide technical support', 17.50)");
+            "INSERT INTO jobs (title, department, category, description, pay_rate_min, pay_rate_max, status, positions_available, hours_per_week, work_study_eligible, international_eligible, requirements, duties, skills, deadline) VALUES "
+            "('Computer Lab Assistant', 'Computer Science', 'Academic Support', 'Assist students with computer lab activities, troubleshoot basic technical issues, and maintain lab equipment.', 15.00, 16.50, 0, 3, 12, 1, 1, 'Basic computer skills, good communication, reliable', 'Monitor lab usage, help students with software, maintain equipment', 'Technical support, customer service, problem solving', '2025-12-20'),"
+            "('Library Circulation Desk', 'Library Services', 'Library', 'Work at circulation desk checking books in/out, helping students locate materials, and organizing library resources.', 16.00, 17.00, 0, 2, 10, 1, 1, 'Customer service skills, attention to detail', 'Check out materials, assist patrons, shelf reading, process returns', 'Library systems, organization, communication', '2025-12-25'),"
+            "('IT Help Desk Support', 'IT Services', 'Technology', 'Provide first-level technical support to students and staff via phone, email, and in-person. Help with password resets and basic troubleshooting.', 17.00, 19.00, 0, 2, 15, 1, 0, 'Technical knowledge, patience, problem-solving skills', 'Answer support tickets, troubleshoot issues, document solutions', 'IT support, customer service, technical writing', '2025-12-30'),"
+            "('Student Center Front Desk', 'Student Services', 'Student Services', 'Welcome visitors, answer questions, direct students to campus resources, and assist with event setup.', 15.50, 16.00, 0, 4, 12, 1, 1, 'Friendly demeanor, multitasking ability', 'Greet visitors, answer phones, provide information, assist with events', 'Communication, hospitality, multitasking', '2025-12-22'),"
+            "('Tutoring Center Aide', 'Academic Affairs', 'Academic Support', 'Assist tutoring center coordinator, schedule appointments, maintain records, and help students connect with tutors.', 16.00, 17.50, 0, 2, 10, 1, 1, 'Organizational skills, proficiency with Microsoft Office', 'Schedule tutoring sessions, maintain databases, prepare materials', 'Organization, database management, student support', '2025-12-28')");
         if (!success)
         {
             qDebug() << "Error inserting sample jobs:" << query.lastError().text();

@@ -24,91 +24,93 @@ void LandingPage::setupUI()
 
     // Main vertical layout - stacks everything from top to bottom
     auto mainLayout = new QVBoxLayout(pageWidget);
-    mainLayout->setSpacing(20);
-    mainLayout->setContentsMargins(40, 30, 40, 30);
+    mainLayout->setSpacing(30);                     // Consistent spacing like interview page
+    mainLayout->setContentsMargins(40, 40, 40, 40); // Balanced margins like interview page
 
     // TITLE
-    titleLabel = new QLabel("Welcome to Campus Hire", this);
+    titleLabel = new QLabel("Campus Hire", this);
     titleLabel->setAlignment(Qt::AlignCenter);
-    titleLabel->setStyleSheet("font-size: 32px; font-weight: bold; color: #1976D2;");
+    titleLabel->setStyleSheet("font-size: 32px; font-weight: bold; color: #000000;");
     mainLayout->addWidget(titleLabel);
 
     // SUBTITLE
-    subtitleLabel = new QLabel("Your Gateway to Campus Employment Success", this);
+    subtitleLabel = new QLabel("Streamline on-campus employment journey — from discovery to on-board", this);
     subtitleLabel->setAlignment(Qt::AlignCenter);
-    subtitleLabel->setStyleSheet("font-size: 16px; color: #666666;");
+    subtitleLabel->setStyleSheet("font-size: 14px; color: #666666;");
     mainLayout->addWidget(subtitleLabel);
 
-    // DESCRIPTION
-    descriptionLabel = new QLabel(
-        "Campus Hire streamlines your on-campus employment journey — from discovery to hire.<br><br>"
-        "We help you find the perfect position, prepare for success, and manage your application process.",
-        this);
-    descriptionLabel->setAlignment(Qt::AlignCenter);
-    descriptionLabel->setWordWrap(true);
-    descriptionLabel->setStyleSheet("font-size: 14px; color: #424242; padding: 0 40px;");
-    mainLayout->addWidget(descriptionLabel);
-
-    mainLayout->addSpacing(20);
+    // Gap before feature boxes
+    mainLayout->addSpacing(30);
 
     // FEATURE BOXES - side by side (clickable)
     featuresLayout = new QHBoxLayout();
-    featuresLayout->setSpacing(10);
+    featuresLayout->setSpacing(20); // Consistent with interview page spacing
+    featuresLayout->setContentsMargins(0, 0, 0, 0);
 
     // Feature 1 - Jobs Box (clickable)
-    auto feature1Box = createFeatureBox(
-        "💼",
-        "On-Campus Jobs",
-        "Browse positions tailored to your skills. Filter by department and eligibility.");
-    auto jobsBtn = new QPushButton(this);
-    jobsBtn->setLayout(feature1Box->layout());
-    jobsBtn->setMinimumSize(300, 250);
-    jobsBtn->setStyleSheet("QPushButton { background: white; border: 1px solid #ddd; } QPushButton:hover { background: #f5f5f5; }");
-    jobsBtn->setCursor(Qt::PointingHandCursor);
+    auto jobsBtn = createFeatureBox(
+        "💼 On-Campus Jobs",
+        "Find the perfect position.\nFilter by eligibility.",
+        "#ffffff");
     connect(jobsBtn, &QPushButton::clicked, this, &LandingPage::jobsBoxClicked);
     featuresLayout->addWidget(jobsBtn);
 
     // Feature 2 - Onboarding Box (clickable)
-    auto feature2Box = createFeatureBox(
-        "📋",
-        "Smart On-boarding",
-        "Upload documents once and auto-fill applications. Track paperwork seamlessly.");
-    auto onboardingBtn = new QPushButton(this);
-    onboardingBtn->setLayout(feature2Box->layout());
-    onboardingBtn->setMinimumSize(300, 250);
-    onboardingBtn->setStyleSheet("QPushButton { background: white; border: 1px solid #ddd; } QPushButton:hover { background: #f5f5f5; }");
-    onboardingBtn->setCursor(Qt::PointingHandCursor);
+    auto onboardingBtn = createFeatureBox(
+        "📋 Smart On-boarding",
+        "Manage application process.\nTrack paperwork seamlessly.",
+        "#ffffff");
     connect(onboardingBtn, &QPushButton::clicked, this, &LandingPage::onboardingBoxClicked);
     featuresLayout->addWidget(onboardingBtn);
 
     // Feature 3 - Interview Box (clickable)
-    auto feature3Box = createFeatureBox(
-        "🎯",
-        "Interview Prep",
-        "Get personalized tips and practice resources to land your dream campus job.");
-    auto interviewBtn = new QPushButton(this);
-    interviewBtn->setLayout(feature3Box->layout());
-    interviewBtn->setMinimumSize(300, 250);
-    interviewBtn->setStyleSheet("QPushButton { background: white; border: 1px solid #ddd; } QPushButton:hover { background: #f5f5f5; }");
-    interviewBtn->setCursor(Qt::PointingHandCursor);
+    auto interviewBtn = createFeatureBox(
+        "🎯 Interview Prep",
+        "Prepare for success\nto land your dream campus job.",
+        "#ffffff");
     connect(interviewBtn, &QPushButton::clicked, this, &LandingPage::interviewBoxClicked);
     featuresLayout->addWidget(interviewBtn);
 
     mainLayout->addLayout(featuresLayout);
 
-    mainLayout->addSpacing(10);
-
-    // BUTTONS
+    // BUTTONS (using same spacing pattern)
     auto buttonLayout = new QHBoxLayout();
     buttonLayout->setSpacing(15);
+    buttonLayout->setContentsMargins(0, 0, 0, 0);
 
-    getStartedBtn = new QPushButton("Let's Get Started", this);
-    getStartedBtn->setMinimumSize(180, 45);
+    getStartedBtn = new QPushButton("Complete Profile", this);
+    getStartedBtn->setMinimumSize(150, 40);
+    getStartedBtn->setStyleSheet(
+        "QPushButton {"
+        "  background-color: #ffffff;"
+        "  color: #000000;"
+        "  font-size: 14px;"
+        "  font-weight: bold;"
+        "  border: 2px solid #cccccc;"
+        "  border-radius: 5px;"
+        "}"
+        "QPushButton:hover {"
+        "  background-color: #f0f0f0;"
+        "  border: 2px solid #999999;"
+        "}");
     getStartedBtn->setCursor(Qt::PointingHandCursor);
     connect(getStartedBtn, &QPushButton::clicked, this, &LandingPage::startSurvey);
 
-    skipBtn = new QPushButton("Skip for Now", this);
-    skipBtn->setMinimumSize(150, 45);
+    skipBtn = new QPushButton("Browse Jobs", this);
+    skipBtn->setMinimumSize(150, 40);
+    skipBtn->setStyleSheet(
+        "QPushButton {"
+        "  background-color: #f5f5f5;"
+        "  color: #000000;"
+        "  font-size: 14px;"
+        "  font-weight: bold;"
+        "  border: 2px solid #cccccc;"
+        "  border-radius: 5px;"
+        "}"
+        "QPushButton:hover {"
+        "  background-color: #eeeeee;"
+        "  border: 2px solid #999999;"
+        "}");
     skipBtn->setCursor(Qt::PointingHandCursor);
     connect(skipBtn, &QPushButton::clicked, this, &LandingPage::skipToJobs);
 
@@ -118,7 +120,9 @@ void LandingPage::setupUI()
     buttonLayout->addStretch();
 
     mainLayout->addLayout(buttonLayout);
-    mainLayout->addSpacing(20);
+
+    // Add stretch at the bottom to push everything up
+    mainLayout->addStretch();
 
     // Put scroll area in the main widget
     auto outerLayout = new QVBoxLayout(this);
@@ -126,53 +130,52 @@ void LandingPage::setupUI()
     outerLayout->addWidget(scrollArea);
 }
 
-// Simple function to create one feature box
-// Takes: icon (emoji), title (bold text), description (normal text)
-// Returns: a simple white box with the content
-QWidget *LandingPage::createFeatureBox(const QString &icon,
-                                       const QString &title,
-                                       const QString &description)
+// Helper function to create feature boxes - keeps code clean and simple
+QPushButton *LandingPage::createFeatureBox(const QString &title, const QString &description, const QString &bgColor)
 {
-    // Create the box container
-    auto box = new QWidget(this);
-    box->setFixedSize(300, 250); // Fixed size
+    // Create the content widget that goes inside the button
+    QWidget *contentWidget = new QWidget();
+    QVBoxLayout *contentLayout = new QVBoxLayout(contentWidget);
+    contentLayout->setContentsMargins(15, 20, 15, 20); // Padding inside the box
+    contentLayout->setSpacing(8);                      // Space between title and description
+    contentLayout->setAlignment(Qt::AlignCenter);
 
-    // Vertical layout - stacks icon, title, description from top to bottom
-    auto layout = new QVBoxLayout(box);
-    layout->setSpacing(30);
-    layout->setContentsMargins(10, 10, 10, 10);
-
-    // ICON
-    auto iconLabel = new QLabel(icon, this);
-    iconLabel->setAlignment(Qt::AlignCenter);
-    iconLabel->setStyleSheet("font-size: 30px;");
-    layout->addWidget(iconLabel);
-
-    // TITLE
-    auto titleLabel = new QLabel(title, this);
+    // Title label
+    QLabel *titleLabel = new QLabel(title);
     titleLabel->setAlignment(Qt::AlignCenter);
-    titleLabel->setWordWrap(true);
-    titleLabel->setStyleSheet("font-size: 30px; font-weight: bold; color: #1976D2;");
-    layout->addWidget(titleLabel);
+    titleLabel->setStyleSheet("font-size: 15px; font-weight: bold; color: #000000;");
+    contentLayout->addWidget(titleLabel);
 
-    // DESCRIPTION
-    auto descLabel = new QLabel(description, this);
+    // Description label
+    QLabel *descLabel = new QLabel(description);
     descLabel->setAlignment(Qt::AlignCenter);
-    descLabel->setWordWrap(true);
-    descLabel->setStyleSheet("font-size: 15px; color: #424242;");
-    layout->addWidget(descLabel);
+    descLabel->setStyleSheet("font-size: 11px; color: #666666; line-height: 1.5;");
+    contentLayout->addWidget(descLabel);
 
-    // Push everything to the top
-    layout->addStretch();
+    // Create the clickable button
+    auto button = new QPushButton();
+    button->setLayout(contentLayout);
+    button->setMinimumSize(250, 130); // Slightly smaller for better proportions
+    button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
-    // Simple white box with border
-    box->setStyleSheet(
-        "QWidget { "
-        "    background-color: white; "
-        "    border-radius: 8px; "
-        "}");
+    // Determine hover color based on background
+    QString hoverColor = (bgColor == "#ffffff") ? "#f5f5f5" : "#eeeeee";
 
-    return box;
+    button->setStyleSheet(
+        QString("QPushButton {"
+                "  background-color: %1;"
+                "  border: 2px solid #cccccc;"
+                "  border-radius: 8px;"
+                "  padding: 0px;"
+                "}"
+                "QPushButton:hover {"
+                "  background-color: %2;"
+                "  border: 2px solid #999999;"
+                "}")
+            .arg(bgColor, hoverColor));
+    button->setCursor(Qt::PointingHandCursor);
+
+    return button;
 }
 
 void LandingPage::setupStyles()
@@ -180,61 +183,28 @@ void LandingPage::setupStyles()
     setStyleSheet(
         // Page background
         "QWidget {"
-        "    background-color: #F5F5F5;"
+        "    background-color: #ffffff;"
         "    font-family: 'Segoe UI', Arial, sans-serif;"
-        "}"
-
-        // Primary button (Let's Get Started)
-        "QPushButton {"
-        "    background-color: #2196F3;"
-        "    color: white;"
-        "    border: none;"
-        "    border-radius: 8px;"
-        "    font-size: 14px;"
-        "    font-weight: bold;"
-        "    padding: 12px 24px;"
-        "}"
-
-        "QPushButton:hover {"
-        "    background-color: #1976D2;"
-        "}"
-
-        "QPushButton:pressed {"
-        "    background-color: #1565C0;"
-        "}"
-
-        // Skip button (outlined style)
-        "QPushButton#skipBtn {"
-        "    background-color: white;"
-        "    color: #2196F3;"
-        "    border: 2px solid #2196F3;"
-        "}"
-
-        "QPushButton#skipBtn:hover {"
-        "    background-color: #E3F2FD;"
         "}"
 
         // Scroll area
         "QScrollArea {"
         "    border: none;"
-        "    background-color: transparent;"
+        "    background-color: #ffffff;"
         "}"
 
         // Scrollbar
         "QScrollBar:vertical {"
-        "    background: #E0E0E0;"
+        "    background: #f5f5f5;"
         "    width: 10px;"
-        "    border-radius: 5px;"
         "}"
 
         "QScrollBar::handle:vertical {"
-        "    background: #BDBDBD;"
+        "    background: #cccccc;"
         "    border-radius: 5px;"
         "}"
 
         "QScrollBar::handle:vertical:hover {"
-        "    background: #9E9E9E;"
+        "    background: #999999;"
         "}");
-
-    skipBtn->setObjectName("skipBtn");
 }

@@ -405,4 +405,7 @@ CMakeFiles/campus_Hire_app.dir/src/ui/interviewwidget.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QMessageBox \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qmessagebox.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QStackedWidget \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qstackedwidget.h

@@ -37,12 +37,8 @@ private:
     void setupStyles(); // Applies styling
 
     // Helper function to create feature boxes
-    // Takes: icon emoji, title text, description text
-    // Returns: a styled widget containing the feature box
-    QWidget *createFeatureBox(const QString &icon,
-                              const QString &title,
-                              const QString &description);
-
+    QPushButton* createFeatureBox(const QString& title, const QString& description, const QString& bgColor);
+   
     // Database and user info
     Database *database;
     int currentUserId;

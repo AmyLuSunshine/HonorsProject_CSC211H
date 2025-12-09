@@ -1,138 +1,344 @@
 #include "interviewwidget.h"
 #include <QMessageBox>
+#include <QHBoxLayout>
+#include <QStackedWidget>
 
 // Constructor: Initialize the interview widget
 InterviewWidget::InterviewWidget(const QString &degree, QWidget *parent)
     : QWidget(parent)
 {
-    // Save the student's degree from their profile
-    studentDegree = degree;
-
-    // Start with questions matching their degree
-    // If degree contains "Art" or "Humanities" -> Arts questions
-    // Otherwise -> Science questions
-    if (degree.contains("Art", Qt::CaseInsensitive))
-    {
-        currentMode = "Arts";
-    }
-    else
-    {
-        currentMode = "Science";
-    }
-
+    // Initialize data
+    currentMode = "";         // Not set yet - user will choose
     currentQuestionIndex = 0; // Start at first question
     score = 0;                // No points yet
 
     setupQuestions(); // Create all the questions
-    setupUI();        // Build the user interface
+
+    // Create main layout
+    mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    // Create stacked widget to switch between landing and questions
+    QStackedWidget *stackedWidget = new QStackedWidget(this);
+
+    // Create landing screen
+    setupLandingUI();
+    stackedWidget->addWidget(landingWidget);
+
+    // Create question screen
+    setupQuestionUI();
+    stackedWidget->addWidget(questionWidget);
+
+    // Add to main layout
+    mainLayout->addWidget(stackedWidget);
+
+    // Start with landing screen (index 0)
+    stackedWidget->setCurrentIndex(0);
+
+    // Save pointer for later use
+    this->findChild<QStackedWidget *>(); // Will use sender's parent to switch screens
 }
 
-// Create all interview questions for both Arts and Science
+// Create all interview questions for both Behavior and Technical
 void InterviewWidget::setupQuestions()
 {
-    // === ARTS QUESTIONS ===
-    // Focus: Office software (Excel, Word) and customer service skills
+    // === BEHAVIOR QUESTIONS ===
+    // Focus: Interpersonal, conflict, prioritization, time management, goal-setting
 
-    artsQuestions.append({"In Microsoft Excel, which function adds up a range of numbers?",
-                          "SUM",
-                          {"COUNT", "SUM", "AVERAGE", "TOTAL"}});
+    behaviorQuestions.append({"In Microsoft Excel, which function adds up a range of numbers?",
+                              "SUM",
+                              {"COUNT", "SUM", "AVERAGE", "TOTAL"}});
 
-    artsQuestions.append({"In Microsoft Word, what does 'Ctrl + B' do?",
-                          "Makes text bold",
-                          {"Makes text italic", "Makes text bold", "Underlines text", "Saves the document"}});
+    behaviorQuestions.append({"In Microsoft Word, what does 'Ctrl + B' do?",
+                              "Makes text bold",
+                              {"Makes text italic", "Makes text bold", "Underlines text", "Saves the document"}});
 
-    artsQuestions.append({"A customer is upset about a delayed order. What should you do first?",
-                          "Listen and apologize",
-                          {"Ignore them", "Listen and apologize", "Blame shipping", "Offer a discount immediately"}});
+    behaviorQuestions.append({"A customer is upset about a delayed order. What should you do first?",
+                              "Listen and apologize",
+                              {"Ignore them", "Listen and apologize", "Blame shipping", "Offer a discount immediately"}});
 
-    // === SCIENCE QUESTIONS ===
+    // === TECHNICAL QUESTIONS ===
     // Focus: Simple coding logic (LeetCode-style thinking)
 
-    scienceQuestions.append({"What is the result of 5 % 2 in most programming languages?",
-                             "1",
-                             {"0", "1", "2", "2.5"}});
+    technicalQuestions.append({"What is the result of 5 % 2 in most programming languages?",
+                               "1",
+                               {"0", "1", "2", "2.5"}});
 
-    scienceQuestions.append({"Which data structure uses LIFO (Last In, First Out)?",
-                             "Stack",
-                             {"Queue", "Stack", "Array", "Tree"}});
+    technicalQuestions.append({"Which data structure uses LIFO (Last In, First Out)?",
+                               "Stack",
+                               {"Queue", "Stack", "Array", "Tree"}});
 
-    scienceQuestions.append({"What does this code output? for(int i=0; i<3; i++) print(i);",
-                             "0 1 2",
-                             {"1 2 3", "0 1 2", "0 1 2 3", "1 2"}});
+    technicalQuestions.append({"What does this code output? for(int i=0; i<3; i++) print(i);",
+                               "0 1 2",
+                               {"1 2 3", "0 1 2", "0 1 2 3", "1 2"}});
 }
 
-// Build the user interface
-void InterviewWidget::setupUI()
+// === LANDING SCREEN SETUP ===
+// This shows 2 big blocks: Behavior Questions and Technical Questions
+void InterviewWidget::setupLandingUI()
 {
-    // STEP 1: Create main layout (vertical stack)
-    mainLayout = new QVBoxLayout(this);
-    mainLayout->setSpacing(15);
-    mainLayout->setContentsMargins(30, 30, 30, 30);
+    landingWidget = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout(landingWidget);
+    layout->setSpacing(30);
+    layout->setContentsMargins(40, 40, 40, 40);
 
-    // STEP 2: Create degree label (shows "Arts" or "Science")
-    degreeLabel = new QLabel(this);
-    degreeLabel->setText("Interview Questions: " + currentMode);
-    degreeLabel->setAlignment(Qt::AlignCenter);
-    // Simple styling: just bigger text and bold
-    degreeLabel->setStyleSheet("font-size: 18px; font-weight: bold;");
-    mainLayout->addWidget(degreeLabel);
+    // STEP 1: Add title
+    QLabel *titleLabel = new QLabel("Interview Preparation");
+    titleLabel->setAlignment(Qt::AlignCenter);
+    titleLabel->setStyleSheet("font-size: 28px; font-weight: bold; color: #000000;");
+    layout->addWidget(titleLabel);
 
-    // STEP 3: Create switch button
-    switchButton = new QPushButton(this);
-    // Set button text based on current mode
-    if (currentMode == "Arts")
-    {
-        switchButton->setText("Switch to Science Questions");
-    }
-    else
-    {
-        switchButton->setText("Switch to Arts Questions");
-    }
-    // Simple button - no fancy styling
-    switchButton->setMinimumHeight(40);
-    connect(switchButton, &QPushButton::clicked, this, &InterviewWidget::switchQuestionType);
-    mainLayout->addWidget(switchButton);
+    QLabel *subtitleLabel = new QLabel("Choose a question type to get started");
+    subtitleLabel->setAlignment(Qt::AlignCenter);
+    subtitleLabel->setStyleSheet("font-size: 14px; color: #666666;");
+    layout->addWidget(subtitleLabel);
 
-    mainLayout->addSpacing(10);
+    layout->addSpacing(20);
 
-    // STEP 4: Create question label
-    questionLabel = new QLabel(this);
+    // STEP 2: Create two blocks in a horizontal layout
+    QHBoxLayout *blocksLayout = new QHBoxLayout();
+    blocksLayout->setSpacing(30);
+
+    // LEFT BLOCK: Behavior Questions - using labels for proper styling
+    QWidget *behaviorWidget = new QWidget();
+    QVBoxLayout *behaviorVLayout = new QVBoxLayout(behaviorWidget);
+    behaviorVLayout->setContentsMargins(12, 12, 12, 12);
+    behaviorVLayout->setSpacing(0);
+    behaviorVLayout->addStretch();
+
+    QLabel *behaviorTitle = new QLabel("Behavior Questions");
+    behaviorTitle->setAlignment(Qt::AlignCenter);
+    behaviorTitle->setStyleSheet("font-size: 16px; font-weight: bold; color: #000000;");
+    behaviorVLayout->addWidget(behaviorTitle);
+
+    behaviorVLayout->addSpacing(6);
+
+    QLabel *behaviorDesc = new QLabel("Learn about workplace\nconflict and teamwork");
+    behaviorDesc->setAlignment(Qt::AlignCenter);
+    behaviorDesc->setStyleSheet("font-size: 11px; color: #666666; line-height: 1.3;");
+    behaviorVLayout->addWidget(behaviorDesc);
+
+    behaviorVLayout->addStretch();
+
+    behaviorWidget->setMinimumSize(200, 150);
+    behaviorWidget->setStyleSheet(
+        "QWidget {"
+        "  background-color: #f5f5f5;"
+        "}");
+
+    QPushButton *behaviorBlock = new QPushButton();
+    behaviorBlock->setLayout(behaviorVLayout);
+    behaviorBlock->setMinimumHeight(150);
+    behaviorBlock->setMinimumWidth(200);
+    behaviorBlock->setStyleSheet(
+        "QPushButton {"
+        "  background-color: #f5f5f5;"
+        "  border: 2px solid #999999;"
+        "  border-radius: 8px;"
+        "  padding: 0px;"
+        "}"
+        "QPushButton:hover {"
+        "  background-color: #eeeeee;"
+        "}");
+    connect(behaviorBlock, &QPushButton::clicked, this, &InterviewWidget::startBehaviorQuestions);
+    blocksLayout->addWidget(behaviorBlock);
+
+    // RIGHT BLOCK: Technical Questions - using labels for proper styling
+    QWidget *technicalWidget = new QWidget();
+    QVBoxLayout *technicalVLayout = new QVBoxLayout(technicalWidget);
+    technicalVLayout->setContentsMargins(12, 12, 12, 12);
+    technicalVLayout->setSpacing(0);
+    technicalVLayout->addStretch();
+
+    QLabel *technicalTitle = new QLabel("Technical Questions");
+    technicalTitle->setAlignment(Qt::AlignCenter);
+    technicalTitle->setStyleSheet("font-size: 16px; font-weight: bold; color: #000000;");
+    technicalVLayout->addWidget(technicalTitle);
+
+    technicalVLayout->addSpacing(6);
+
+    QLabel *technicalDesc = new QLabel("Learn about coding\nconcepts and logic");
+    technicalDesc->setAlignment(Qt::AlignCenter);
+    technicalDesc->setStyleSheet("font-size: 11px; color: #666666; line-height: 1.3;");
+    technicalVLayout->addWidget(technicalDesc);
+
+    technicalVLayout->addStretch();
+
+    technicalWidget->setMinimumSize(200, 150);
+    technicalWidget->setStyleSheet(
+        "QWidget {"
+        "  background-color: #ffffff;"
+        "}");
+
+    QPushButton *technicalBlock = new QPushButton();
+    technicalBlock->setLayout(technicalVLayout);
+    technicalBlock->setMinimumHeight(150);
+    technicalBlock->setMinimumWidth(200);
+    technicalBlock->setStyleSheet(
+        "QPushButton {"
+        "  background-color: #ffffff;"
+        "  border: 2px solid #999999;"
+        "  border-radius: 8px;"
+        "  padding: 0px;"
+        "}"
+        "QPushButton:hover {"
+        "  background-color: #f9f9f9;"
+        "}");
+    connect(technicalBlock, &QPushButton::clicked, this, &InterviewWidget::startTechnicalQuestions);
+    blocksLayout->addWidget(technicalBlock);
+
+    layout->addLayout(blocksLayout);
+    layout->addStretch();
+}
+
+// === QUESTION SCREEN SETUP ===
+// This shows one question at a time with answer options
+void InterviewWidget::setupQuestionUI()
+{
+    questionWidget = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout(questionWidget);
+    layout->setSpacing(20);
+    layout->setContentsMargins(40, 40, 40, 40);
+
+    // STEP 1: Add title showing which question type
+    QLabel *titleLabel = new QLabel("Interview Question");
+    titleLabel->setAlignment(Qt::AlignCenter);
+    titleLabel->setStyleSheet("font-size: 22px; font-weight: bold; color: #000000;");
+    layout->addWidget(titleLabel);
+
+    layout->addSpacing(10);
+
+    // STEP 2: Add the question text
+    questionLabel = new QLabel();
     questionLabel->setWordWrap(true);
-    // Simple styling: just bigger text
-    questionLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
-    mainLayout->addWidget(questionLabel);
+    questionLabel->setStyleSheet("font-size: 16px; color: #333333; line-height: 1.6;");
+    layout->addWidget(questionLabel);
 
-    // STEP 5: Create 4 answer buttons
+    layout->addSpacing(20);
+
+    // STEP 3: Create 4 answer buttons
     for (int i = 0; i < 4; i++)
     {
-        QPushButton *answerBtn = new QPushButton(this);
-        // Simple button - just set minimum height
+        QPushButton *answerBtn = new QPushButton();
         answerBtn->setMinimumHeight(50);
-
-        // Connect click to checkAnswer function
+        answerBtn->setStyleSheet(
+            "QPushButton {"
+            "  background-color: #ffffff;"
+            "  color: #000000;"
+            "  border: 2px solid #cccccc;"
+            "  border-radius: 5px;"
+            "  font-size: 14px;"
+            "  padding: 10px;"
+            "  text-align: left;"
+            "}"
+            "QPushButton:hover {"
+            "  background-color: #f0f0f0;"
+            "  border: 2px solid #999999;"
+            "}"
+            "QPushButton:pressed {"
+            "  background-color: #e0e0e0;"
+            "}");
         connect(answerBtn, &QPushButton::clicked, this, &InterviewWidget::checkAnswer);
-
         answerButtons.append(answerBtn);
-        mainLayout->addWidget(answerBtn);
+        layout->addWidget(answerBtn);
     }
 
-    // STEP 6: Create feedback label (shows correct/wrong)
-    feedbackLabel = new QLabel(this);
+    layout->addSpacing(15);
+
+    // STEP 4: Add feedback label
+    feedbackLabel = new QLabel();
     feedbackLabel->setWordWrap(true);
-    // Simple styling: just set font size
-    feedbackLabel->setStyleSheet("font-size: 14px;");
-    mainLayout->addWidget(feedbackLabel);
+    feedbackLabel->setAlignment(Qt::AlignCenter);
+    feedbackLabel->setStyleSheet("font-size: 14px; font-weight: bold; color: #000000;");
+    layout->addWidget(feedbackLabel);
 
-    // STEP 7: Create next button
-    nextButton = new QPushButton("Next Question", this);
-    nextButton->setEnabled(false);
-    // Simple button - just set height
+    layout->addSpacing(15);
+
+    // STEP 5: Create button layout for Next and Back buttons
+    QHBoxLayout *buttonLayout = new QHBoxLayout();
+
+    backButton = new QPushButton("Back to Menu");
+    backButton->setMinimumHeight(40);
+    backButton->setStyleSheet(
+        "QPushButton {"
+        "  background-color: #e0e0e0;"
+        "  color: #000000;"
+        "  border: 1px solid #999999;"
+        "  border-radius: 5px;"
+        "  font-size: 14px;"
+        "}"
+        "QPushButton:hover {"
+        "  background-color: #d0d0d0;"
+        "}");
+    connect(backButton, &QPushButton::clicked, this, &InterviewWidget::backToLanding);
+    buttonLayout->addWidget(backButton);
+
+    nextButton = new QPushButton("Next Question");
     nextButton->setMinimumHeight(40);
+    nextButton->setEnabled(false);
+    nextButton->setStyleSheet(
+        "QPushButton {"
+        "  background-color: #ffffff;"
+        "  color: #000000;"
+        "  border: 2px solid #cccccc;"
+        "  border-radius: 5px;"
+        "  font-size: 14px;"
+        "  font-weight: bold;"
+        "}"
+        "QPushButton:hover:!disabled {"
+        "  background-color: #f0f0f0;"
+        "  border: 2px solid #999999;"
+        "}"
+        "QPushButton:disabled {"
+        "  background-color: #f5f5f5;"
+        "  color: #999999;"
+        "}");
     connect(nextButton, &QPushButton::clicked, this, &InterviewWidget::nextQuestion);
-    mainLayout->addWidget(nextButton);
+    buttonLayout->addWidget(nextButton);
 
-    // STEP 8: Load first question
+    layout->addLayout(buttonLayout);
+    layout->addStretch();
+}
+
+// === SLOT: Start Behavior Questions ===
+void InterviewWidget::startBehaviorQuestions()
+{
+    currentMode = "Behavior Questions";
+    currentQuestionIndex = 0;
+    score = 0;
+
+    // Switch to question screen
+    QStackedWidget *stacked = findChild<QStackedWidget *>();
+    if (stacked)
+        stacked->setCurrentIndex(1);
+
+    // Load first question
     nextQuestion();
+}
+
+// === SLOT: Start Technical Questions ===
+void InterviewWidget::startTechnicalQuestions()
+{
+    currentMode = "Technical Questions";
+    currentQuestionIndex = 0;
+    score = 0;
+
+    // Switch to question screen
+    QStackedWidget *stacked = findChild<QStackedWidget *>();
+    if (stacked)
+        stacked->setCurrentIndex(1);
+
+    // Load first question
+    nextQuestion();
+}
+
+// === SLOT: Back to Landing Screen ===
+void InterviewWidget::backToLanding()
+{
+    // Switch back to landing screen
+    QStackedWidget *stacked = findChild<QStackedWidget *>();
+    if (stacked)
+        stacked->setCurrentIndex(0);
 }
 
 // Called when student clicks an answer button
@@ -225,33 +431,6 @@ void InterviewWidget::nextQuestion()
     currentQuestionIndex++;
 }
 
-// Switch between Arts and Science questions
-void InterviewWidget::switchQuestionType()
-{
-    // STEP 1: Switch the mode
-    if (currentMode == "Arts")
-    {
-        currentMode = "Science";
-        switchButton->setText("Switch to Arts Questions");
-    }
-    else
-    {
-        currentMode = "Arts";
-        switchButton->setText("Switch to Science Questions");
-    }
-
-    // STEP 2: Update the top label
-    degreeLabel->setText("Interview Questions: " + currentMode);
-
-    // STEP 3: Reset everything
-    currentQuestionIndex = 0;
-    score = 0;
-    feedbackLabel->clear();
-
-    // STEP 4: Load first question
-    nextQuestion();
-}
-
 // Show final score when all questions are answered
 void InterviewWidget::showFinalResult()
 {
@@ -277,12 +456,12 @@ void InterviewWidget::showFinalResult()
 // Helper function: Get the current question list based on mode
 QVector<Question> &InterviewWidget::getCurrentQuestions()
 {
-    if (currentMode == "Arts")
+    if (currentMode == "Behavior Questions")
     {
-        return artsQuestions;
+        return behaviorQuestions;
     }
     else
     {
-        return scienceQuestions;
+        return technicalQuestions;
     }
 }

@@ -42,8 +42,7 @@ template <> constexpr inline auto MyProfilePage::qt_create_metaobjectdata<qt_met
         "MyProfilePage",
         "profileSaved",
         "",
-        "handleSaveProfile",
-        "handleChangePassword"
+        "handleSaveProfile"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -51,8 +50,6 @@ template <> constexpr inline auto MyProfilePage::qt_create_metaobjectdata<qt_met
         QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'handleSaveProfile'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'handleChangePassword'
-        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -78,7 +75,6 @@ void MyProfilePage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         switch (_id) {
         case 0: _t->profileSaved(); break;
         case 1: _t->handleSaveProfile(); break;
-        case 2: _t->handleChangePassword(); break;
         default: ;
         }
     }
@@ -107,14 +103,14 @@ int MyProfilePage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 2;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 2;
     }
     return _id;
 }

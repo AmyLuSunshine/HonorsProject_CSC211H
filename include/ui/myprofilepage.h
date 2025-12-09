@@ -6,6 +6,10 @@
 #include <QDateEdit>
 #include <QPushButton>
 #include <QGroupBox>
+#include <QComboBox>
+#include <QRadioButton>
+#include <QCheckBox>
+#include <QTextEdit>
 #include "database/database.h"
 
 class MyProfilePage : public QWidget
@@ -20,7 +24,6 @@ signals:
 
 private slots:
     void handleSaveProfile();
-    void handleChangePassword();
 
 private:
     void setupUI();
@@ -36,10 +39,38 @@ private:
     QLineEdit *emplidEdit;
     QLineEdit *emailEdit;
     QLineEdit *addressEdit;
-    QLineEdit *majorEdit;
+    QLineEdit *phoneEdit;
+
+    // Academic information
+    QComboBox *majorCombo;
+    QComboBox *currentYearCombo;
     QLineEdit *gpaEdit;
     QDateEdit *gradDateEdit;
+    QLineEdit *degreeEdit;
+    QLineEdit *creditsTakenEdit;
+    QTextEdit *coursesEdit;
 
-    // Account info moved to SettingsPage
+    // International student
+    QRadioButton *intlYesRadio;
+    QRadioButton *intlNoRadio;
+    QCheckBox *internationalCheckbox;
+    QLineEdit *countryOfOriginEdit;
+
+    // Documents
+    QLineEdit *resumePathEdit;
+    QLineEdit *transcriptPathEdit;
+    QPushButton *uploadResumeButton;
+    QPushButton *viewResumeButton;
+    QPushButton *deleteResumeButton;
+    QPushButton *uploadTranscriptButton;
+    QPushButton *viewTranscriptButton;
+    QPushButton *deleteTranscriptButton;
+
+    // Work preferences
+    QRadioButton *workStudyYesRadio;
+    QRadioButton *workStudyNoRadio;
+
+    // Save button for profile only
     QPushButton *saveButton;
+    QPushButton *cancelButton;
 };

@@ -33,13 +33,13 @@ public:
         int hoursPerWeek, int positionsAvailable, JobStatus status,
         bool workStudyEligible, bool internationalEligible, const QString &deadline, const QString &requirements = "",
         const QString &duties = "", const QString &skills = "", const QString &supervisorInfo = "",
-        const QString &contactEmail = "", const QString &schedule = "")
+        const QString &contactEmail = "", const QString &schedule = "", const QString &requiredDocuments = "")
         : id(id), title(title), department(department), category(category),
           description(description), payRateMin(payRateMin), payRateMax(payRateMax),
           hoursPerWeek(hoursPerWeek), positionsAvailable(positionsAvailable),
           status(status), workStudyEligible(workStudyEligible), internationalEligible(internationalEligible), deadline(deadline),
           requirements(requirements), duties(duties), skills(skills),
-          supervisorInfo(supervisorInfo), contactEmail(contactEmail), schedule(schedule) {}
+          supervisorInfo(supervisorInfo), contactEmail(contactEmail), schedule(schedule), requiredDocuments(requiredDocuments) {}
 
     // Getters
     int getId() const { return id; }
@@ -61,6 +61,7 @@ public:
     QString getSupervisorInfo() const { return supervisorInfo; }
     QString getContactEmail() const { return contactEmail; }
     QString getSchedule() const { return schedule; }
+    QString getRequiredDocuments() const { return requiredDocuments; }
 
     // Helper methods
     QString getStatusString() const
@@ -109,7 +110,5 @@ private:
     QString supervisorInfo;
     QString contactEmail;
     QString schedule;
+    QString requiredDocuments;
 };
-
-
-

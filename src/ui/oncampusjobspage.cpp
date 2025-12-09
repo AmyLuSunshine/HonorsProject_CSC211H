@@ -335,6 +335,29 @@ void OnCampusJobsPage::setupUI()
 
     detailLayout->addStretch();
 
+    // Onboarding Documents Box - Fixed at bottom
+    QWidget *onboardingBox = new QWidget(this);
+    onboardingBox->setStyleSheet("background: #FFF9C4; border: 2px solid #F57C00; border-radius: 6px; padding: 10px;");
+    QVBoxLayout *onboardingLayout = new QVBoxLayout(onboardingBox);
+    onboardingLayout->setSpacing(6);
+    onboardingLayout->setContentsMargins(10, 10, 10, 10);
+
+    QLabel *onboardingTitle = new QLabel("📋 Prepare If Hired:", this);
+    onboardingTitle->setStyleSheet("font-size: 13px; font-weight: 700; color: #E65100; padding: 0;");
+    onboardingLayout->addWidget(onboardingTitle);
+
+    QLabel *onboardingText = new QLabel(
+        "• Social Security Card<br>"
+        "• ID + Birth Certificate (or Passport)<br>"
+        "• Bank Account Info<br>"
+        "• W-4 Tax Form",
+        this);
+    onboardingText->setStyleSheet("font-size: 11px; color: #333; line-height: 1.4; padding: 0;");
+    onboardingText->setWordWrap(true);
+    onboardingLayout->addWidget(onboardingText);
+
+    detailLayout->addWidget(onboardingBox);
+
     detailScrollArea = new QScrollArea(this);
     detailScrollArea->setWidget(detailPanel);
     detailScrollArea->setWidgetResizable(true);
@@ -507,11 +530,11 @@ void OnCampusJobsPage::showJobDetails(const Job &job)
 
     // Key Job Info Section
     htmlContent += "<div style='background: #e3f2fd; padding: 12px; border-radius: 6px; margin-bottom: 14px; border-left: 4px solid #2196F3;'>";
-    htmlContent += "<b style='color: #1565C0; font-size: 13px;'>📋 Quick Overview</b>";
+    htmlContent += "<b style='color: #1565C0; font-size: 13px;'>Quick Overview</b>";
     htmlContent += "<table width='100%' style='margin-top:8px;'>";
-    htmlContent += QString("<tr><td style='padding:4px 0; color:#424242;'><b>💰 Pay Rate:</b></td><td style='padding:4px 0;'>%1</td></tr>").arg(job.getPayRateString());
-    htmlContent += QString("<tr><td style='padding:4px 0; color:#424242;'><b>⏰ Hours/Week:</b></td><td style='padding:4px 0;'>%1</td></tr>").arg(job.getHoursPerWeek());
-    htmlContent += QString("<tr><td style='padding:4px 0; color:#424242;'><b>👥 Positions:</b></td><td style='padding:4px 0;'>%1</td></tr>").arg(job.getPositionsAvailable());
+    htmlContent += QString("<tr><td style='padding:4px 0; color:#424242;'><b>Pay Rate:</b></td><td style='padding:4px 0;'>%1</td></tr>").arg(job.getPayRateString());
+    htmlContent += QString("<tr><td style='padding:4px 0; color:#424242;'><b>Hours/Week:</b></td><td style='padding:4px 0;'>%1</td></tr>").arg(job.getHoursPerWeek());
+    htmlContent += QString("<tr><td style='padding:4px 0; color:#424242;'><b>Positions:</b></td><td style='padding:4px 0;'>%1</td></tr>").arg(job.getPositionsAvailable());
 
     // Add category if available
     if (!job.getCategory().isEmpty())
@@ -537,7 +560,7 @@ void OnCampusJobsPage::showJobDetails(const Job &job)
     if (!job.getDescription().isEmpty())
     {
         htmlContent += "<div style='margin-bottom: 14px;'>";
-        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #1976D2; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E3F2FD;'>📝 About This Position</div>";
+        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #1976D2; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E3F2FD;'>About This Position</div>";
         htmlContent += QString("<p style='margin: 8px 0; line-height: 1.6; color: #424242;'>%1</p>").arg(job.getDescription());
         htmlContent += "</div>";
     }
@@ -546,7 +569,7 @@ void OnCampusJobsPage::showJobDetails(const Job &job)
     if (!job.getDuties().isEmpty())
     {
         htmlContent += "<div style='margin-bottom: 14px;'>";
-        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #1976D2; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E3F2FD;'>✅ Your Responsibilities</div>";
+        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #1976D2; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E3F2FD;'>Your Responsibilities</div>";
         htmlContent += QString("<p style='margin: 8px 0; line-height: 1.6; color: #424242;'>%1</p>").arg(job.getDuties());
         htmlContent += "</div>";
     }
@@ -555,7 +578,7 @@ void OnCampusJobsPage::showJobDetails(const Job &job)
     if (!job.getRequirements().isEmpty())
     {
         htmlContent += "<div style='margin-bottom: 14px;'>";
-        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #1976D2; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E3F2FD;'>📌 What We're Looking For</div>";
+        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #1976D2; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E3F2FD;'>What We're Looking For</div>";
         htmlContent += QString("<p style='margin: 8px 0; line-height: 1.6; color: #424242;'>%1</p>").arg(job.getRequirements());
         htmlContent += "</div>";
     }
@@ -564,8 +587,17 @@ void OnCampusJobsPage::showJobDetails(const Job &job)
     if (!job.getSkills().isEmpty())
     {
         htmlContent += "<div style='margin-bottom: 14px;'>";
-        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #1976D2; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E3F2FD;'>🎓 Skills You'll Gain</div>";
+        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #1976D2; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E3F2FD;'>Skills You'll Gain</div>";
         htmlContent += QString("<p style='margin: 8px 0; line-height: 1.6; color: #424242;'>%1</p>").arg(job.getSkills());
+        htmlContent += "</div>";
+    }
+
+    // Required Documents Section
+    if (!job.getRequiredDocuments().isEmpty())
+    {
+        htmlContent += "<div style='margin-bottom: 14px;'>";
+        htmlContent += "<div style='font-size: 14px; font-weight: 600; color: #D32F2F; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #FFEBEE;'>📄 Required Application Documents</div>";
+        htmlContent += QString("<p style='margin: 8px 0; line-height: 1.6; color: #424242;'>%1</p>").arg(job.getRequiredDocuments());
         htmlContent += "</div>";
     }
 
@@ -573,7 +605,7 @@ void OnCampusJobsPage::showJobDetails(const Job &job)
     if (!job.getContactEmail().isEmpty() || !job.getSupervisorInfo().isEmpty())
     {
         htmlContent += "<div style='background: #e8f5e9; padding: 12px; border-radius: 6px; border-left: 4px solid #4CAF50; margin-top: 16px;'>";
-        htmlContent += "<b style='color: #2e7d32; font-size: 13px;'>📞 Contact Information</b><br>";
+        htmlContent += "<b style='color: #2e7d32; font-size: 13px;'>Contact Information</b><br>";
         if (!job.getSupervisorInfo().isEmpty())
         {
             htmlContent += QString("<p style='margin: 4px 0;'><b>Supervisor:</b> %1</p>").arg(job.getSupervisorInfo());
@@ -721,5 +753,3 @@ void OnCampusJobsPage::expressInterest()
     ExpressInterestDialog dialog(database, currentUserId, selectedJob, this);
     dialog.exec();
 }
-
-// Save job feature removed

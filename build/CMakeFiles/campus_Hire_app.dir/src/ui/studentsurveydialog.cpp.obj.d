@@ -394,8 +394,8 @@ CMakeFiles/campus_Hire_app.dir/src/ui/studentsurveydialog.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QCheckBox \
- C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcheckbox.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \

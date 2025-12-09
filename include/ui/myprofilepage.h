@@ -38,8 +38,12 @@ private:
     QLineEdit *fullNameEdit;
     QLineEdit *emplidEdit;
     QLineEdit *emailEdit;
-    QLineEdit *addressEdit;
-    QLineEdit *phoneEdit;
+
+    // International and Work Study status
+    QRadioButton *intlYesRadio;
+    QRadioButton *intlNoRadio;
+    QRadioButton *workStudyYesRadio;
+    QRadioButton *workStudyNoRadio;
 
     // Academic information
     QComboBox *majorCombo;
@@ -50,12 +54,6 @@ private:
     QLineEdit *creditsTakenEdit;
     QTextEdit *coursesEdit;
 
-    // International student
-    QRadioButton *intlYesRadio;
-    QRadioButton *intlNoRadio;
-    QCheckBox *internationalCheckbox;
-    QLineEdit *countryOfOriginEdit;
-
     // Documents
     QLineEdit *resumePathEdit;
     QLineEdit *transcriptPathEdit;
@@ -65,10 +63,6 @@ private:
     QPushButton *uploadTranscriptButton;
     QPushButton *viewTranscriptButton;
     QPushButton *deleteTranscriptButton;
-
-    // Work preferences
-    QRadioButton *workStudyYesRadio;
-    QRadioButton *workStudyNoRadio;
 
     // Save button for profile only
     QPushButton *saveButton;

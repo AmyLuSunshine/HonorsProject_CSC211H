@@ -56,12 +56,29 @@ void MyProfilePage::setupUI()
     personalLayout->addWidget(new QLabel("Email Address:"));
     emailEdit = new QLineEdit(this);
     personalLayout->addWidget(emailEdit);
-    personalLayout->addWidget(new QLabel("Phone Number:"));
-    phoneEdit = new QLineEdit(this);
-    personalLayout->addWidget(phoneEdit);
-    personalLayout->addWidget(new QLabel("Address:"));
-    addressEdit = new QLineEdit(this);
-    personalLayout->addWidget(addressEdit);
+
+    personalLayout->addSpacing(10);
+    personalLayout->addWidget(new QLabel("International Student:"));
+    intlYesRadio = new QRadioButton("Yes", this);
+    intlNoRadio = new QRadioButton("No", this);
+    intlNoRadio->setChecked(true);
+    auto *intlRow = new QHBoxLayout();
+    intlRow->addWidget(intlYesRadio);
+    intlRow->addWidget(intlNoRadio);
+    intlRow->addStretch();
+    personalLayout->addLayout(intlRow);
+
+    personalLayout->addSpacing(10);
+    personalLayout->addWidget(new QLabel("Work Study Eligible:"));
+    workStudyYesRadio = new QRadioButton("Yes", this);
+    workStudyNoRadio = new QRadioButton("No", this);
+    workStudyNoRadio->setChecked(true);
+    auto *workRow = new QHBoxLayout();
+    workRow->addWidget(workStudyYesRadio);
+    workRow->addWidget(workStudyNoRadio);
+    workRow->addStretch();
+    personalLayout->addLayout(workRow);
+
     contentLayout->addWidget(personalGroup);
 
     // Section 2: Academic Information
@@ -94,18 +111,6 @@ void MyProfilePage::setupUI()
     creditsTakenEdit = new QLineEdit(this);
     creditsTakenEdit->setReadOnly(true);
     academicLayout->addWidget(creditsTakenEdit);
-    academicLayout->addWidget(new QLabel("International Student:"));
-    intlYesRadio = new QRadioButton("Yes", this);
-    intlNoRadio = new QRadioButton("No", this);
-    internationalCheckbox = new QCheckBox("Mark as International", this);
-    auto *intlRow = new QHBoxLayout();
-    intlRow->addWidget(intlYesRadio);
-    intlRow->addWidget(intlNoRadio);
-    intlRow->addWidget(internationalCheckbox);
-    academicLayout->addLayout(intlRow);
-    academicLayout->addWidget(new QLabel("Country of Origin:"));
-    countryOfOriginEdit = new QLineEdit(this);
-    academicLayout->addWidget(countryOfOriginEdit);
     contentLayout->addWidget(academicGroup);
 
     // Section 3: Documents
@@ -138,18 +143,6 @@ void MyProfilePage::setupUI()
     docsLayout->addLayout(transcriptRow);
     docsLayout->addWidget(uploadTranscriptButton);
     contentLayout->addWidget(docsGroup);
-
-    // Section 4: Work Preferences
-    auto *workGroup = new QGroupBox("Work Preferences", this);
-    auto *workLayout = new QVBoxLayout(workGroup);
-    workLayout->addWidget(new QLabel("Work Study Eligible:"));
-    workStudyYesRadio = new QRadioButton("Yes", this);
-    workStudyNoRadio = new QRadioButton("No", this);
-    auto *workRow = new QHBoxLayout();
-    workRow->addWidget(workStudyYesRadio);
-    workRow->addWidget(workStudyNoRadio);
-    workLayout->addLayout(workRow);
-    contentLayout->addWidget(workGroup);
 
     // Bottom buttons
     auto *profileButtons = new QHBoxLayout();
@@ -200,8 +193,6 @@ void MyProfilePage::loadUser()
     fullNameEdit->setText(user.getFullName());
     emplidEdit->setText(user.getEmplid());
     emailEdit->setText(user.getEmail());
-    addressEdit->setText("");
-    phoneEdit->setText("");
 
     // Academic
     int majorIndex = majorCombo->findText(user.getMajor(), Qt::MatchFixedString);
@@ -229,10 +220,9 @@ void MyProfilePage::loadUser()
         QString parsedCourses = query.value(4).toString();
         QString major = query.value(5).toString();
 
-        // International radio
+        // International and Work Study status
         intlYesRadio->setChecked(isInternational);
         intlNoRadio->setChecked(!isInternational);
-        internationalCheckbox->setChecked(isInternational);
         resumePathEdit->setText(resumePath.isEmpty() ? "No resume uploaded" : resumePath);
         transcriptPathEdit->setText(transcriptPath.isEmpty() ? "No transcript uploaded" : transcriptPath);
         gpaEdit->setText(parsedGPA);
@@ -255,23 +245,20 @@ void MyProfilePage::handleSaveProfile()
 
     // Update profile fields
     bool isInternational = intlYesRadio->isChecked();
+    bool isWorkStudy = workStudyYesRadio->isChecked();
     QString degree = degreeEdit->text().trimmed();
     QString gpa = gpaEdit->text().trimmed();
     QString courses = coursesEdit->toPlainText().trimmed();
     QString fullName = fullNameEdit->text().trimmed();
-    QString address = addressEdit->text().trimmed();
-    QString phone = phoneEdit->text().trimmed();
 
     // Update international status
     database->updateInternationalStatus(currentUserId, isInternational);
 
     // Update basic info
     QSqlQuery query;
-    query.prepare("UPDATE users SET full_name = ?, parsed_gpa = ?, address = ?, phone = ? WHERE id = ?");
+    query.prepare("UPDATE users SET full_name = ?, parsed_gpa = ? WHERE id = ?");
     query.addBindValue(fullName);
     query.addBindValue(gpa);
-    query.addBindValue(address);
-    query.addBindValue(phone);
     query.addBindValue(currentUserId);
 
     if (query.exec())

@@ -171,22 +171,22 @@ C:/Users/yangm/Documents/Masters/CSProjects/Qt_HonorsProject_CSC211H/build/campu
   C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsql-config.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtSql/qtsqlglobal.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QCheckBox \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QDialog \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLabel \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QProgressBar \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qcheckbox.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qprogressbar.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
+  C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qradiobutton.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
   C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \

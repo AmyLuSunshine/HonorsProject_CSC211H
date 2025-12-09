@@ -3,7 +3,7 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <QTextEdit>
-#include <QCheckBox>
+#include <QRadioButton>
 #include <QPushButton>
 #include <QLabel>
 #include <QProgressBar>
@@ -37,7 +37,8 @@ private:
     QLabel *descriptionLabel;
 
     // International student status
-    QCheckBox *internationalCheckbox;
+    QRadioButton *internationalYesBtn;
+    QRadioButton *internationalNoBtn;
     QLabel *internationalHelpLabel;
 
     // Resume upload

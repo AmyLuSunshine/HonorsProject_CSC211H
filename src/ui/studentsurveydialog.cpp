@@ -61,17 +61,39 @@ void StudentSurveyDialog::setupUI()
     // International student section
     auto internationalGroup = new QGroupBox("Student Status", this);
     auto internationalLayout = new QVBoxLayout(internationalGroup);
+    internationalLayout->setSpacing(15);
 
-    internationalCheckbox = new QCheckBox("I am an international student", this);
-    internationalCheckbox->setStyleSheet("font-size: 14px; font-weight: 500;");
-    internationalLayout->addWidget(internationalCheckbox);
+    auto questionLabel = new QLabel("Are you an international student?", this);
+    questionLabel->setStyleSheet("font-size: 15px; font-weight: 600; color: #333;");
+    internationalLayout->addWidget(questionLabel);
+
+    // Radio buttons in horizontal layout
+    auto radioLayout = new QHBoxLayout();
+    radioLayout->setSpacing(30);
+
+    internationalYesBtn = new QRadioButton("Yes", this);
+    internationalYesBtn->setStyleSheet(
+        "QRadioButton { font-size: 16px; font-weight: 500; padding: 10px; }"
+        "QRadioButton::indicator { width: 24px; height: 24px; }");
+
+    internationalNoBtn = new QRadioButton("No", this);
+    internationalNoBtn->setStyleSheet(
+        "QRadioButton { font-size: 16px; font-weight: 500; padding: 10px; }"
+        "QRadioButton::indicator { width: 24px; height: 24px; }");
+    internationalNoBtn->setChecked(true); // Default to No
+
+    radioLayout->addWidget(internationalYesBtn);
+    radioLayout->addWidget(internationalNoBtn);
+    radioLayout->addStretch();
+
+    internationalLayout->addLayout(radioLayout);
 
     internationalHelpLabel = new QLabel(
         "💡 This helps us show you jobs that accept international students and guide you "
         "through visa/work authorization requirements.",
         this);
     internationalHelpLabel->setWordWrap(true);
-    internationalHelpLabel->setStyleSheet("font-size: 12px; color: #757575; margin-left: 25px;");
+    internationalHelpLabel->setStyleSheet("font-size: 12px; color: #757575; margin-top: 8px;");
     internationalLayout->addWidget(internationalHelpLabel);
 
     mainLayout->addWidget(internationalGroup);
@@ -304,7 +326,7 @@ void StudentSurveyDialog::browseTranscript()
 void StudentSurveyDialog::submitSurvey()
 {
     // Validate at least resume or international status provided
-    if (resumePathEdit->text().isEmpty() && !internationalCheckbox->isChecked())
+    if (resumePathEdit->text().isEmpty() && !internationalYesBtn->isChecked())
     {
         QMessageBox::warning(
             this,
@@ -314,7 +336,7 @@ void StudentSurveyDialog::submitSurvey()
     }
 
     // Save survey data
-    bool isInternational = internationalCheckbox->isChecked();
+    bool isInternational = internationalYesBtn->isChecked();
     QString resumePath = resumePathEdit->text();
     QString transcriptPath = transcriptPathEdit->text();
 

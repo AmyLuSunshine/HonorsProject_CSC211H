@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Qt App (MinGW)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/campus_Hire_app.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Qt-Community/Tools/mingw1310_64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "visualizerFile": "c:\\Users\\yangm\\AppData\\Roaming\\Code\\User\\workspaceStorage\\0bb175e000862fc15954b42e6ed3d3f8\\tonka3000.qtvsctools\\qt.natvis.xml"
+        }
+    ]
+}

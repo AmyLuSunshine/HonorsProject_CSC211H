@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/**",
+                "C:/Qt-Community/6.9.0/mingw_64/include",
+                "C:/Qt-Community/6.9.0/mingw_64/include/QtCore",
+                "C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets",
+                "C:/Qt-Community/6.9.0/mingw_64/include/QtGui",
+                "C:/Qt-Community/6.9.0/mingw_64/include/QtSql"
+            ],
+            "defines": [],
+            "windowsSdkVersion": "10.0.19041.0",
+            "compilerPath": "C:/Qt-Community/Tools/mingw1310_64/bin/g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}

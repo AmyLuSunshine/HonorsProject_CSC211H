@@ -5,28 +5,49 @@
 #include <QToolBar>
 #include "database/database.h"
 #include "models/user.h"
-#include "ui/joblistwidget.h"
-#include "ui/profilewidget.h"
+#include "ui/myprofilepage.h"
+#include "ui/myapplicationpage.h"
+#include "ui/oncampusjobspage.h"
+#include "ui/interviewwidget.h"
+#include "ui/landingpage.h"
+#include "ui/studentsurveydialog.h"
+#include "ui/onboardingpage.h"
+#include "ui/myaccountpage.h"
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
     Q_OBJECT
+
 public:
-    explicit MainWindow(Database* db, const QString& username, QWidget *parent = nullptr);
+    explicit MainWindow(Database *db, const QString &username, QWidget *parent = nullptr);
 
 private slots:
-    void switchToJobs();
+    void switchToHome();
     void switchToProfile();
+    void switchToOnboarding();
+    void switchToInterview();
+    void switchToOnCampusJobs();
     void handleLogout();
+    void showStudentSurvey();
+    void handleSurveyCompleted();
+    void switchToAccount();
 
 private:
     void setupUI();
     void setupStyles();
-    void loadUserData(const QString& username);
+    void loadUserData(const QString &username);
+    void applyFadeTransition(QWidget *widget);
+    void checkAndShowLandingPage();
 
-    Database* database;
+    Database *database;
     User currentUser;
-    QStackedWidget* stackedWidget;
-    QToolBar* toolbar;
-    JobListWidget* jobListWidget;
-    ProfileWidget* profileWidget;
+    QStackedWidget *stackedWidget;
+    QToolBar *toolbar;
+    MyProfilePage *profilePage;
+    MyApplicationPage *applicationPage;
+    OnCampusJobsPage *onCampusJobsPage;
+    InterviewWidget *interviewWidget;
+    LandingPage *landingPage;
+    OnboardingPage *onboardingPage;
+    MyAccountPage *accountPage;
 };

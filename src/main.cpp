@@ -6,12 +6,14 @@
 #include "ui/mainwindow.h"
 #include "database/database.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
     QApplication a(argc, argv);
 
     // Initialize database with shared pointer for better memory management
     QSharedPointer<Database> db(new Database());
-    if (!db->connectToDatabase()) {
+    if (!db->connectToDatabase())
+    {
         qDebug() << "Failed to connect to database";
         return -1;
     }
@@ -22,22 +24,23 @@ int main(int argc, char* argv[]) {
     QSharedPointer<MainWindow> mainWindow;
 
     // Connect login/register windows
-    QObject::connect(loginWindow.data(), &LoginWindow::switchToRegister, [=]() {
+    QObject::connect(loginWindow.data(), &LoginWindow::switchToRegister, [=]()
+                     {
         loginWindow->hide();
-        registerWindow->show();
-        });
+        registerWindow->show(); });
 
-    QObject::connect(registerWindow.data(), &RegisterWindow::switchToLogin, [=]() {
+    QObject::connect(registerWindow.data(), &RegisterWindow::switchToLogin, [=]()
+                     {
         registerWindow->hide();
-        loginWindow->show();
-        });
+        loginWindow->show(); });
 
     QObject::connect(loginWindow.data(), &LoginWindow::loginSuccessful,
-        [&mainWindow, db, loginWindow]() {
-            loginWindow->hide();
-            mainWindow.reset(new MainWindow(db.data(), loginWindow->getCurrentUsername()));
-            mainWindow->show();
-        });
+                     [&mainWindow, db, loginWindow]()
+                     {
+                         loginWindow->hide();
+                         mainWindow.reset(new MainWindow(db.data(), loginWindow->getCurrentUsername()));
+                         mainWindow->show();
+                     });
 
     loginWindow->show();
 

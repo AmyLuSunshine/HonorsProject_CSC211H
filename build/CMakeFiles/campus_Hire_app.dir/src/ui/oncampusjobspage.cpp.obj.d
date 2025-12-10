@@ -518,4 +518,20 @@ CMakeFiles/campus_Hire_app.dir/src/ui/oncampusjobspage.cpp.obj: \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qpropertyanimation.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qvariantanimation.h \
  C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstractanimation.h \
- C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeasingcurve.h
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeasingcurve.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/QClipboard \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qclipboard.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/QApplication \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qcoreapplication.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qelapsedtimer.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qnativeinterface.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qguiapplication.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qinputmethod.h \
+ C:/Qt-Community/6.9.0/mingw_64/include/QtGui/qguiapplication_platform.h

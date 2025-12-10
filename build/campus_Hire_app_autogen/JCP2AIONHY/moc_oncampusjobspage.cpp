@@ -44,7 +44,7 @@ template <> constexpr inline auto JobApplicationDialog::qt_create_metaobjectdata
         "",
         "browseCoverLetter",
         "submitApplication",
-        "saveDraft"
+        "showEmailDraft"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -54,7 +54,7 @@ template <> constexpr inline auto JobApplicationDialog::qt_create_metaobjectdata
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'submitApplication'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'saveDraft'
+        // Slot 'showEmailDraft'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
@@ -82,7 +82,7 @@ void JobApplicationDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
         case 0: _t->browseResume(); break;
         case 1: _t->browseCoverLetter(); break;
         case 2: _t->submitApplication(); break;
-        case 3: _t->saveDraft(); break;
+        case 3: _t->showEmailDraft(); break;
         default: ;
         }
     }

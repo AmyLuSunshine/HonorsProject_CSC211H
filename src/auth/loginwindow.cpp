@@ -17,7 +17,7 @@
 #include <QRegularExpressionValidator>
 
 LoginWindow::LoginWindow(Database *db, QWidget *parent)
-    : QWidget(parent), database(db)
+    : QWidget(parent), database(db), adminLoginFlag(false)
 {
     qDebug() << "Creating login window...";
     setupUI();
@@ -158,8 +158,21 @@ void LoginWindow::handleLogin()
         return;
     }
 
+    // Check if it's an admin login (email contains bmcc.cuny.edu but not @stu)
+    if (username.contains("@bmcc.cuny.edu") && !username.contains("@stu"))
+    {
+        if (database->validateAdminLogin(username, password))
+        {
+            adminLoginFlag = true;
+            emit adminLoginSuccessful();
+            return;
+        }
+    }
+
+    // Otherwise, try student login
     if (database->validateLogin(username, password))
     {
+        adminLoginFlag = false;
         emit loginSuccessful();
     }
     else

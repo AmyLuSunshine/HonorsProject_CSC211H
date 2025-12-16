@@ -8,8 +8,12 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 
+// ========== C++ CONCEPT #3: POINTERS ==========
+// Constructor accepts POINTER parameters (Database *db, QWidget *parent)
+// * means "pointer to" - these variables hold memory addresses
+// Pointers allow us to pass objects without copying them
 RegisterWindow::RegisterWindow(Database *db, QWidget *parent)
-    : QWidget(parent), database(db)
+    : QWidget(parent), database(db) // Store pointer to database for later use
 {
     setupUI();
     setupStyles();
@@ -17,17 +21,26 @@ RegisterWindow::RegisterWindow(Database *db, QWidget *parent)
 
 void RegisterWindow::setupUI()
 {
+    // ========== POINTER EXAMPLE #1: Dynamic Memory Allocation ==========
+    // "new" creates object in memory and returns a POINTER to it
+    // mainLayout is a pointer that stores the memory address of the QVBoxLayout
     auto mainLayout = new QVBoxLayout(this);
+
+    // ========== POINTER EXAMPLE #2: Arrow Operator (->) ==========
+    // -> is used to access members through a pointer
+    // Equivalent to (*mainLayout).setSpacing(20) but cleaner
     mainLayout->setSpacing(20);
     mainLayout->setContentsMargins(50, 50, 50, 50);
 
+    // Create UI widgets using "new" - returns pointer to the created object
+    // titleLabel is a pointer member variable (declared in header as QLabel*)
     titleLabel = new QLabel("Register", this);
-    titleLabel->setAlignment(Qt::AlignCenter);
+    titleLabel->setAlignment(Qt::AlignCenter); // Access method through pointer with ->
     mainLayout->addWidget(titleLabel);
 
-    // Full Name
-    fullNameEdit = new QLineEdit(this);
-    fullNameEdit->setPlaceholderText("Full Name");
+    // Full Name - another pointer example
+    fullNameEdit = new QLineEdit(this);            // new returns pointer to QLineEdit
+    fullNameEdit->setPlaceholderText("Full Name"); // -> accesses method through pointer
     fullNameEdit->setMinimumHeight(40);
     mainLayout->addWidget(fullNameEdit);
 
@@ -36,6 +49,8 @@ void RegisterWindow::setupUI()
     emailEdit->setPlaceholderText("Email (@stu.bmcc.cuny.edu)");
     emailEdit->setMinimumHeight(40);
     mainLayout->addWidget(emailEdit);
+    // Declare local pointer variable: QLabel *emailHint
+    // * in declaration means "pointer to QLabel"
     QLabel *emailHint = new QLabel("Use your BMCC email (@stu.bmcc.cuny.edu)", this);
     emailHint->setStyleSheet("color: #666666; font-size: 12px;");
     mainLayout->addWidget(emailHint);

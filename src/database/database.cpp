@@ -21,12 +21,16 @@ Database::~Database()
     }
 }
 
+// ========== C++ CONCEPT #3: EXCEPTION HANDLING ==========
+// handle errors
 bool Database::connectToDatabase()
 {
+    // ERROR CHECKING:
     if (!db.open())
     {
+        // ERROR HANDLING: Log the error message instead of crashing
         qDebug() << "Error connecting to database:" << db.lastError().text();
-        return false;
+        return false; // Signal failure to caller
     }
     return createTables();
 }
@@ -36,6 +40,7 @@ bool Database::createTables()
     QSqlQuery query;
 
     // Create users table with new fields
+    // DEFENSIVE PROGRAMMING: Check if query succeeds
     bool success = query.exec(
         "CREATE TABLE IF NOT EXISTS users ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -56,10 +61,12 @@ bool Database::createTables()
         "parsed_courses TEXT,"
         "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
         ")");
+    // ERROR HANDLING: If query failed, log it and return false
     if (!success)
     {
+        // query.lastError() provides detailed SQL error information
         qDebug() << "Error creating users table:" << query.lastError().text();
-        return false;
+        return false; // Don't continue if table creation failed
     }
 
     // Add new columns if upgrading from old schema
@@ -175,6 +182,38 @@ bool Database::createTables()
         }
     }
 
+    // Create admins table
+    success = query.exec(
+        "CREATE TABLE IF NOT EXISTS admins ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "full_name TEXT NOT NULL,"
+        "email TEXT UNIQUE NOT NULL,"
+        "password TEXT NOT NULL,"
+        "department TEXT DEFAULT 'General',"
+        "access_level TEXT DEFAULT 'Standard',"
+        "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        ")");
+    if (!success)
+    {
+        qDebug() << "Error creating admins table:" << query.lastError().text();
+        return false;
+    }
+
+    // Insert default admin if admins table is empty
+    query.exec("SELECT COUNT(*) FROM admins");
+    if (query.next() && query.value(0).toInt() == 0)
+    {
+        // SHA256 hash of "admin123"
+        success = query.exec(
+            "INSERT INTO admins (full_name, email, password, department, access_level) VALUES "
+            "('Admin User', 'admin@bmcc.cuny.edu', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'HR', 'Super')");
+        if (!success)
+        {
+            qDebug() << "Error inserting default admin:" << query.lastError().text();
+            return false;
+        }
+    }
+
     // Insert test user if users table is empty
     query.exec("SELECT COUNT(*) FROM users");
     if (query.next() && query.value(0).toInt() == 0)
@@ -228,18 +267,24 @@ bool Database::validateLogin(const QString &email, const QString &password)
     return query.value(0).toString() == hashedPassword;
 }
 
+// ========== C++ CONCEPT #4: DATABASE OUTPUT (Writing Data) ==========
+// This demonstrates DATABASE I/O - writing user data to permanent storage
 bool Database::registerUser(const QString &fullName, const QString &password,
                             const QString &email, const QString &emplid,
                             const QString &major, const QString &gpa,
                             const QString &gradDate)
 {
+    // Hash password for security before storing
     QString hashedPassword = QString(QCryptographicHash::hash(
                                          password.toUtf8(), QCryptographicHash::Sha256)
                                          .toHex());
 
+    // DATABASE OUTPUT: Prepare SQL INSERT statement to write data
     QSqlQuery query;
     query.prepare("INSERT INTO users (full_name, email, password, emplid, major, gpa, grad_date) "
                   "VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+    // Bind values - this is safer than string concatenation (prevents SQL injection)
     query.addBindValue(fullName);
     query.addBindValue(email);
     query.addBindValue(hashedPassword);
@@ -248,23 +293,30 @@ bool Database::registerUser(const QString &fullName, const QString &password,
     query.addBindValue(gpa);
     query.addBindValue(gradDate);
 
+    // OUTPUT OPERATION: Execute the INSERT to write data to database
     bool success = query.exec();
     if (!success)
     {
+        // ERROR HANDLING: Log if write operation failed
         qDebug() << "Error registering user:" << query.lastError().text();
     }
     return success;
 }
 
+// ========== C++ CONCEPT #4: DATABASE INPUT (Reading Data) ==========
+// This demonstrates reading data FROM the database
 std::vector<Job> Database::getJobs()
 {
     std::vector<Job> jobs;
     QSqlQuery query;
 
+    // DATABASE INPUT: Execute SELECT query to read job data
     if (query.exec("SELECT * FROM jobs ORDER BY status, title"))
     {
+        // INPUT LOOP: Read each row of data returned
         while (query.next())
         {
+            // INPUT OPERATION: Extract data from each column
             JobStatus status = static_cast<JobStatus>(query.value("status").toInt());
             jobs.emplace_back(
                 query.value("id").toInt(),
@@ -773,6 +825,88 @@ bool Database::isJobSaved(int userId, int jobId)
         return query.value(0).toInt() > 0;
     }
     return false;
+}
+
+// ========== ADMIN METHODS ==========
+bool Database::validateAdminLogin(const QString &email, const QString &password)
+{
+    QSqlQuery query;
+    query.prepare("SELECT password FROM admins WHERE email = ?");
+    query.addBindValue(email);
+
+    if (!query.exec())
+    {
+        qDebug() << "Error validating admin login:" << query.lastError().text();
+        return false;
+    }
+
+    if (query.next())
+    {
+        QString storedHash = query.value(0).toString();
+        QString inputHash = QString(QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256).toHex());
+        return storedHash == inputHash;
+    }
+    return false;
+}
+
+Admin Database::getAdminData(const QString &email)
+{
+    QSqlQuery query;
+    query.prepare("SELECT id, email, full_name, department, access_level FROM admins WHERE email = ?");
+    query.addBindValue(email);
+
+    if (query.exec() && query.next())
+    {
+        return Admin(
+            query.value(0).toInt(),    // id
+            query.value(1).toString(), // email
+            query.value(2).toString(), // full_name
+            query.value(3).toString(), // department
+            query.value(4).toString()  // access_level
+        );
+    }
+    return Admin();
+}
+
+std::vector<User> Database::getAllUsers()
+{
+    std::vector<User> users;
+    QSqlQuery query;
+    query.prepare("SELECT id, email, full_name, emplid, major, gpa, grad_date, "
+                  "is_international_student, survey_completed FROM users");
+
+    if (query.exec())
+    {
+        while (query.next())
+        {
+            User user(
+                query.value(0).toInt(),    // id
+                query.value(1).toString(), // email
+                query.value(2).toString(), // full_name
+                query.value(3).toString(), // emplid
+                query.value(4).toString(), // major
+                query.value(5).toString(), // gpa
+                query.value(6).toString(), // grad_date
+                query.value(7).toBool(),   // is_international_student
+                query.value(8).toBool()    // survey_completed
+            );
+            users.push_back(user);
+        }
+    }
+    return users;
+}
+
+int Database::getTotalUserCount()
+{
+    QSqlQuery query;
+    if (query.exec("SELECT COUNT(*) FROM users"))
+    {
+        if (query.next())
+        {
+            return query.value(0).toInt();
+        }
+    }
+    return 0;
 }
 
 // Survey and document parsing methods

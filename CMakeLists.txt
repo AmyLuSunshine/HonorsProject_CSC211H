@@ -38,6 +38,7 @@ set(PROJECT_SOURCES
     src/ui/studentsurveydialog.cpp
     src/ui/onboardingPage.cpp
     src/ui/myaccountpage.cpp
+    src/ui/adminpage.cpp
 )
 
 # Header files
@@ -45,7 +46,9 @@ set(PROJECT_HEADERS
     include/auth/loginwindow.h
     include/auth/registerwindow.h
     include/database/database.h
+    include/models/person.h
     include/models/user.h
+    include/models/admin.h
     include/models/job.h
     include/models/application.h
     include/ui/mainwindow.h
@@ -57,6 +60,7 @@ set(PROJECT_HEADERS
     include/ui/studentsurveydialog.h
     include/ui/onboardingpage.h
     include/ui/myaccountpage.h
+    include/ui/adminpage.h
 )
 
 # Optional: Add resource files when needed

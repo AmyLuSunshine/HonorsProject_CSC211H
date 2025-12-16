@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QRegularExpression>
+#include <stdexcept>
 #include <QScrollArea>
 
 StudentSurveyDialog::StudentSurveyDialog(Database *db, int userId, QWidget *parent)
@@ -289,37 +290,73 @@ void StudentSurveyDialog::setupStyles()
     skipBtn->setObjectName("skipBtn");
 }
 
+// ========== C++ CONCEPT #3: EXCEPTION HANDLING ==========
+// ========== C++ CONCEPT #4: FILE INPUT/OUTPUT ==========
 void StudentSurveyDialog::browseResume()
 {
-    QString fileName = QFileDialog::getOpenFileName(
-        this,
-        "Select Resume",
-        "",
-        "PDF Files (*.pdf);;Word Documents (*.doc *.docx);;All Files (*)");
-
-    if (!fileName.isEmpty())
+    try
     {
-        resumePathEdit->setText(fileName);
-        resumeStatusLabel->setText("✓ Resume uploaded successfully!");
+        // FILE INPUT: Get file from user
+        QString fileName = QFileDialog::getOpenFileName(
+            this,
+            "Select Resume",
+            "",
+            "PDF Files (*.pdf);;Word Documents (*.doc *.docx);;All Files (*)");
 
-        // Parsing removed; no preview generated
+        // EXCEPTION: Throw error if no file selected
+        if (fileName.isEmpty())
+        {
+            throw std::runtime_error("No file selected");
+        }
+
+        // EXCEPTION: Check if file can be opened
+        QFile file(fileName);
+        if (!file.open(QIODevice::ReadOnly))
+        {
+            throw std::runtime_error("Cannot open file");
+        }
+        file.close();
+
+        // Success: Save file path
+        resumePathEdit->setText(fileName);
+        resumeStatusLabel->setText("✓ Resume uploaded");
+    }
+    // CATCH: Handle errors gracefully
+    catch (const std::exception &e)
+    {
+        QMessageBox::warning(this, "Error", e.what());
     }
 }
 
 void StudentSurveyDialog::browseTranscript()
 {
-    QString fileName = QFileDialog::getOpenFileName(
-        this,
-        "Select Transcript",
-        "",
-        "PDF Files (*.pdf);;All Files (*)");
-
-    if (!fileName.isEmpty())
+    try
     {
-        transcriptPathEdit->setText(fileName);
-        transcriptStatusLabel->setText("✓ Transcript uploaded successfully!");
+        QString fileName = QFileDialog::getOpenFileName(
+            this,
+            "Select Transcript",
+            "",
+            "PDF Files (*.pdf);;All Files (*)");
 
-        // Parsing removed; no GPA/courses preview
+        if (fileName.isEmpty())
+        {
+            throw std::runtime_error("No file selected");
+        }
+
+        QFile file(fileName);
+        if (!file.open(QIODevice::ReadOnly))
+        {
+            throw std::runtime_error("Cannot open file");
+        }
+        file.close();
+
+        // Success
+        transcriptPathEdit->setText(fileName);
+        transcriptStatusLabel->setText("✓ Transcript uploaded");
+    }
+    catch (const std::exception &e)
+    {
+        QMessageBox::warning(this, "Error", e.what());
     }
 }
 

@@ -6,6 +6,7 @@
 #include <vector>
 #include "models/job.h"
 #include "models/user.h"
+#include "models/admin.h"
 
 struct Document
 {
@@ -86,6 +87,12 @@ public:
     bool unsaveJob(int userId, int jobId);
     std::vector<int> getSavedJobs(int userId);
     bool isJobSaved(int userId, int jobId);
+
+    // Admin methods
+    bool validateAdminLogin(const QString &email, const QString &password);
+    Admin getAdminData(const QString &email);
+    std::vector<User> getAllUsers();
+    int getTotalUserCount();
 
 private:
     QSqlDatabase db;
